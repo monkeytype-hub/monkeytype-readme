@@ -1,4 +1,5 @@
 const fs = require('fs');
+const axios = require('axios');
 
 function getTheme(themeName) {
     const themesRawData = fs.readFileSync('./monkeytype-data/themes.json');
@@ -29,7 +30,25 @@ function getBadge(badgeId) {
     return badgesData[badgeId];
 }
 
+async function getUserData(userId) {
+    const API_KEY = process.env.MONKEYTYPE_APEKEY;
+    const url = `https://api.monkeytype.com/users/${userId}/profile`;
+
+    try {
+        const response = await axios.get(url, {
+            headers: {
+                'Authorization': `ApeKey ${API_KEY}`
+            },
+        });
+        const userData = response.data.data;
+        return userData;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 module.exports = {
     getTheme,
-    getBadge
+    getBadge,
+    getUserData
 };
