@@ -1,2 +1,4 @@
 node_modules
 .env
+public/image/userImg/*
+!public/image/userImg/README.md
