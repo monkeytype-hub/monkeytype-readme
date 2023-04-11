@@ -50,15 +50,15 @@ async function getSvg(userData, theme, badge) {
     }
 
     let userBadge = "";
-    let color;
-    if (badge.color === "white") color = "white";
-    else color = theme[badge.color];
-
-    let bgColor;
-    if (badge.background === "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)") bgColor = "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)";
-    else bgColor = theme[badge.background];
-
     if (badge !== null) {
+        let color;
+        if (badge.color === "white") color = "white";
+        else color = theme[badge.color];
+
+        let bgColor;
+        if (badge.background === "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)") bgColor = "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)";
+        else bgColor = theme[badge.background];
+        
         badge.iconSvg = badge.iconSvg.replace("fill=\"\"", `fill="${color}"`);
         userBadge = `
             <div class="w-fit flex justify-center items-center rounded-md p-1" style="background: ${bgColor};">
