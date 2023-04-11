@@ -15,7 +15,8 @@ app.get('/generate-svg/:userId/:themeName', async (req, res) => {
     const themeName = req.params.themeName;
     const userData = await getUserData(userId);
     const theme = getTheme(themeName);
-    const svg = await getSvg(userData, theme);
+    const badge = (userData.inventory !== undefined) ? getBadge(userData.inventory.badges[0].id) : null;
+    const svg = await getSvg(userData, theme, badge);
     res.set('Content-Type', 'image/svg+xml');
     res.send(svg);
 });

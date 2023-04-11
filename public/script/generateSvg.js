@@ -14,7 +14,7 @@ const downloadUserImg = (url, path) => {
     });
 };
 
-async function getSvg(userData, theme) {
+async function getSvg(userData, theme, badge) {
     const width = 500;
     const height = 200;
     const cssData = await getOutputCSS();
@@ -44,6 +44,27 @@ async function getSvg(userData, theme) {
         `;
     }
 
+    let userBadge = "";
+    let color;
+    if (badge.color === "white") color = "white";
+    else color = theme[badge.color];
+
+    let bgColor;
+    if (badge.background === "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)") bgColor = "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)";
+    else bgColor = theme[badge.background];
+
+    if (badge !== null) {
+        badge.iconSvg = badge.iconSvg.replace("fill=\"\"", `fill="${color}"`);
+        userBadge = `
+            <div class="w-fit flex justify-center items-center rounded-md p-1" style="background: ${bgColor};">
+                ${badge.iconSvg}
+                <div class="text-xs px-1 align-middle" style="color: ${color};">
+                    ${badge.name}
+                </div>
+            </div>
+        `;
+    }
+
     const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" class="rounded-2xl">
             <style>
@@ -56,8 +77,12 @@ async function getSvg(userData, theme) {
                             ${userImg}
                         </div>
                         <div>
-                            <span class="text-3xl font-medium tracking-wider"
-                                style="color: ${theme.textColor};">${userData.name}</span>
+                            <span class="text-3xl font-medium tracking-wider" style="color: ${theme.textColor};">
+                                ${userData.name}
+                            </span>
+                            <div class="mt-2">
+                                ${userBadge}
+                            </div>
                         </div>
                     </div>
                 </div>
