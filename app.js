@@ -16,7 +16,7 @@ app.get('/generate-svg/:userId/:themeName', async (req, res) => {
     const userData = await getUserData(userId);
     const theme = getTheme(themeName);
     let badge = null;
-    if (userData.inventory !== undefined) {
+    if (userData.inventory !== null && userData.inventory !== undefined) {
         badge = getBadge(userData.inventory.badges[0].id);
         for (let i = 0; i < userData.inventory.badges.length; i++) {
             if (userData.inventory.badges[i].selected === true) {
