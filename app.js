@@ -30,6 +30,18 @@ app.get('/generate-svg/:userId/:themeName', async (req, res) => {
     res.send(svg);
 });
 
+app.get('/GITPULL', (req, res) => {
+    const { exec } = require('child_process');
+    exec('git pull', (err, stdout, stderr) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log(stdout);
+        res.send("GIT PULL SUCCESSFUL");
+    });
+});
+
 app.listen(3000, () => {
     console.log('app listening on port 3000!');
 });
