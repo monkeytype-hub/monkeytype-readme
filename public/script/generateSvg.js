@@ -14,9 +14,9 @@ const downloadUserImg = (url, path) => {
     });
 };
 
-async function getSvg(userData, theme, badge) {
+async function getSvg(userData, theme, badge, leaderBoards) {
     const width = 500;
-    const height = 200;
+    const height = leaderBoards ? 400 : 200;
     const cssData = await getOutputCSS();
 
     let userImg;
@@ -58,16 +58,65 @@ async function getSvg(userData, theme, badge) {
         let bgColor;
         if (badge.background === "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)") bgColor = "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)";
         else bgColor = theme[badge.background];
-        
+
         badge.iconSvg = badge.iconSvg.replace("fill=\"\"", `fill="${color}"`);
         userBadge = `
             <div class="w-fit flex justify-center items-center rounded-md p-1" style="background: ${bgColor};">
-                ${badge.iconSvg}
+                <div class="px-1">
+                    ${badge.iconSvg}
+                </div>
                 <div class="text-xs px-1 align-middle" style="color: ${color};">
                     ${badge.name}
                 </div>
             </div>
         `;
+    }
+
+    let leaderBoardHTML = "";
+    if (leaderBoards == true) {
+        leaderBoardHTML = `
+        <div class="w-full mt-5 rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
+            <div class="flex justify-center items-center h-full">
+                <div class="mx-5">
+                    <div class="text-lg font-medium tracking-wider font-mono text-center" style="color: ${theme.subColor};">
+                        All-Time English Leaderboards
+                    </div>
+                    <div class="flex justify-center mt-4">
+                        <div>
+                            <div class="flex justify-center items-center py-1">
+                                <div class="text-lg font-medium tracking-wider font-mono" style="color: ${theme.subColor};">
+                                    15 seconds
+                                </div>
+                                <div class="ml-2 text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                    ${userData.allTimeLbs.time['15']['english'] ? userData.allTimeLbs.time['15']['english'] : '-'}
+                                </div>
+                                <div class="ml-1 text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                    ${userData.allTimeLbs.time['15']['english'] == 1 ? 'st' : ''}
+                                    ${userData.allTimeLbs.time['15']['english'] == 2 ? 'nd' : ''}
+                                    ${userData.allTimeLbs.time['15']['english'] == 3 ? 'rd' : ''}
+                                    ${userData.allTimeLbs.time['15']['english'] > 3 ? 'th' : ''}
+                                </div>
+                            </div>
+                            <div class="flex justify-center items-center py-1">
+                                <div class="text-lg font-medium tracking-wider font-mono" style="color: ${theme.subColor};">
+                                    60 seconds
+                                </div>
+                                <div class="ml-2 text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                    ${userData.allTimeLbs.time['60']['english'] ? userData.allTimeLbs.time['60']['english'] : '-'}
+                                </div>
+                                <div class="ml-1 text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                    ${userData.allTimeLbs.time['60']['english'] == 1 ? 'st' : ''}
+                                    ${userData.allTimeLbs.time['60']['english'] == 2 ? 'nd' : ''}
+                                    ${userData.allTimeLbs.time['60']['english'] == 3 ? 'rd' : ''}
+                                    ${userData.allTimeLbs.time['60']['english'] > 3 ? 'th' : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
     }
 
     const svg = `
@@ -76,24 +125,30 @@ async function getSvg(userData, theme, badge) {
                 ${cssData}
             </style>
             <foreignObject x="0" y="0" width="${width}" height="${height}" class="bg-white">
-                <div xmlns="http://www.w3.org/1999/xhtml" class="w-full h-full" style="background-color: ${theme.bgColor};">
-                    <div class="flex justify-center items-center h-full">
-                        <div class="mx-5">
-                            ${userImg}
-                        </div>
-                        <div>
-                            <span class="text-3xl font-medium tracking-wider" style="color: ${theme.textColor};">
-                                ${userData.name}
-                            </span>
-                            <div class="mt-2">
-                                ${userBadge}
+                <div xmlns="http://www.w3.org/1999/xhtml">
+                    <div class="w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 200px;">
+                        <div class="flex justify-center items-center h-full">
+                            <div class="mx-5">
+                                ${userImg}
+                            </div>
+                            <div>
+                                <span class="text-3xl font-medium tracking-wider" style="color: ${theme.textColor};">
+                                    ${userData.name}
+                                </span>
+                                <div class="mt-2">
+                                    ${userBadge}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div xmlns="http://www.w3.org/1999/xhtml">
+                    ${leaderBoardHTML}
+                </div>
             </foreignObject>
         </svg>
-    `
+            `
     return svg;
 }
 
