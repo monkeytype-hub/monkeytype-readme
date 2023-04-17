@@ -2,7 +2,7 @@ name: Make Request to URL
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   make-request:
