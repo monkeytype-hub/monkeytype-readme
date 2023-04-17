@@ -65,7 +65,7 @@ async function getSvg(userData, theme, badge, leaderBoards) {
                 <div class="px-1">
                     ${badge.iconSvg}
                 </div>
-                <div class="text-xs px-1 align-middle" style="color: ${color};">
+                <div class="text-xs px-1 align-middle font-mono" style="color: ${color};">
                     ${badge.name}
                 </div>
             </div>
@@ -132,7 +132,7 @@ async function getSvg(userData, theme, badge, leaderBoards) {
                                 ${userImg}
                             </div>
                             <div>
-                                <span class="text-3xl font-medium tracking-wider" style="color: ${theme.textColor};">
+                                <span class="text-3xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
                                     ${userData.name}
                                 </span>
                                 <div class="mt-2">
