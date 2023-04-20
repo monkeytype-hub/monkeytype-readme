@@ -14,9 +14,11 @@ const downloadUserImg = (url, path) => {
     });
 };
 
-async function getSvg(userData, theme, badge, leaderBoards) {
+async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
     const width = 500;
-    const height = leaderBoards ? 400 : 200;
+    let height = 200;
+    leaderBoards ? height += 200 : height += 0;
+    personalbests ? height += 400 : height += 0;
     const cssData = await getOutputCSS();
 
     let userImg;
@@ -119,6 +121,199 @@ async function getSvg(userData, theme, badge, leaderBoards) {
         `
     }
 
+    let personalbestsHTML = "";
+    if (personalbests == true) {
+        let pbTime = {}
+        for (let j = 15; j <= 120; j *= 2) {
+            let english_1k = true;
+            let english = true;
+            let english_1k_pb = null;
+            let english_pb = null;
+            if (userData.personalBests.time[j] != undefined) {
+                for (let i = 0; i < userData.personalBests.time[j].length; i++) {
+                    if (userData.personalBests.time[j][i].language == 'english_1k' && userData.personalBests.time[j][i].difficulty == 'normal' && english_1k == true) {
+                        english_1k_pb = userData.personalBests.time[j][i];
+                        english_1k = false;
+                    }
+                    if (userData.personalBests.time[j][i].language == 'english' && userData.personalBests.time[j][i].difficulty == 'normal' && english == true) {
+                        english_pb = userData.personalBests.time[j][i];
+                        english = false;
+                    }
+                }
+                if (english_1k_pb == null && english_pb == null) {
+                    pbTime[j] = { wpm: '-', acc: '-' };
+                } else if (english_1k_pb != null && english_pb == null) {
+                    pbTime[j] = english_1k_pb;
+                } else if (english_1k_pb == null && english_pb != null) {
+                    pbTime[j] = english_pb;
+                } else {
+                    if (english_1k_pb.wpm > english_pb.wpm) {
+                        pbTime[j] = english_1k_pb;
+                    } else {
+                        pbTime[j] = english_pb;
+                    }
+                }
+            } else {
+                pbTime[j] = { wpm: '-', acc: '-' };
+            }
+            if (pbTime[j].wpm != '-') {
+                pbTime[j].wpm = Math.round(parseFloat(pbTime[j].wpm));
+            }
+            if (pbTime[j].acc != '-') {
+                pbTime[j].acc = Math.round(parseFloat(pbTime[j].acc));
+            }
+        }
+
+        let pbWords = {}
+        let words = [10, 25, 50, 100]
+        for (let i = 0; i < words.length; i++) {
+            let english_1k = true;
+            let english = true;
+            let english_1k_pb = null;
+            let english_pb = null;
+            if (userData.personalBests.words[words[i]] != undefined) {
+                for (let j = 0; j < userData.personalBests.words[words[i]].length; j++) {
+                    if (userData.personalBests.words[words[i]][j].language == 'english_1k' && userData.personalBests.words[words[i]][j].difficulty == 'normal' && english_1k == true) {
+                        english_1k_pb = userData.personalBests.words[words[i]][j];
+                        english_1k = false;
+                    }
+                    if (userData.personalBests.words[words[i]][j].language == 'english' && userData.personalBests.words[words[i]][j].difficulty == 'normal' && english == true) {
+                        english_pb = userData.personalBests.words[words[i]][j];
+                        english = false;
+                    }
+                }
+                if (english_1k_pb == null && english_pb == null) {
+                    pbWords[words[i]] = { wpm: '-', acc: '-' };
+                } else if (english_1k_pb != null && english_pb == null) {
+                    pbWords[words[i]] = english_1k_pb;
+                } else if (english_1k_pb == null && english_pb != null) {
+                    pbWords[words[i]] = english_pb;
+                } else {
+                    if (english_1k_pb.wpm > english_pb.wpm) {
+                        pbWords[words[i]] = english_1k_pb;
+                    } else {
+                        pbWords[words[i]] = english_pb;
+                    }
+                }
+            } else {
+                pbWords[words[i]] = { wpm: '-', acc: '-' };
+            }
+            if (pbWords[words[i]].wpm != '-') {
+                pbWords[words[i]].wpm = Math.round(parseFloat(pbWords[words[i]].wpm));
+            }
+            if (pbWords[words[i]].acc != '-') {
+                pbWords[words[i]].acc = Math.round(parseFloat(pbWords[words[i]].acc));
+            }
+        }
+
+        personalbestsHTML = `
+        <div class="w-full mt-5 rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
+            <div class="flex justify-center items-center h-full">
+                <div class="mx-5">
+                    <div class="flex justify-around items-center">
+                        <div class="flex-col justify-center items-center mx-2 w-26">
+                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
+                                15 seconds
+                            </div>
+                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
+                                ${pbTime['15'].wpm}
+                            </div>
+                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
+                                ${pbTime['15'].acc}${pbTime['15'].acc == '-' ? '' : '%'}
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center items-center mx-2 w-26">
+                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
+                                30 seconds
+                            </div>
+                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
+                                ${pbTime['30'].wpm}
+                            </div>
+                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
+                                ${pbTime['30'].acc}${pbTime['30'].acc == '-' ? '' : '%'}
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center items-center mx-2 w-26">
+                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
+                                60 seconds
+                            </div>
+                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
+                                ${pbTime['60'].wpm}
+                            </div>
+                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
+                                ${pbTime['60'].acc}${pbTime['60'].acc == '-' ? '' : '%'}
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center items-center mx-2 w-26">
+                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
+                                120 seconds
+                            </div>
+                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
+                                ${pbTime['120'].wpm}
+                            </div>
+                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
+                                ${pbTime['120'].acc}${pbTime['120'].acc == '-' ? '' : '%'}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full mt-5 rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
+            <div class="flex justify-center items-center h-full">
+                <div class="mx-5">
+                    <div class="flex justify-around items-center">
+                        <div class="flex-col justify-center items-center mx-2 w-26">
+                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
+                                10 words
+                            </div>
+                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
+                                ${pbWords['10'].wpm}
+                            </div>
+                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
+                                ${pbWords['10'].acc}${pbWords['10'].acc == '-' ? '' : '%'}
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center items-center mx-2 w-26">
+                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
+                                25 words
+                            </div>
+                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
+                                ${pbWords['25'].wpm}
+                            </div>
+                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
+                                ${pbWords['25'].acc}${pbWords['25'].acc == '-' ? '' : '%'}
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center items-center mx-2 w-26">
+                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
+                                50 words
+                            </div>
+                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
+                                ${pbWords['50'].wpm}
+                            </div>
+                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
+                                ${pbWords['50'].acc}${pbWords['50'].acc == '-' ? '' : '%'}
+                            </div>
+                        </div>
+                        <div class="flex-col justify-center items-center mx-2 w-26">
+                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
+                                100 words
+                            </div>
+                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
+                                ${pbWords['100'].wpm}
+                            </div>
+                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
+                                ${pbWords['100'].acc}${pbWords['100'].acc == '-' ? '' : '%'}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
+    }
+
     const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" class="rounded-2xl">
             <style>
@@ -145,6 +340,10 @@ async function getSvg(userData, theme, badge, leaderBoards) {
 
                 <div xmlns="http://www.w3.org/1999/xhtml">
                     ${leaderBoardHTML}
+                </div>
+
+                <div xmlns="http://www.w3.org/1999/xhtml">
+                    ${personalbestsHTML}
                 </div>
             </foreignObject>
         </svg>
