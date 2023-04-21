@@ -92,7 +92,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 <div class="text-2xl font-medium tracking-wider font-mono w-33 text-center" style="color: ${theme.textColor};">
                                     ${userData.allTimeLbs.time['15']['english'] ? userData.allTimeLbs.time['15']['english'] : '-'}
                                 </div>
-                                <div class="text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                <div class="text-2xl font-medium tracking-wider font-mono w-8" style="color: ${theme.textColor};">
                                     ${userData.allTimeLbs.time['15']['english'] % 10 == 1 ? 'st' : ''}
                                     ${userData.allTimeLbs.time['15']['english'] % 10 == 2 ? 'nd' : ''}
                                     ${userData.allTimeLbs.time['15']['english'] % 10 == 3 ? 'rd' : ''}
@@ -106,7 +106,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 <div class="text-2xl font-medium tracking-wider font-mono w-33 text-center" style="color: ${theme.textColor};">
                                     ${userData.allTimeLbs.time['60']['english'] ? userData.allTimeLbs.time['60']['english'] : '-'}
                                 </div>
-                                <div class="text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                <div class="text-2xl font-medium tracking-wider font-mono w-8" style="color: ${theme.textColor};">
                                     ${userData.allTimeLbs.time['60']['english'] % 10 == 1 ? 'st' : ''}
                                     ${userData.allTimeLbs.time['60']['english'] % 10 == 2 ? 'nd' : ''}
                                     ${userData.allTimeLbs.time['60']['english'] % 10 == 3 ? 'rd' : ''}
