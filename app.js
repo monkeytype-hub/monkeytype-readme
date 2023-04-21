@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
     res.send('MonkeyType README!');
 });
 
-app.get('/generate-svg/:userId/:themeName', async (req, res) => {
+app.get(['/generate-svg/:userId/:themeName', '/generate-svg/:userId'], async (req, res) => {
     const userId = req.params.userId;
     const themeName = req.params.themeName;
     const userData = await getUserData(userId);
@@ -84,6 +84,32 @@ app.get('/generate-svg/:userId/:themeName/personalbests', async (req, res) => {
         }
     }
     const svg = await getSvg(userData, theme, badge, false, true);
+    res.set('Content-Type', 'image/svg+xml');
+    res.send(svg);
+});
+
+app.get('/generate-svg/:userId/:themeName/leaderboards/personalbests', async (req, res) => {
+    const userId = req.params.userId;
+    const themeName = req.params.themeName;
+    const userData = await getUserData(userId);
+    if (userData === undefined) {
+        res.send("User not found");
+        return;
+    }
+    const theme = getTheme(themeName);
+    let badge = null;
+    if (userData.inventory !== null && userData.inventory !== undefined) {
+        if (userData.inventory.badges.length !== 0) {
+            badge = getBadge(userData.inventory.badges[0].id);
+            for (let i = 0; i < userData.inventory.badges.length; i++) {
+                if (userData.inventory.badges[i].selected === true) {
+                    badge = getBadge(userData.inventory.badges[i].id);
+                    break;
+                }
+            }
+        }
+    }
+    const svg = await getSvg(userData, theme, badge, true, true);
     res.set('Content-Type', 'image/svg+xml');
     res.send(svg);
 });
