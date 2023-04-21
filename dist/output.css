@@ -526,14 +526,6 @@ video {
   margin-right: 1.25rem;
 }
 
-.ml-1 {
-  margin-left: 0.25rem;
-}
-
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -548,10 +540,6 @@ video {
 
 .flex {
   display: flex;
-}
-
-.h-1\/2 {
-  height: 50%;
 }
 
 .h-20 {
@@ -570,6 +558,14 @@ video {
   width: 6.5rem;
 }
 
+.w-32 {
+  width: 8rem;
+}
+
+.w-34 {
+  width: 8.5rem;
+}
+
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
@@ -577,6 +573,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-33 {
+  width: 8.25rem;
 }
 
 .flex-col {

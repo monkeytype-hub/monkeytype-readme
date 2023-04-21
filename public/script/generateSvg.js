@@ -86,13 +86,13 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                     <div class="flex justify-center mt-4">
                         <div>
                             <div class="flex justify-center items-center py-1">
-                                <div class="text-lg font-medium tracking-wider font-mono" style="color: ${theme.subColor};">
+                                <div class="text-lg font-medium tracking-wider font-mono w-32 text-center" style="color: ${theme.subColor};">
                                     15 seconds
                                 </div>
-                                <div class="ml-2 text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                <div class="text-2xl font-medium tracking-wider font-mono w-33 text-center" style="color: ${theme.textColor};">
                                     ${userData.allTimeLbs.time['15']['english'] ? userData.allTimeLbs.time['15']['english'] : '-'}
                                 </div>
-                                <div class="ml-1 text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                <div class="text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
                                     ${userData.allTimeLbs.time['15']['english'] == 1 ? 'st' : ''}
                                     ${userData.allTimeLbs.time['15']['english'] == 2 ? 'nd' : ''}
                                     ${userData.allTimeLbs.time['15']['english'] == 3 ? 'rd' : ''}
@@ -100,13 +100,13 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 </div>
                             </div>
                             <div class="flex justify-center items-center py-1">
-                                <div class="text-lg font-medium tracking-wider font-mono" style="color: ${theme.subColor};">
+                                <div class="text-lg font-medium tracking-wider font-mono w-32 text-center" style="color: ${theme.subColor};">
                                     60 seconds
                                 </div>
-                                <div class="ml-2 text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                <div class="text-2xl font-medium tracking-wider font-mono w-33 text-center" style="color: ${theme.textColor};">
                                     ${userData.allTimeLbs.time['60']['english'] ? userData.allTimeLbs.time['60']['english'] : '-'}
                                 </div>
-                                <div class="ml-1 text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                <div class="text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
                                     ${userData.allTimeLbs.time['60']['english'] == 1 ? 'st' : ''}
                                     ${userData.allTimeLbs.time['60']['english'] == 2 ? 'nd' : ''}
                                     ${userData.allTimeLbs.time['60']['english'] == 3 ? 'rd' : ''}
