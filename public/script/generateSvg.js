@@ -93,10 +93,10 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     ${userData.allTimeLbs.time['15']['english'] ? userData.allTimeLbs.time['15']['english'] : '-'}
                                 </div>
                                 <div class="text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
-                                    ${userData.allTimeLbs.time['15']['english'] == 1 ? 'st' : ''}
-                                    ${userData.allTimeLbs.time['15']['english'] == 2 ? 'nd' : ''}
-                                    ${userData.allTimeLbs.time['15']['english'] == 3 ? 'rd' : ''}
-                                    ${userData.allTimeLbs.time['15']['english'] > 3 ? 'th' : ''}
+                                    ${userData.allTimeLbs.time['15']['english'] % 10 == 1 ? 'st' : ''}
+                                    ${userData.allTimeLbs.time['15']['english'] % 10 == 2 ? 'nd' : ''}
+                                    ${userData.allTimeLbs.time['15']['english'] % 10 == 3 ? 'rd' : ''}
+                                    ${userData.allTimeLbs.time['15']['english'] % 10 > 3 ? 'th' : ''}
                                 </div>
                             </div>
                             <div class="flex justify-center items-center py-1">
@@ -107,10 +107,10 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     ${userData.allTimeLbs.time['60']['english'] ? userData.allTimeLbs.time['60']['english'] : '-'}
                                 </div>
                                 <div class="text-2xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
-                                    ${userData.allTimeLbs.time['60']['english'] == 1 ? 'st' : ''}
-                                    ${userData.allTimeLbs.time['60']['english'] == 2 ? 'nd' : ''}
-                                    ${userData.allTimeLbs.time['60']['english'] == 3 ? 'rd' : ''}
-                                    ${userData.allTimeLbs.time['60']['english'] > 3 ? 'th' : ''}
+                                    ${userData.allTimeLbs.time['60']['english'] % 10 == 1 ? 'st' : ''}
+                                    ${userData.allTimeLbs.time['60']['english'] % 10 == 2 ? 'nd' : ''}
+                                    ${userData.allTimeLbs.time['60']['english'] % 10 == 3 ? 'rd' : ''}
+                                    ${userData.allTimeLbs.time['60']['english'] % 10 > 3 ? 'th' : ''}
                                 </div>
                             </div>
                         </div>
