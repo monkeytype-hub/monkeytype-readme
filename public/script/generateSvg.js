@@ -96,7 +96,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     ${userData.allTimeLbs.time['15']['english'] % 10 == 1 ? 'st' : ''}
                                     ${userData.allTimeLbs.time['15']['english'] % 10 == 2 ? 'nd' : ''}
                                     ${userData.allTimeLbs.time['15']['english'] % 10 == 3 ? 'rd' : ''}
-                                    ${userData.allTimeLbs.time['15']['english'] % 10 > 3 ? 'th' : ''}
+                                    ${(userData.allTimeLbs.time['15']['english'] % 10 > 3 || userData.allTimeLbs.time['15']['english'] % 10  == 0) ? 'th' : ''}
                                 </div>
                             </div>
                             <div class="flex justify-center items-center py-1">
@@ -110,7 +110,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     ${userData.allTimeLbs.time['60']['english'] % 10 == 1 ? 'st' : ''}
                                     ${userData.allTimeLbs.time['60']['english'] % 10 == 2 ? 'nd' : ''}
                                     ${userData.allTimeLbs.time['60']['english'] % 10 == 3 ? 'rd' : ''}
-                                    ${userData.allTimeLbs.time['60']['english'] % 10 > 3 ? 'th' : ''}
+                                    ${(userData.allTimeLbs.time['60']['english'] % 10 > 3 || userData.allTimeLbs.time['60']['english'] % 10 == 0) ? 'th' : ''}
                                 </div>
                             </div>
                         </div>
