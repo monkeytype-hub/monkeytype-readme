@@ -23,9 +23,10 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
 
     let userImg;
     let defaultUserImg = `
-        <div class="w-20 h-20 rounded-full">
+        <div class="h-20 w-20 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="${theme.subColor}">
-                <path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/>
+                <path
+                    d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
             </svg>
         </div>
     `
@@ -44,8 +45,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
             userImg = defaultUserImg;
         } else {
             userImg = `
-                <div class="w-20 h-20 rounded-full overflow-hidden">
-                    <img src="data:image/png;base64,${base64Image}" width="80" height="80"/>
+                <div class="h-20 w-20 overflow-hidden rounded-full">
+                    <img src="data:image/png;base64,${base64Image}" width="80" height="80" />
                 </div>
             `;
         }
@@ -63,11 +64,9 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
 
         badge.iconSvg = badge.iconSvg.replace("fill=\"\"", `fill="${color}"`);
         userBadge = `
-            <div class="w-fit flex justify-center items-center rounded-md p-1" style="background: ${bgColor};">
-                <div class="px-1">
-                    ${badge.iconSvg}
-                </div>
-                <div class="text-xs px-1 align-middle font-mono" style="color: ${color};">
+            <div class="flex w-fit items-center justify-center rounded-md p-1" style="background: ${bgColor};">
+                <div class="px-1">${badge.iconSvg}</div>
+                <div class="px-1 align-middle font-mono text-xs" style="color: ${color};">
                     ${badge.name}
                 </div>
             </div>
@@ -77,47 +76,53 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
     let leaderBoardHTML = "";
     if (leaderBoards == true) {
         leaderBoardHTML = `
-        <div class="w-full mt-5 rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
-            <div class="flex justify-center items-center h-full">
-                <div class="mx-5">
-                    <div class="text-lg font-medium tracking-wider font-mono text-center" style="color: ${theme.subColor};">
-                        All-Time English Leaderboards
-                    </div>
-                    <div class="flex justify-center mt-4">
-                        <div>
-                            <div class="flex justify-center items-center py-1">
-                                <div class="text-lg font-medium tracking-wider font-mono w-32 text-center" style="color: ${theme.subColor};">
-                                    15 seconds
+            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
+                <div class="flex h-full items-center justify-center">
+                    <div class="mx-5">
+                        <div class="text-center font-mono text-lg font-medium tracking-wider" style="color: ${theme.subColor};">
+                            All-Time English Leaderboards
+                        </div>
+                        <div class="mt-4 flex justify-center">
+                            <div>
+                                <div class="flex items-center justify-center py-1">
+                                    <div class="w-32 text-center font-mono text-lg font-medium tracking-wider"
+                                        style="color: ${theme.subColor};">
+                                        15 seconds
+                                    </div>
+                                    <div class="w-33 text-center font-mono text-2xl font-medium tracking-wider"
+                                        style="color: ${theme.textColor};">
+                                        ${userData.allTimeLbs.time['15']['english'] ? userData.allTimeLbs.time['15']['english'] : '-'}
+                                    </div>
+                                    <div class="w-8 font-mono text-2xl font-medium tracking-wider"
+                                        style="color: ${theme.textColor};">
+                                        ${userData.allTimeLbs.time['15']['english'] % 10 == 1 ? 'st' : ''}
+                                        ${userData.allTimeLbs.time['15']['english'] % 10 == 2 ? 'nd' : ''}
+                                        ${userData.allTimeLbs.time['15']['english'] % 10 == 3 ? 'rd' : ''}
+                                        ${(userData.allTimeLbs.time['15']['english'] % 10 > 3 || userData.allTimeLbs.time['15']['english'] % 10 == 0) ? 'th' : ''}
+                                    </div>
                                 </div>
-                                <div class="text-2xl font-medium tracking-wider font-mono w-33 text-center" style="color: ${theme.textColor};">
-                                    ${userData.allTimeLbs.time['15']['english'] ? userData.allTimeLbs.time['15']['english'] : '-'}
-                                </div>
-                                <div class="text-2xl font-medium tracking-wider font-mono w-8" style="color: ${theme.textColor};">
-                                    ${userData.allTimeLbs.time['15']['english'] % 10 == 1 ? 'st' : ''}
-                                    ${userData.allTimeLbs.time['15']['english'] % 10 == 2 ? 'nd' : ''}
-                                    ${userData.allTimeLbs.time['15']['english'] % 10 == 3 ? 'rd' : ''}
-                                    ${(userData.allTimeLbs.time['15']['english'] % 10 > 3 || userData.allTimeLbs.time['15']['english'] % 10  == 0) ? 'th' : ''}
-                                </div>
-                            </div>
-                            <div class="flex justify-center items-center py-1">
-                                <div class="text-lg font-medium tracking-wider font-mono w-32 text-center" style="color: ${theme.subColor};">
-                                    60 seconds
-                                </div>
-                                <div class="text-2xl font-medium tracking-wider font-mono w-33 text-center" style="color: ${theme.textColor};">
-                                    ${userData.allTimeLbs.time['60']['english'] ? userData.allTimeLbs.time['60']['english'] : '-'}
-                                </div>
-                                <div class="text-2xl font-medium tracking-wider font-mono w-8" style="color: ${theme.textColor};">
-                                    ${userData.allTimeLbs.time['60']['english'] % 10 == 1 ? 'st' : ''}
-                                    ${userData.allTimeLbs.time['60']['english'] % 10 == 2 ? 'nd' : ''}
-                                    ${userData.allTimeLbs.time['60']['english'] % 10 == 3 ? 'rd' : ''}
-                                    ${(userData.allTimeLbs.time['60']['english'] % 10 > 3 || userData.allTimeLbs.time['60']['english'] % 10 == 0) ? 'th' : ''}
+                                <div class="flex items-center justify-center py-1">
+                                    <div class="w-32 text-center font-mono text-lg font-medium tracking-wider"
+                                        style="color: ${theme.subColor};">
+                                        60 seconds
+                                    </div>
+                                    <div class="w-33 text-center font-mono text-2xl font-medium tracking-wider"
+                                        style="color: ${theme.textColor};">
+                                        ${userData.allTimeLbs.time['60']['english'] ? userData.allTimeLbs.time['60']['english'] : '-'}
+                                    </div>
+                                    <div class="w-8 font-mono text-2xl font-medium tracking-wider"
+                                        style="color: ${theme.textColor};">
+                                        ${userData.allTimeLbs.time['60']['english'] % 10 == 1 ? 'st' : ''}
+                                        ${userData.allTimeLbs.time['60']['english'] % 10 == 2 ? 'nd' : ''}
+                                        ${userData.allTimeLbs.time['60']['english'] % 10 == 3 ? 'rd' : ''}
+                                        ${(userData.allTimeLbs.time['60']['english'] % 10 > 3 || userData.allTimeLbs.time['60']['english'] % 10 == 0) ? 'th' : ''}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         `
     }
 
@@ -207,147 +212,169 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
         }
 
         personalbestsHTML = `
-        <div class="w-full mt-5 rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
-            <div class="flex justify-center items-center h-full">
-                <div class="mx-5">
-                    <div class="flex justify-around items-center">
-                        <div class="flex-col justify-center items-center mx-2 w-26">
-                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
-                                15 seconds
+            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
+                <div class="flex h-full items-center justify-center">
+                    <div class="mx-5">
+                        <div class="flex items-center justify-around">
+                            <div class="mx-2 w-26 flex-col items-center justify-center">
+                                <div class="py-1 text-center font-mono text-sm font-medium tracking-wider"
+                                    style="color: ${theme.subColor};">
+                                    15 seconds
+                                </div>
+                                <div class="py-1 text-center font-mono text-4xl font-medium tracking-wider"
+                                    style="color: ${theme.textColor};">
+                                    ${pbTime['15'].wpm}
+                                </div>
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                    style="color: ${theme.textColor};">
+                                    ${pbTime['15'].acc}${pbTime['15'].acc == '-' ? '' : '%'}
+                                </div>
                             </div>
-                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
-                                ${pbTime['15'].wpm}
+                            <div class="mx-2 w-26 flex-col items-center justify-center">
+                                <div class="py-1 text-center font-mono text-sm font-medium tracking-wider"
+                                    style="color: ${theme.subColor};">
+                                    30 seconds
+                                </div>
+                                <div class="py-1 text-center font-mono text-4xl font-medium tracking-wider"
+                                    style="color: ${theme.textColor};">
+                                    ${pbTime['30'].wpm}
+                                </div>
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                    style="color: ${theme.textColor};">
+                                    ${pbTime['30'].acc}${pbTime['30'].acc == '-' ? '' : '%'}
+                                </div>
                             </div>
-                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
-                                ${pbTime['15'].acc}${pbTime['15'].acc == '-' ? '' : '%'}
+                            <div class="mx-2 w-26 flex-col items-center justify-center">
+                                <div class="py-1 text-center font-mono text-sm font-medium tracking-wider"
+                                    style="color: ${theme.subColor};">
+                                    60 seconds
+                                </div>
+                                <div class="py-1 text-center font-mono text-4xl font-medium tracking-wider"
+                                    style="color: ${theme.textColor};">
+                                    ${pbTime['60'].wpm}
+                                </div>
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                    style="color: ${theme.textColor};">
+                                    ${pbTime['60'].acc}${pbTime['60'].acc == '-' ? '' : '%'}
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex-col justify-center items-center mx-2 w-26">
-                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
-                                30 seconds
-                            </div>
-                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
-                                ${pbTime['30'].wpm}
-                            </div>
-                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
-                                ${pbTime['30'].acc}${pbTime['30'].acc == '-' ? '' : '%'}
-                            </div>
-                        </div>
-                        <div class="flex-col justify-center items-center mx-2 w-26">
-                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
-                                60 seconds
-                            </div>
-                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
-                                ${pbTime['60'].wpm}
-                            </div>
-                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
-                                ${pbTime['60'].acc}${pbTime['60'].acc == '-' ? '' : '%'}
-                            </div>
-                        </div>
-                        <div class="flex-col justify-center items-center mx-2 w-26">
-                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
-                                120 seconds
-                            </div>
-                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
-                                ${pbTime['120'].wpm}
-                            </div>
-                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
-                                ${pbTime['120'].acc}${pbTime['120'].acc == '-' ? '' : '%'}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="w-full mt-5 rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
-            <div class="flex justify-center items-center h-full">
-                <div class="mx-5">
-                    <div class="flex justify-around items-center">
-                        <div class="flex-col justify-center items-center mx-2 w-26">
-                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
-                                10 words
-                            </div>
-                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
-                                ${pbWords['10'].wpm}
-                            </div>
-                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
-                                ${pbWords['10'].acc}${pbWords['10'].acc == '-' ? '' : '%'}
-                            </div>
-                        </div>
-                        <div class="flex-col justify-center items-center mx-2 w-26">
-                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
-                                25 words
-                            </div>
-                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
-                                ${pbWords['25'].wpm}
-                            </div>
-                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
-                                ${pbWords['25'].acc}${pbWords['25'].acc == '-' ? '' : '%'}
-                            </div>
-                        </div>
-                        <div class="flex-col justify-center items-center mx-2 w-26">
-                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
-                                50 words
-                            </div>
-                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
-                                ${pbWords['50'].wpm}
-                            </div>
-                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
-                                ${pbWords['50'].acc}${pbWords['50'].acc == '-' ? '' : '%'}
-                            </div>
-                        </div>
-                        <div class="flex-col justify-center items-center mx-2 w-26">
-                            <div class="text-sm font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.subColor};">
-                                100 words
-                            </div>
-                            <div class="text-4xl font-medium tracking-wider font-mono py-1 text-center" style="color: ${theme.textColor};">
-                                ${pbWords['100'].wpm}
-                            </div>
-                            <div class="text-2xl font-medium tracking-wider font-mono py-1 text-center opacity-75" style="color: ${theme.textColor};">
-                                ${pbWords['100'].acc}${pbWords['100'].acc == '-' ? '' : '%'}
+                            <div class="mx-2 w-26 flex-col items-center justify-center">
+                                <div class="py-1 text-center font-mono text-sm font-medium tracking-wider"
+                                    style="color: ${theme.subColor};">
+                                    120 seconds
+                                </div>
+                                <div class="py-1 text-center font-mono text-4xl font-medium tracking-wider"
+                                    style="color: ${theme.textColor};">
+                                    ${pbTime['120'].wpm}
+                                </div>
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                    style="color: ${theme.textColor};">
+                                    ${pbTime['120'].acc}${pbTime['120'].acc == '-' ? '' :
+                '%'}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
+                <div class="flex h-full items-center justify-center">
+                    <div class="mx-5">
+                        <div class="flex items-center justify-around">
+                            <div class="mx-2 w-26 flex-col items-center justify-center">
+                                <div class="py-1 text-center font-mono text-sm font-medium tracking-wider"
+                                    style="color: ${theme.subColor};">
+                                    10 words
+                                </div>
+                                <div class="py-1 text-center font-mono text-4xl font-medium tracking-wider"
+                                    style="color: ${theme.textColor};">
+                                    ${pbWords['10'].wpm}
+                                </div>
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                    style="color: ${theme.textColor};">
+                                    ${pbWords['10'].acc}${pbWords['10'].acc == '-' ? '' :
+                '%'}
+                                </div>
+                            </div>
+                            <div class="mx-2 w-26 flex-col items-center justify-center">
+                                <div class="py-1 text-center font-mono text-sm font-medium tracking-wider"
+                                    style="color: ${theme.subColor};">
+                                    25 words
+                                </div>
+                                <div class="py-1 text-center font-mono text-4xl font-medium tracking-wider"
+                                    style="color: ${theme.textColor};">
+                                    ${pbWords['25'].wpm}
+                                </div>
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                    style="color: ${theme.textColor};">
+                                    ${pbWords['25'].acc}${pbWords['25'].acc == '-' ? '' :
+                '%'}
+                                </div>
+                            </div>
+                            <div class="mx-2 w-26 flex-col items-center justify-center">
+                                <div class="py-1 text-center font-mono text-sm font-medium tracking-wider"
+                                    style="color: ${theme.subColor};">
+                                    50 words
+                                </div>
+                                <div class="py-1 text-center font-mono text-4xl font-medium tracking-wider"
+                                    style="color: ${theme.textColor};">
+                                    ${pbWords['50'].wpm}
+                                </div>
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                    style="color: ${theme.textColor};">
+                                    ${pbWords['50'].acc}${pbWords['50'].acc == '-' ? '' :
+                '%'}
+                                </div>
+                            </div>
+                            <div class="mx-2 w-26 flex-col items-center justify-center">
+                                <div class="py-1 text-center font-mono text-sm font-medium tracking-wider"
+                                    style="color: ${theme.subColor};">
+                                    100 words
+                                </div>
+                                <div class="py-1 text-center font-mono text-4xl font-medium tracking-wider"
+                                    style="color: ${theme.textColor};">
+                                    ${pbWords['100'].wpm}
+                                </div>
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                    style="color: ${theme.textColor};">
+                                    ${pbWords['100'].acc}${pbWords['100'].acc == '-' ? '' :
+                '%'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         `
     }
 
     const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" class="rounded-2xl">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}"
+            class="rounded-2xl">
             <style>
                 ${cssData}
             </style>
             <foreignObject x="0" y="0" width="${width}" height="${height}" class="bg-white">
                 <div xmlns="http://www.w3.org/1999/xhtml">
                     <div class="w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 200px;">
-                        <div class="flex justify-center items-center h-full">
-                            <div class="mx-5">
-                                ${userImg}
-                            </div>
+                        <div class="flex h-full items-center justify-center">
+                            <div class="mx-5">${userImg}</div>
                             <div>
-                                <span class="text-3xl font-medium tracking-wider font-mono" style="color: ${theme.textColor};">
+                                <span class="font-mono text-3xl font-medium tracking-wider" style="color: ${theme.textColor};">
                                     ${userData.name}
                                 </span>
-                                <div class="mt-2">
-                                    ${userBadge}
-                                </div>
+                                <div class="mt-2">${userBadge}</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div xmlns="http://www.w3.org/1999/xhtml">
-                    ${leaderBoardHTML}
-                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml">${leaderBoardHTML}</div>
 
-                <div xmlns="http://www.w3.org/1999/xhtml">
-                    ${personalbestsHTML}
-                </div>
+                <div xmlns="http://www.w3.org/1999/xhtml">${personalbestsHTML}</div>
             </foreignObject>
         </svg>
-            `
+    `
     return svg;
 }
 
