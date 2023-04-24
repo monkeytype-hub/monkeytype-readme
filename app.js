@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 
 const { getTheme, getBadge, getUserData } = require('./public/script/monkeytypeData');
@@ -6,8 +7,12 @@ const { getOutputCSS } = require('./public/script/tailwindCSS');
 const { getSvg } = require('./public/script/generateSvg');
 require('dotenv').config();
 
+app.use(express.static('public'));
+app.use('/styles', express.static('dist'));
+
 app.get('/', (req, res) => {
-    res.send('MonkeyType README!');
+    const filePath = path.join(__dirname, 'public', 'views', 'index.html');
+    res.sendFile(filePath);
 });
 
 app.get(['/generate-svg/:userId/:themeName', '/generate-svg/:userId'], async (req, res) => {
