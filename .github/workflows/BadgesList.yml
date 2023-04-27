@@ -1,0 +1,53 @@
+name: Update monkeytype badges json list
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  make-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+        
+      - name: Get badge json data from monkeytype
+        run: curl -o monkeytype-data/badges.json https://monkeytype-readme.repl.co/monkeytype/badge
+      
+      - name: Print json file contents
+        run: cat monkeytype-data/badges.json
+
+      - name: Update badge list 
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            let monkeytypeBadgesJson = fs.readFileSync('monkeytype-data/badges.json');
+            const filePath = '${{ github.workspace }}/monkeytype-data/badges.json';
+            fs.writeFileSync(filePath, monkeytypeBadgesJson);
+          
+      - name: Configure git
+        run: |
+          git config --global user.name "ridemountainpig"
+          git config --global user.email "lin0905580802@gmail.com"
+          
+      - name: Commit and push changes
+        run: |
+          if git diff-index --quiet HEAD --; then
+            echo "No changes detected."
+          else
+            git add .
+            git commit -m "feat: update badges json list"
+          fi
+        continue-on-error: true
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
