@@ -269,8 +269,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 </div>
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
                                     style="color: ${theme.textColor};">
-                                    ${pbTime['120'].acc}${pbTime['120'].acc == '-' ? '' :
-                '%'}
+                                    ${pbTime['120'].acc}${pbTime['120'].acc == '-' ? '' : '%'}
                                 </div>
                             </div>
                         </div>
@@ -292,8 +291,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 </div>
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
                                     style="color: ${theme.textColor};">
-                                    ${pbWords['10'].acc}${pbWords['10'].acc == '-' ? '' :
-                '%'}
+                                    ${pbWords['10'].acc}${pbWords['10'].acc == '-' ? '' : '%'}
                                 </div>
                             </div>
                             <div class="mx-2 w-26 flex-col items-center justify-center">
@@ -307,8 +305,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 </div>
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
                                     style="color: ${theme.textColor};">
-                                    ${pbWords['25'].acc}${pbWords['25'].acc == '-' ? '' :
-                '%'}
+                                    ${pbWords['25'].acc}${pbWords['25'].acc == '-' ? '' : '%'}
                                 </div>
                             </div>
                             <div class="mx-2 w-26 flex-col items-center justify-center">
@@ -322,8 +319,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 </div>
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
                                     style="color: ${theme.textColor};">
-                                    ${pbWords['50'].acc}${pbWords['50'].acc == '-' ? '' :
-                '%'}
+                                    ${pbWords['50'].acc}${pbWords['50'].acc == '-' ? '' : '%'}
                                 </div>
                             </div>
                             <div class="mx-2 w-26 flex-col items-center justify-center">
@@ -337,8 +333,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 </div>
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
                                     style="color: ${theme.textColor};">
-                                    ${pbWords['100'].acc}${pbWords['100'].acc == '-' ? '' :
-                '%'}
+                                    ${pbWords['100'].acc}${pbWords['100'].acc == '-' ? '' : '%'}
                                 </div>
                             </div>
                         </div>
@@ -358,13 +353,18 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                 <div xmlns="http://www.w3.org/1999/xhtml">
                     <div class="w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 200px;">
                         <div class="flex h-full items-center justify-center">
-                            <div class="mx-5">${userImg}</div>
+                            <div class="pr-5">${userImg}</div>
                             <div>
-                                <span class="font-mono text-3xl font-medium tracking-wider" style="color: ${theme.textColor};">
+                                <div class="font-mono text-3xl font-medium tracking-wider" style="color: ${theme.textColor};">
                                     ${userData.name}
-                                </span>
-                                <div class="mt-2">${userBadge}</div>
-                            </div>
+                                </div>
+                                ${badge != null ? `<div class="py-1">${userBadge}</div>` : ``}
+                                ${userData.streak > 0 ? `
+                                        <div class="font-mono text-xs font-medium tracking-wide" style="color: ${theme.subColor};">
+                                            Current streak: ${userData.streak} days
+                                        </div>
+                                    ` : ``}
+                                </div>
                         </div>
                     </div>
                 </div>
