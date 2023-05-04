@@ -59,12 +59,13 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
         else color = theme[badge.color];
 
         let bgColor;
-        if (badge.background === "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)") bgColor = "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)";
-        else bgColor = theme[badge.background];
+        let bgTailwindColor = "";
+        if (badge.background === "animation: rgb-bg 10s linear infinite;") bgTailwindColor = "animate-rgb-bg";
+        bgColor = theme[badge.background];
 
         badge.iconSvg = badge.iconSvg.replace("fill=\"\"", `fill="${color}"`);
         userBadge = `
-            <div class="flex w-fit items-center justify-center rounded-md p-1" style="background: ${bgColor};">
+            <div class="flex w-fit items-center justify-center rounded-md p-1 ${bgTailwindColor}" style="background: ${bgColor};">
                 <div class="px-1">${badge.iconSvg}</div>
                 <div class="px-1 align-middle font-mono text-xs" style="color: ${color};">
                     ${badge.name}
