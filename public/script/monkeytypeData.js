@@ -75,7 +75,7 @@ async function getMonkeyTypeBadgesData() {
                 if (badge.hasOwnProperty("customStyle")) {
                     if (badge.customStyle == "animation: rgb-bg 10s linear infinite;") {
                         badge.color = "white";
-                        badge["background"] = "linear-gradient(90deg, #A9C9FF 0%, #FFBBEC 100%)";
+                        badge["background"] = "animation: rgb-bg 10s linear infinite;";
                     }
                 } else {
                     if (badge.color.includes("var")) {
