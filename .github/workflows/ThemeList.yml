@@ -19,7 +19,7 @@ jobs:
           node-version: '16.x'
         
       - name: Download theme json file from monkeytype
-        run: curl -o theme/themes.json https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/_list.json
+        run: curl -o monkeytype-data/themes.json https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/_list.json
       
       - name: Print json file contents
         run: cat theme/themes.json
