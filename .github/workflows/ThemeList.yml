@@ -55,5 +55,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: master
+          branch: updateThemeList-action
           github_token: ${{ secrets.GITHUB_TOKEN }}
