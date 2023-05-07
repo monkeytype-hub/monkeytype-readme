@@ -22,7 +22,7 @@ jobs:
         run: curl -o monkeytype-data/themes.json https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/_list.json
       
       - name: Print json file contents
-        run: cat theme/themes.json
+        run: cat monkeytype-data/themes.json
         
       - name: Update theme list 
         uses: actions/github-script@v6
