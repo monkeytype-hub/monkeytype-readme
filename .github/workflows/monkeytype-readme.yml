@@ -19,7 +19,7 @@ jobs:
 
       - name: Download SVG
         run: |
-          mkdir public
+          mkdir monkeytype-readme-svg
           curl -o public/monkeytype-readme.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical
           curl -o public/monkeytype-readme-lb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical?lb=true
           curl -o public/monkeytype-readme-pb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical?pb=true
@@ -29,6 +29,6 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
           target_branch: monkeytype-readme
-          build_dir: public
+          build_dir: monkeytype-readme-svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
