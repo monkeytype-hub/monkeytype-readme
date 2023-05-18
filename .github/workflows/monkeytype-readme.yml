@@ -35,7 +35,7 @@ jobs:
       - name: push monkeytype-readme.svg to the monkeytype-readme branch
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
-          target_branch: monkeytype-readme
+          target_branch: monkeytype-readme-workflow-svg
           build_dir: monkeytype-readme-workflow-svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
