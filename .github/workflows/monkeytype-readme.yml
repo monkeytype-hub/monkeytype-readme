@@ -1,10 +1,8 @@
 name: generate monkeytype readme svg
 
 on:
-  push:
-    branches: [monkeytype-readme-workflow]
-#   schedule:
-#     - cron: "0 */12 * * *"
+  schedule:
+    - cron: "0 */12 * * *"
   workflow_dispatch:
 
 jobs:
@@ -21,21 +19,21 @@ jobs:
 
       - name: Download SVG
         run: |
-          mkdir monkeytype-readme-workflow-svg
-          curl -o monkeytype-readme-workflow-svg/monkeytype-readme.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical
-          curl -o monkeytype-readme-workflow-svg/monkeytype-readme-lb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical?lb=true
-          curl -o monkeytype-readme-workflow-svg/monkeytype-readme-pb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical?pb=true
-          curl -o monkeytype-readme-workflow-svg/monkeytype-readme-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical?lbpb=true
+          mkdir monkeytype-readme-svg
+          curl -o monkeytype-readme-svg/monkeytype-readme.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical
+          curl -o monkeytype-readme-svg/monkeytype-readme-lb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical?lb=true
+          curl -o monkeytype-readme-svg/monkeytype-readme-pb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical?pb=true
+          curl -o monkeytype-readme-svg/monkeytype-readme-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/botanical?lbpb=true
           
-          curl -o monkeytype-readme-workflow-svg/monkeytype-readme-Miodec.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light
-          curl -o monkeytype-readme-workflow-svg/monkeytype-readme-Miodec-lb.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light?lb=true
-          curl -o monkeytype-readme-workflow-svg/monkeytype-readme-Miodec-pb.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light?pb=true
-          curl -o monkeytype-readme-workflow-svg/monkeytype-readme-Miodec-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light?lbpb=true
+          curl -o monkeytype-readme-svg/monkeytype-readme-Miodec.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light
+          curl -o monkeytype-readme-svg/monkeytype-readme-Miodec-lb.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light?lb=true
+          curl -o monkeytype-readme-svg/monkeytype-readme-Miodec-pb.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light?pb=true
+          curl -o monkeytype-readme-svg/monkeytype-readme-Miodec-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light?lbpb=true
 
       - name: push monkeytype-readme.svg to the monkeytype-readme branch
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
-          target_branch: monkeytype-readme-workflow-svg
-          build_dir: monkeytype-readme-workflow-svg
+          target_branch: monkeytype-readme-svg
+          build_dir: monkeytype-readme
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
