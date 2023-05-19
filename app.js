@@ -18,8 +18,9 @@ app.get('/', (req, res) => {
 app.get('/generate-svg/:userId/:themeName', async (req, res) => {
     const userId = req.params.userId;
     const themeName = req.params.themeName;
-    const leaderBoards = req.query.lb == "true" ? true : false;
-    const personalBests = req.query.pb == "true" ? true : false;
+    let leaderBoards = req.query.lb == "true" ? true : false;
+    let personalBests = req.query.pb == "true" ? true : false;
+    req.query.lbpb == "true" ? leaderBoards = personalBests = true : null;
     const userData = await getUserData(userId);
     if (userData === undefined) {
         res.send("User not found");
