@@ -6,8 +6,10 @@
 
 Monkeytype Readme transforms MonkeyType typing data into SVGs for your GitHub Readme.
 
+  <a href="https://monkeytype.com/profile/miodec">
    <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme-Miodec.svg" alt="My Monkeytype profile" />
-
+  </a>
+  
 ## Usage
 
 To use MonkeyType Readme for your GitHub Readme, follow these steps:
@@ -25,15 +27,24 @@ To use MonkeyType Readme for your GitHub Readme, follow these steps:
     > Example: `nord light` => `nord_light`
     
     #### SVGs information
-    <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme.svg" alt="My Monkeytype profile" />
     
+    <a href="https://monkeytype.com/profile/rocket">
+      <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme.svg" alt="My Monkeytype profile" />
+    </a>
+  
     #### With LeaderBoards: `?lb=true`
-    <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme-lb.svg" alt="My Monkeytype profile" />
     
+    <a href="https://monkeytype.com/profile/rocket">
+      <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme-lb.svg" alt="My Monkeytype profile" />
+    </a>  
+  
     #### With PersonalBests: `?pb=true`
-    <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme-pb.svg" alt="My Monkeytype profile" />
     
-    #### With LeaderBoards and PersonalBests: `?lb=true&pb=true`
+    <a href="https://monkeytype.com/profile/rocket">
+      <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme-pb.svg" alt="My Monkeytype profile" />
+    </a>  
+  
+    #### With LeaderBoards and PersonalBests: `?lbpb=true`
     
     #### github actions
     ```yml
@@ -62,7 +73,7 @@ To use MonkeyType Readme for your GitHub Readme, follow these steps:
               curl -o public/monkeytype-readme.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES
               curl -o public/monkeytype-readme-lb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?lb=true
               curl -o public/monkeytype-readme-pb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?pb=true
-              curl -o public/monkeytype-readme-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?lb=true&pb=true
+              curl -o public/monkeytype-readme-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?lbpb=true
 
           - name: push monkeytype-readme.svg to the monkeytype-readme branch
             uses: crazy-max/ghaction-github-pages@v2.5.0
@@ -81,7 +92,9 @@ To use MonkeyType Readme for your GitHub Readme, follow these steps:
    > change YOUR_REPOSITORY to your repository name.
    
    ```md
+    <a href="https://monkeytype.com/profile/YOUR_USERNAME">
       <img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPOSITORY/monkeytype-readme/monkeytype-readme-lb.svg" alt="My Monkeytype profile" />
+    </a>
    ```
 
 4. Go to actions and run `generate monkeytype readme svg` workflow.
