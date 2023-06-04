@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const { getTheme, getBadge, getUserData, getMonkeyTypeBadgesData } = require('./public/script/monkeytypeData');
+const { getTheme, getBadge, getUserData, getMonkeyTypeThemesData, getMonkeyTypeBadgesData } = require('./public/script/monkeytypeData');
 const { getOutputCSS } = require('./public/script/tailwindCSS');
 const { getSvg } = require('./public/script/generateSvg');
 require('dotenv').config();
@@ -42,6 +42,12 @@ app.get('/generate-svg/:userId/:themeName', async (req, res) => {
     const svg = await getSvg(userData, theme, badge, leaderBoards, personalBests);
     res.set('Content-Type', 'image/svg+xml');
     res.send(svg);
+});
+
+app.get('/monkeytype/theme', async (req, res) => {
+    const themesData = await getMonkeyTypeThemesData();
+    res.set('Content-Type', 'application/json');
+    res.send(themesData);
 });
 
 app.get('/monkeytype/badge', async (req, res) => {

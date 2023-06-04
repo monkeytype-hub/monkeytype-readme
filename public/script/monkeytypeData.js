@@ -55,6 +55,61 @@ async function getUserData(userId) {
     }
 }
 
+async function getMonkeyTypeThemesData() {
+    const themesList = await getMonkeyTypeThemesList();
+    const themesData = [];
+    let i = 0;
+    for (i = 0; i < themesList.length; i++) {
+        const themeName = themesList[i]["name"];
+        let themeData = await getMonkeyTypeThemesByName(themeName);
+        themeData["name"] = themeName;
+        themesData.push(themeData);
+    }
+    return themesData;
+}
+
+async function getMonkeyTypeThemesList() {
+    const url = 'https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/_list.json';
+
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            return data;
+        }
+        );
+}
+
+async function getMonkeyTypeThemesByName(themeName) {
+    const themeUrl = `https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/${themeName}.css`;
+
+    return fetch(themeUrl)
+        .then(response => response.text())
+        .then(data => {
+            let cssData = data.substring(data.indexOf("{"), data.indexOf("}") + 1);
+
+            cssData = cssData.replace(/-(.)/g, (_, letter) => letter.toUpperCase())
+                .replaceAll('-', '')
+                .replaceAll(';', ',')
+                .replace(/,\s*([^,]+)\s*$/, "$1")
+                .replace(/([a-zA-Z0-9_]+)(?=:)/g, "\"$1\"")
+                .replace(/\/\*.*?\*\//g, "")
+                .replace(/(#[a-fA-F0-9]{3,8})(,|\s|$)/g, "\"$1\"$2")
+                .replaceAll(' ', '')
+                .replace(/(\})$/, "\n$1")
+                .replace(/("font":\s*)(\w+)/, '$1"$2"');
+
+            const resolveColorVariable = (variable) => {
+                const colorName = variable.substring(4, variable.length - 1); // Extract color name without "var()" and ")"
+                return cssData.match(new RegExp(`"${colorName}":"([^"]+)"`))[1];
+            };
+
+            cssData = cssData.replace(/var\([^)]+\)/g, resolveColorVariable)
+                .replace(/(#[a-fA-F0-9]{3,8})(,|\s|$)/g, "\"$1\"$2");
+
+            return JSON.parse(cssData);
+        })
+}
+
 async function getMonkeyTypeBadgesData() {
     const url = 'https://api.github.com/repos/monkeytypegame/monkeytype/contents/frontend/src/ts/controllers/badge-controller.ts';
 
@@ -106,5 +161,6 @@ module.exports = {
     getTheme,
     getBadge,
     getUserData,
+    getMonkeyTypeThemesData,
     getMonkeyTypeBadgesData
 };
