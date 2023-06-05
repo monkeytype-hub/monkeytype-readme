@@ -33,6 +33,9 @@ jobs:
             const filePath = '${{ github.workspace }}/monkeytype-data/themes.json';
             fs.writeFileSync(filePath, monkeytypeThemesJson);
             
+      - name: Format JSON data
+        run: echo $(jq '.' monkeytype-data/themes.json) > monkeytype-data/themes.json
+        
       - name: Print updated theme contents
         run: |
           cat monkeytype-data/themes.json
