@@ -17,15 +17,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-          
-      - name: Install jq
-        run: sudo apt-get install jq
         
       - name: Download theme json file from monkeytype
         run: curl -o monkeytype-data/themes.json https://monkeytype-readme.repl.co/monkeytype/theme
         
       - name: Format JSON data
-        run: echo $(jq '.' monkeytype-data/themes.json) > monkeytype-data/themes.json
+        run: |
+          python3 -c 'import json; data = json.load(open("monkeytype-data/themes.json")); json.dump(data, open("monkeytype-data/themes.json", "w"), indent=2)'
       
       - name: Print json file contents
         run: cat monkeytype-data/themes.json
