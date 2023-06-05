@@ -2,7 +2,7 @@ name: Update monkeytype theme json list
 
 on:
   schedule:
-     - cron: '0 */6 * * *'
+     - cron: '0 */24 * * *'
 
 jobs:
   make-request:
@@ -17,7 +17,11 @@ jobs:
           node-version: '16.x'
         
       - name: Download theme json file from monkeytype
-        run: curl -o monkeytype-data/themes.json https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/_list.json
+        run: curl -o monkeytype-data/themes.json https://monkeytype-readme.repl.co/monkeytype/theme
+        
+      - name: Format JSON data
+        run: |
+          python3 -c 'import json; data = json.load(open("monkeytype-data/themes.json")); json.dump(data, open("monkeytype-data/themes.json", "w"), indent=2)'
       
       - name: Print json file contents
         run: cat monkeytype-data/themes.json
@@ -30,7 +34,7 @@ jobs:
             let monkeytypeThemesJson = fs.readFileSync('monkeytype-data/themes.json');
             const filePath = '${{ github.workspace }}/monkeytype-data/themes.json';
             fs.writeFileSync(filePath, monkeytypeThemesJson);
-            
+        
       - name: Print updated theme contents
         run: |
           cat monkeytype-data/themes.json
