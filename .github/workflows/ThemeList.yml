@@ -1,8 +1,10 @@
 name: Update monkeytype theme json list
 
 on:
-  schedule:
-     - cron: '0 */6 * * *'
+#   schedule:
+#      - cron: '0 */6 * * *'
+    push:
+      branches: [ monkeytype-theme ]
 
 jobs:
   make-request:
@@ -17,7 +19,7 @@ jobs:
           node-version: '16.x'
         
       - name: Download theme json file from monkeytype
-        run: curl -o monkeytype-data/themes.json https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/_list.json
+        run: curl -o monkeytype-data/themes.json https://monkeytype-readme.repl.co/monkeytype/theme
       
       - name: Print json file contents
         run: cat monkeytype-data/themes.json
@@ -53,5 +55,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          branch: master
+          branch: monkeytype-theme
           github_token: ${{ secrets.GITHUB_TOKEN }}
