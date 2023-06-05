@@ -17,6 +17,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+          
+      - name: Install jq
+        run: sudo apt-get install jq
         
       - name: Download theme json file from monkeytype
         run: curl -o monkeytype-data/themes.json https://monkeytype-readme.repl.co/monkeytype/theme
