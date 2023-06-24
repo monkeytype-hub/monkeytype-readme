@@ -8,21 +8,27 @@
     <title>MT Readme</title>
     <link rel="stylesheet" href="/styles/output.css" />
     <link rel="icon" href="../image/stupidMonkeyIcon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     <style>
-        .themeList {
+        .scroll {
             -ms-overflow-style: none;
             scrollbar-width: none;
             overflow-y: scroll;
         }
 
-        .themeList::-webkit-scrollbar {
+        .scroll::-webkit-scrollbar {
             display: none;
+        }
+
+        .theme-border:hover {
+            border: 4px solid transparent;
         }
     </style>
 </head>
 
-<body class="">
+<body class="scroll not-italic">
     <div class="h-screen">
         <div class="h-1/6">
             <div class="flex justify-between">
@@ -42,22 +48,22 @@
             </div>
         </div>
         <div class="flex h-4/6 items-center justify-center">
-            <div class="-mt-12">
-                <div class="text-center text-5xl font-extrabold tracking-wider">
+            <div>
+                <div class="text-center text-6xl font-black tracking-wider">
                     Share
                     <span
-                        class="bg-gradient-to-br from-yellow-100 to-amber-400 bg-clip-text text-center text-5xl font-extrabold tracking-wider text-transparent">
+                        class="bg-gradient-to-br from-yellow-100 to-amber-400 bg-clip-text text-center text-6xl font-black tracking-wider text-transparent">
                         MonkeyType Story
                     </span>
                 </div>
-                <div class="mt-6 text-center text-5xl font-extrabold tracking-wider">
+                <div class="mt-6 text-center text-6xl font-black tracking-wider">
                     With The World
                 </div>
-                <div class="mt-12 text-center text-base font-semibold text-amber-400 opacity-70">
+                <div class="my-16 text-center text-2xl font-medium text-amber-400 opacity-70">
                     Monkeytype Readme transforms typing data into SVGs for
                     your GitHub Readme.
                 </div>
-                <div class="mt-10 flex items-center justify-center">
+                <div class="flex items-center justify-center">
                     <div
                         class="h-14 w-28 rounded-2xl bg-black text-center text-sm font-medium tracking-wide text-white">
                         <div class="flex h-full items-center justify-center">
@@ -79,6 +85,119 @@
             </div>
         </div>
     </div>
+    <div class="lg:px-20 xl:px-40 mt-16">
+        <h2 class="text-3xl font-bold tracking-wider">What is MonkeyType Readme</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="col-span-1 flex justify-center items-center">
+                <div>
+                    <p class="text-xl font-normal leading-loose tracking-wider text-gray-600 px-1">
+                        MonkeyType Readme is a tool that transforms your MonkeyType typing data into SVGs, which you can
+                        put
+                        in your GitHub Readme to show off your typing speed and accuracy.
+                    </p>
+                    <p class="text-xl font-normal leading-loose tracking-wider text-gray-600 mt-5 px-1">
+                        With MonkeyType Readme, you can customize the appearance of your typing stats to match your
+                        GitHub
+                        Readme style. You can also include multiple SVGs to display different MonkeyType data, such as
+                        LeaderBoards and PersonalBests.
+                    </p>
+                </div>
+            </div>
+            <div class="col-span-1">
+                <div class="flex justify-center items-center h-full">
+                    <a href="https://monkeytype.com/profile/miodec">
+                        <img src="https://monkeytype-readme.repl.co/generate-svg/miodec/nord_light?lb=true" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-3 gap-4 pt-20">
+            <div class="col-span-1">
+                <a href="https://monkeytype.com/profile/rocket">
+                    <img src="https://monkeytype-readme.repl.co/generate-svg/rocket/slambook?lbpb=true" alt="">
+                </a>
+                <a href="https://monkeytype.com/profile/UTF8">
+                    <img src="https://monkeytype-readme.repl.co/generate-svg/UTF8/camping" alt="">
+                </a>
+            </div>
+            <div class="col-span-1">
+                <a href="https://monkeytype.com/profile/ridemountainpig">
+                    <img src="https://monkeytype-readme.repl.co/generate-svg/ridemountainpig/witch_girl" alt="">
+                </a>
+                <a href="https://monkeytype.com/profile/semi">
+                    <img src="https://monkeytype-readme.repl.co/generate-svg/semi/blueberry_light" alt="">
+                </a>
+                <a href="https://monkeytype.com/profile/mac">
+                    <img src="https://monkeytype-readme.repl.co/generate-svg/mac/mizu?lb=true" alt="">
+                </a>
+                <a href="https://monkeytype.com/profile/ze_or">
+                    <img src="https://monkeytype-readme.repl.co/generate-svg/ze_or/darling" alt="">
+                </a>
+            </div>
+            <div class="col-span-1">
+                <a href="https://monkeytype.com/profile/nask">
+                    <img src="https://monkeytype-readme.repl.co/generate-svg/nask/beach?lb=true" alt="">
+                </a>
+                <a href="https://monkeytype.com/profile/davidho0403">
+                    <img src="https://monkeytype-readme.repl.co/generate-svg/davidho0403/lil_dragon?pb=true" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="pt-16">
+            <h2 class="text-3xl font-bold tracking-wider">Create monkeytype readme</h2>
+            <div class="flex justify-start text-slate-400 text-lg font-normal tracking-wider mt-8">
+                <i class="bi bi-star-fill px-2"></i><span>initial readme</span>
+            </div>
+            <div class="flex justify-start items-center gap-x-5 mt-6">
+                <input type="text" placeholder="Enter Your Monkeytype Name"
+                    class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium" style="width: 300px;">
+                <button class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium">
+                    <div class="flex justify-center items-center h-full">
+                        <img src="../image/plus-solid.svg" width="14" height="14" alt="" class="mx-1">
+                        Leader Board
+                    </div>
+                </button>
+                <button class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium">
+                    <div class="flex justify-center items-center h-full">
+                        <img src="../image/plus-solid.svg" width="14" height="14" alt="" class="mx-1">
+                        Personal Best
+                    </div>
+                </button>
+            </div>
+            <div class="flex justify-start text-slate-400 text-lg font-normal tracking-wider mt-8">
+                <i class="bi bi-palette-fill px-2"></i><span>theme</span>
+            </div>
+            <div id="themeListContainer" class="grid lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8 h-96 overflow-hidden">
+                <!-- <div class="col-span-1 rounded-xl px-2 py-3 h-12 bg-red-50">
+                    <div class="col-span-5 flex justify-center items-center h-full tracking-wider font-medium h-full">hello</div>
+                </div> -->
+            </div>
+            <div id="showThemeBtn">
+                <div class="flex justify-center text-slate-400 text-lg font-normal tracking-wider w-full">
+                    <button class="w-fit p-2" onclick="showThemeList()">
+                        <div>more theme</div>
+                        <i class="bi bi-caret-down" style="font-size: 24px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="hideThemeBtn" class="hidden">
+                <div class="flex justify-center text-slate-400 text-lg font-normal tracking-wider w-full">
+                    <button class="w-fit p-2" onclick="hideThemeList()">
+                        <i class="bi bi-caret-up" style="font-size: 24px;"></i>
+                        <div>hide theme</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 pb-16">
+            <h2 class="text-3xl font-bold tracking-wider">How to use</h2>
+        </div>
+    </div>
+
+    <script src="../script/index.js"></script>
+    <script>
+
+    </script>
 </body>
 
 </html>
