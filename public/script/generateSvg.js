@@ -16,9 +16,9 @@ const downloadUserImg = (url, path) => {
 
 async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
     const width = 500;
-    let height = 200;
-    leaderBoards ? height += 200 : height += 0;
-    personalbests ? height += 400 : height += 0;
+    let height = 220;
+    leaderBoards ? height += 220 : height += 0;
+    personalbests ? height += 440 : height += 0;
     const cssData = await getOutputCSS();
 
     let userImg;
@@ -77,7 +77,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
     let leaderBoardHTML = "";
     if (leaderBoards == true) {
         leaderBoardHTML = `
-            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
+            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 200px;">
                 <div class="flex h-full items-center justify-center">
                     <div class="mx-5">
                         <div class="text-center font-mono text-lg font-medium tracking-wider" style="color: ${theme.subColor};">
@@ -213,7 +213,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
         }
 
         personalbestsHTML = `
-            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
+            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 200px;">
                 <div class="flex h-full items-center justify-center">
                     <div class="mx-5">
                         <div class="flex items-center justify-around">
@@ -277,7 +277,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                     </div>
                 </div>
             </div>
-            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 180px;">
+            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 200px;">
                 <div class="flex h-full items-center justify-center">
                     <div class="mx-5">
                         <div class="flex items-center justify-around">
@@ -373,6 +373,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                 <div xmlns="http://www.w3.org/1999/xhtml">${leaderBoardHTML}</div>
 
                 <div xmlns="http://www.w3.org/1999/xhtml">${personalbestsHTML}</div>
+
+                <div xmlns="http://www.w3.org/1999/xhtml" class="mt-5"></div>
             </foreignObject>
         </svg>
     `
