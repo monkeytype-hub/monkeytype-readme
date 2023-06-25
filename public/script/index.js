@@ -14,6 +14,12 @@ function hexToRgb(hex) {
     // Remove the # symbol if present
     hex = hex.replace('#', '');
 
+    // Check if the hex code is three characters long
+    if (hex.length === 3) {
+        // Duplicate each character to expand the code to six characters
+        hex = hex.replace(/(.)/g, '$1$1');
+    }
+
     // Convert the hex value to RGB
     const r = parseInt(hex.substring(0, 2), 16);
     const g = parseInt(hex.substring(2, 4), 16);
@@ -22,19 +28,20 @@ function hexToRgb(hex) {
     return { r, g, b };
 }
 
-function getBrightness(rgb) {
-    // Calculate the brightness value using the formula
-    return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
-}
-
-function compareColors(hex1, hex2) {
+function compareColors(hex1, hex2, themeName1, themeName2) {
     const rgb1 = hexToRgb(hex1);
     const rgb2 = hexToRgb(hex2);
-    const brightness1 = getBrightness(rgb1);
-    const brightness2 = getBrightness(rgb2);
+    const brightness1 = rgb1.r + rgb1.g + rgb1.b;
+    const brightness2 = rgb2.r + rgb2.g + rgb2.b;
 
     if (brightness1 > brightness2) {
         return true;
+    } else if (brightness1 == brightness2) {
+        if (themeName1 < themeName2) {
+            return true;
+        } else {
+            return false;
+        }
     } else {
         return false;
     }
@@ -56,7 +63,7 @@ async function themeList() {
 
     for (let i = 0; i < themeList.length; i++) {
         for (let j = i + 1; j < themeList.length; j++) {
-            if (compareColors(themeList[i]["bgColor"], themeList[j]["bgColor"])) {
+            if (compareColors(themeList[i]["bgColor"], themeList[j]["bgColor"], themeList[i]["name"], themeList[j]["name"])) {
                 let temp = themeList[i];
                 themeList[i] = themeList[j];
                 themeList[j] = temp;
