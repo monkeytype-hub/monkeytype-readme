@@ -152,13 +152,33 @@
             <div class="flex justify-start items-center gap-x-5 mt-6">
                 <input type="text" placeholder="Enter Your Monkeytype Name"
                     class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium" style="width: 300px;">
-                <button class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium">
+
+                <button id="leaderBoardBtn" class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative">
+                    <div id="leaderBoardTooltip" class="absolute z-10 -top-16 left-0 w-full hidden">
+                        <div 
+                            class="text-sm font-medium text-white transition-opacity duration-300 px-3 py-2 bg-gray-900 rounded-lg shadow-sm">
+                            SVGs show with Leader Board
+                        </div>
+                        <div class="flex justify-center w-full -mt-3">
+                            <i class="bi bi-caret-down-fill text-gray-900" style="font-size: 18px;"></i>
+                        </div>
+                    </div>
                     <div class="flex justify-center items-center h-full">
                         <img src="../image/plus-solid.svg" width="14" height="14" alt="" class="mx-1">
                         Leader Board
                     </div>
                 </button>
-                <button class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium">
+
+                <button id="personalBestBtn" class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative">
+                    <div id="personalBestTooltip" class="absolute z-10 -top-16 left-0 w-full hidden">
+                        <div
+                            class="text-sm font-medium text-white transition-opacity duration-300 px-3 py-2 bg-gray-900 rounded-lg shadow-sm">
+                            SVGs show with Personal Best
+                        </div>
+                        <div class="flex justify-center w-full -mt-3">
+                            <i class="bi bi-caret-down-fill text-gray-900" style="font-size: 18px;"></i>
+                        </div>
+                    </div>
                     <div class="flex justify-center items-center h-full">
                         <img src="../image/plus-solid.svg" width="14" height="14" alt="" class="mx-1">
                         Personal Best

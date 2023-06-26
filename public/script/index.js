@@ -1,3 +1,19 @@
+$('#leaderBoardBtn').mouseenter(function () {
+    $('#leaderBoardTooltip').removeClass('hidden');
+});
+
+$('#leaderBoardBtn').mouseleave(function () {
+    $('#leaderBoardTooltip').addClass('hidden');
+});
+
+$('#personalBestBtn').mouseenter(function () {
+    $('#personalBestTooltip').removeClass('hidden');
+});
+
+$('#personalBestBtn').mouseleave(function () {
+    $('#personalBestTooltip').addClass('hidden');
+});
+
 function showThemeList() {
     $('#showThemeBtn').addClass('hidden');
     $('#themeListContainer').removeClass('h-96');
