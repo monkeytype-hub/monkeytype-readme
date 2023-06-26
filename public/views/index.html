@@ -24,7 +24,7 @@
         }
 
         .theme-border:hover {
-            border: 4px solid transparent;
+            border: 4px solid;
         }
     </style>
 </head>
@@ -53,14 +53,14 @@
                 <div class="text-center text-6xl font-black tracking-wider">
                     Share
                     <span
-                        class="bg-gradient-to-br from-yellow-100 to-amber-400 bg-clip-text text-center text-6xl font-black tracking-wider text-transparent">
+                        class="bg-gradient-to-br from-nord-light-subAlt to-nord-light-green bg-clip-text text-center text-6xl font-black tracking-wider text-transparent">
                         MonkeyType Story
                     </span>
                 </div>
                 <div class="mt-6 text-center text-6xl font-black tracking-wider">
                     With The World
                 </div>
-                <div class="my-16 text-center text-2xl font-medium text-amber-400 opacity-70">
+                <div class="my-16 text-center text-2xl font-medium text-nord-light-sub opacity-70">
                     Monkeytype Readme transforms typing data into SVGs for
                     your GitHub Readme.
                 </div>
@@ -149,13 +149,15 @@
             <div class="flex justify-start text-slate-400 text-lg font-normal tracking-wider mt-8">
                 <i class="bi bi-star-fill px-2"></i><span>initial readme</span>
             </div>
-            <div class="flex justify-start items-center gap-x-5 mt-6">
+            <div class="flex justify-start items-center gap-x-5 mt-6 h-12">
                 <input type="text" placeholder="Enter Your Monkeytype Name"
-                    class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium" style="width: 300px;">
+                    class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium h-full"
+                    style="width: 300px;">
 
-                <button id="leaderBoardBtn" class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative">
+                <button id="leaderBoardBtn"
+                    class="px-4 h-full bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative hover:bg-nord-light-green hover:text-nord-light-bg">
                     <div id="leaderBoardTooltip" class="absolute z-10 -top-16 left-0 w-full hidden">
-                        <div 
+                        <div
                             class="text-sm font-medium text-white transition-opacity duration-300 px-3 py-2 bg-gray-900 rounded-lg shadow-sm">
                             SVGs show with Leader Board
                         </div>
@@ -164,12 +166,13 @@
                         </div>
                     </div>
                     <div class="flex justify-center items-center h-full">
-                        <img src="../image/plus-solid.svg" width="14" height="14" alt="" class="mx-1">
+                        <i class="bi bi-plus" style="font-size: 25px;"></i>
                         Leader Board
                     </div>
                 </button>
 
-                <button id="personalBestBtn" class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative">
+                <button id="personalBestBtn"
+                    class="px-4 h-full bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative ">
                     <div id="personalBestTooltip" class="absolute z-10 -top-16 left-0 w-full hidden">
                         <div
                             class="text-sm font-medium text-white transition-opacity duration-300 px-3 py-2 bg-gray-900 rounded-lg shadow-sm">
@@ -180,7 +183,7 @@
                         </div>
                     </div>
                     <div class="flex justify-center items-center h-full">
-                        <img src="../image/plus-solid.svg" width="14" height="14" alt="" class="mx-1">
+                        <i class="bi bi-plus" style="font-size: 25px;"></i>
                         Personal Best
                     </div>
                 </button>
@@ -208,6 +211,14 @@
                         <div>hide theme</div>
                     </button>
                 </div>
+            </div>
+            <div class="flex justify-start text-slate-400 text-lg font-normal tracking-wider">
+                <i class="bi bi-bookmark-star-fill px-2"></i><span>your monkeytype readme</span>
+            </div>
+            <div class="flex justify-start mt-4">
+                <a href="https://monkeytype.com/profile/miodec">
+                    <img src="https://monkeytype-readme.repl.co/generate-svg/miodec/nord_light?lb=true" alt="">
+                </a>
             </div>
         </div>
         <div class="mt-8 pb-16">
