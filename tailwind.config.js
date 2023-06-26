@@ -6,6 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        "nord-light-green": "#8fbcbb",
+        "nord-light-bg": "#eceff4",
+        "nord-light-subAlt": "#d8dee9",
+        "nord-light-sub": "#6a7791",
+      },
       width: {
         "26": "6.5rem",
         "33": "8.25rem",
