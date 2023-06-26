@@ -1,3 +1,10 @@
+let leaderBoardBtnState = false;
+let personalBestBtnState = false;
+let themeListState = {
+    themeName: '',
+    borderColor: ''
+};
+
 $('#leaderBoardBtn').mouseenter(function () {
     $('#leaderBoardTooltip').removeClass('hidden');
 });
@@ -5,6 +12,26 @@ $('#leaderBoardBtn').mouseenter(function () {
 $('#leaderBoardBtn').mouseleave(function () {
     $('#leaderBoardTooltip').addClass('hidden');
 });
+
+$('#leaderBoardBtn').click(function () {
+    initialReadmeBtn('#leaderBoardBtn', leaderBoardBtnState);
+    leaderBoardBtnState = !leaderBoardBtnState;
+});
+
+$('#personalBestBtn').click(function () {
+    initialReadmeBtn('#personalBestBtn', personalBestBtnState);
+    personalBestBtnState = !personalBestBtnState;
+});
+
+function initialReadmeBtn(buttonId, buttonState) {
+    if (!buttonState) {
+        $(buttonId).removeClass('bg-slate-100 text-gray-400');
+        $(buttonId).addClass('bg-nord-light-green text-nord-light-bg');
+    } else {
+        $(buttonId).removeClass('bg-nord-light-green text-nord-light-bg');
+        $(buttonId).addClass('bg-slate-100 text-gray-400');
+    }
+}
 
 $('#personalBestBtn').mouseenter(function () {
     $('#personalBestTooltip').removeClass('hidden');
@@ -24,6 +51,23 @@ function hideThemeList() {
     $('#showThemeBtn').removeClass('hidden');
     $('#themeListContainer').addClass('h-96');
     $('#hideThemeBtn').addClass('hidden');
+}
+
+function showBorder(themeName) {
+    const borderColor = $(`#${themeName}`).css('border-color');
+    if (themeName === themeListState.themeName) {
+        $(`#${themeName}`).css('border', '');
+        $(`#${themeName}`).css('border-color', themeListState.borderColor);
+        themeListState.themeName = '';
+    } else {
+        if (themeListState.themeName !== '') {
+            $(`#${themeListState.themeName}`).css('border', '');
+            $(`#${themeListState.themeName}`).css('border-color', themeListState.borderColor);
+        }
+        $(`#${themeName}`).css('border', `4px solid ${borderColor}`);
+        themeListState.themeName = themeName;
+        themeListState.borderColor = borderColor;
+    }
 }
 
 function hexToRgb(hex) {
@@ -89,9 +133,12 @@ async function themeList() {
 
     for (let i = themeList.length - 1; i >= 0; i--) {
         let html = `
-            <div class="theme-border col-span-1 rounded-xl px-2 py-3 h-12" style="background-color: ${themeList[i]["bgColor"]}; border-color: ${themeList[i]["mainColor"]};">
-                <div class="col-span-5 flex justify-center items-center tracking-wider font-medium h-full" style="color: ${themeList[i]["mainColor"]};">${themeList[i]["name"].replace(/_/g, ' ')}</div>
-            </div>
+        <div id="${themeList[i]["name"]}" class="theme-border col-span-1 rounded-xl px-2 py-3 h-12"
+            style="background-color: ${themeList[i]["bgColor"]}; border-color: ${themeList[i]["mainColor"]};"
+            onclick="showBorder('${themeList[i]["name"]}')">
+            <div class="col-span-5 flex justify-center items-center tracking-wider font-medium h-full"
+                style="color: ${themeList[i]["mainColor"]};">${themeList[i]["name"].replace(/_/g, ' ')}</div>
+        </div>
         `
         $('#themeListContainer').append(html);
     }
