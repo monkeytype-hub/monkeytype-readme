@@ -1,9 +1,14 @@
+let monkeytypeName = '';
 let leaderBoardBtnState = false;
 let personalBestBtnState = false;
 let themeListState = {
     themeName: '',
     borderColor: ''
 };
+
+$('#monkeytypeNameInput').on('input', function () {
+    monkeytypeName = $(this).val();
+});
 
 $('#leaderBoardBtn').mouseenter(function () {
     $('#leaderBoardTooltip').removeClass('hidden');
@@ -23,12 +28,38 @@ $('#personalBestBtn').click(function () {
     personalBestBtnState = !personalBestBtnState;
 });
 
+$('#generateReadmeBtn').click(function () {
+    if (monkeytypeName === '' || themeListState.themeName === '') {
+        if (monkeytypeName === '') {
+            $('#monkeytypeNameError').removeClass('absolute hidden');
+        }
+        if (themeListState.themeName === '') {
+            $('#themeNameError').removeClass('absolute hidden');
+        }
+        return;
+    }
+
+    let url = `https://monkeytype-readme.repl.co/generate-svg/${monkeytypeName}/${themeListState.themeName}`;
+    if (leaderBoardBtnState && personalBestBtnState) {
+        url += '?lbpb=true';
+    } else {
+        if (leaderBoardBtnState) {
+            url += '?lb=true';
+        }
+        if (personalBestBtnState) {
+            url += '?pb=true';
+        }
+    }
+    $('#previewReadmeLink').attr('href', `https://monkeytype.com/profile/${monkeytypeName}`);
+    $('#previewReadmeImg').attr('src', url);
+});
+
 function initialReadmeBtn(buttonId, buttonState) {
     if (!buttonState) {
         $(buttonId).removeClass('bg-slate-100 text-gray-400');
-        $(buttonId).addClass('bg-nord-light-green text-nord-light-bg');
+        $(buttonId).addClass('bg-nord-light-green text-nord-light-bg opacity-60');
     } else {
-        $(buttonId).removeClass('bg-nord-light-green text-nord-light-bg');
+        $(buttonId).removeClass('bg-nord-light-green text-nord-light-bg opacity-60');
         $(buttonId).addClass('bg-slate-100 text-gray-400');
     }
 }

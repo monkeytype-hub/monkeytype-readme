@@ -150,12 +150,12 @@
                 <i class="bi bi-star-fill px-2"></i><span>initial readme</span>
             </div>
             <div class="flex justify-start items-center gap-x-5 mt-6 h-12">
-                <input type="text" placeholder="Enter Your Monkeytype Name"
-                    class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium h-full"
+                <input type="text" placeholder="Enter Your Monkeytype Name" id="monkeytypeNameInput"
+                    class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium h-full border-nord-light-green focus:border-4 focus:outline-none focus:border-opacity-60"
                     style="width: 300px;">
 
                 <button id="leaderBoardBtn"
-                    class="px-4 h-full bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative hover:bg-nord-light-green hover:text-nord-light-bg">
+                    class="px-4 h-full bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60">
                     <div id="leaderBoardTooltip" class="absolute z-10 -top-16 left-0 w-full hidden">
                         <div
                             class="text-sm font-medium text-white transition-opacity duration-300 px-3 py-2 bg-gray-900 rounded-lg shadow-sm">
@@ -172,7 +172,7 @@
                 </button>
 
                 <button id="personalBestBtn"
-                    class="px-4 h-full bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative ">
+                    class="px-4 h-full bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60">
                     <div id="personalBestTooltip" class="absolute z-10 -top-16 left-0 w-full hidden">
                         <div
                             class="text-sm font-medium text-white transition-opacity duration-300 px-3 py-2 bg-gray-900 rounded-lg shadow-sm">
@@ -213,11 +213,19 @@
                 </div>
             </div>
             <div class="flex justify-start text-slate-400 text-lg font-normal tracking-wider">
-                <i class="bi bi-bookmark-star-fill px-2"></i><span>your monkeytype readme</span>
+                <i class="bi bi-bookmark-star-fill px-2"></i><span>monkeytype readme</span>
             </div>
-            <div class="flex justify-start mt-4">
-                <a href="https://monkeytype.com/profile/miodec">
-                    <img src="https://monkeytype-readme.repl.co/generate-svg/miodec/nord_light?lb=true" alt="">
+            <div class="flex justify-start mt-6">
+                <div class="flex">
+                    <button id="generateReadmeBtn"
+                        class="p-4 h-16 bg-slate-100 text-gray-400 rounded-xl text-center font-medium hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60">
+                        Generate MonkeyType Readme
+                    </button>
+                </div>
+            </div>
+            <div class="flex justify-start mt-6">
+                <a id="previewReadmeLink" href="">
+                    <img id="previewReadmeImg" src="" alt="">
                 </a>
             </div>
         </div>
