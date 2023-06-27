@@ -22,11 +22,13 @@ app.get('/generate-svg/:userId/:themeName', async (req, res) => {
     let personalBests = req.query.pb == "true" ? true : false;
     req.query.lbpb == "true" ? leaderBoards = personalBests = true : null;
     const userData = await getUserData(userId);
+    const theme = getTheme(themeName);
     if (userData === undefined) {
-        res.send("User not found");
+        const svg = await getSvg(null, theme, null, false, false);
+        res.set('Content-Type', 'image/svg+xml');
+        res.send(svg);
         return;
     }
-    const theme = getTheme(themeName);
     let badge = null;
     if (userData.inventory !== null && userData.inventory !== undefined) {
         if (userData.inventory.badges.length !== 0) {
