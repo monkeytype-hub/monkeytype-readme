@@ -30,7 +30,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
             </svg>
         </div>
     `
-    if (userData.discordId === undefined || userData.discordAvatar === undefined) {
+    if (userData === null || userData.discordId === undefined || userData.discordAvatar === undefined) {
         userImg = defaultUserImg;
     } else {
         // Download the image and save it to a file
@@ -357,10 +357,11 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                             <div class="pr-5">${userImg}</div>
                             <div>
                                 <div class="font-mono text-3xl font-medium tracking-wider" style="color: ${theme.textColor};">
-                                    ${userData.name}
+                                    ${userData == null ? 'user not found' : userData.name}
                                 </div>
                                 ${badge != null ? `<div class="py-1">${userBadge}</div>` : ``}
-                                ${userData.streak > 0 ? `
+                                ${userData == null ? '' :  
+                                    userData.streak > 0 ? `
                                         <div class="font-mono text-xs font-medium tracking-wide" style="color: ${theme.subColor};">
                                             Current streak: ${userData.streak} days
                                         </div>
