@@ -84,8 +84,7 @@ To use MonkeyType Readme for your GitHub Readme, follow these steps:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
     
-3. Create `monkeytype-readme` branch in your repository's.
-4. Add SVGs to your GitHub Readme.
+3. Add SVGs to your GitHub Readme.
 
    > Note: </br>
    > change YOUR_USERNAME to your MonkeyType username.</br>
