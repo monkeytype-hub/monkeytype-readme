@@ -11,6 +11,7 @@ module.exports = {
         "nord-light-bg": "#eceff4",
         "nord-light-subAlt": "#d8dee9",
         "nord-light-sub": "#6a7791",
+        "nord-light-error": "#bf616a",
       },
       width: {
         "26": "6.5rem",

@@ -204,7 +204,7 @@ pre[id].linkable-line-numbers span.line-numbers-rows>span:hover:before {
 
 pre[class*=language-].line-numbers {
     position: relative;
-    padding-left: 3.8em;
+    padding-left: 5em;
     counter-reset: linenumber
 }
 
@@ -221,7 +221,7 @@ pre[class*=language-].line-numbers>code {
     left: -16em;
     width: 3em;
     letter-spacing: -1px;
-    border-right: 1px solid #999;
+    /* border-right: 1px solid #999; */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
