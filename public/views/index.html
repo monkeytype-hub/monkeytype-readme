@@ -287,9 +287,33 @@
         </div>
         <div class="mt-8 pb-16">
             <h2 class="text-3xl font-bold tracking-wider">How to use</h2>
+            <div class="mt-4">
+                <p class="text-lg font-normal leading-loose tracking-wider text-gray-600">
+                    Add your
+                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
+                        monkeytype-readme.yml
+                    </span>
+                    file in your repository's
+                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
+                        .github/workflows/path
+                    </span>
+                    .<br>
+                    (please generate your monkeytype readme on the top first)
+                </p>
+            </div>
+            <div class="mt-4">
+                <a class="text-gray-400 text-base font-medium tracking-wider underline px-1"
+                    href="https://github.com/ridemountainpig/monkeytype-readme/blob/master/.github/workflows/monkeytype-readme.yml">
+                    See the example
+                </a>
+            </div>
             <div class="mt-8">
+                <div class="text-gray-600 text-base font-medium tracking-wider">
+                    <i class="bi bi-filetype-yml pl-1 pr-2"
+                        style="font-size: 20px;"></i><span>monkeytype-readme.yml</span>
+                </div>
                 <pre class="rounded-xl language-yaml line-numbers">
-                    <code>
+                    <code id="readmeYml">
 name: generate monkeytype readme svg
 
 on:
@@ -324,6 +348,45 @@ download-svg:
         build_dir: public
         env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    </code>
+                </pre>
+            </div>
+            <div class="mt-8 px-1">
+                <p class="text-lg font-normal leading-loose tracking-wider text-gray-600">
+                    This GitHub Actions YAML code sets up a workflow called
+                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
+                        generate monkeytype readme svg
+                    </span>
+                    that automatically generates SVG files for the Monkeytype readme.
+                </p>
+                <p class="text-lg font-normal leading-loose tracking-wider text-gray-600 mt-0.5">
+                    By using this workflow, you can ensure that the Monkeytype readme SVG files are always up to date on
+                    the
+                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
+                        monkeytype-readme
+                    </span>
+                    branch.
+                </p>
+            </div>
+            <div class="mt-8 px-1">
+                <p class="text-lg font-normal leading-loose tracking-wider text-gray-600">
+                    After the workflow run add SVGs to your GitHub Readme. <br>
+                    (Please change
+                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">YOUR_USERNAME</span>
+                    to your github username, and change
+                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">YOUR_REPOSITORY</span>
+                    to your repository name.)
+                </p>
+            </div>
+            <div class="mt-4">
+                <div class="text-gray-600 text-base font-medium tracking-wider">
+                    <i class="bi bi-filetype-md pl-1 pr-2" style="font-size: 20px;"></i><span>README.md</span>
+                </div>
+                <pre class="rounded-xl language-css line-numbers">
+                    <code>
+&lt;a href="https://monkeytype.com/profile/YOUR_USERNAME"&gt;
+    &lt;img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPOSITORY/monkeytype-readme/monkeytype-readme-lb.svg" alt="My Monkeytype profile" /&gt;
+&lt;/a&gt;
                     </code>
                 </pre>
             </div>
