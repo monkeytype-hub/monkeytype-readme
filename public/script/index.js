@@ -54,6 +54,30 @@ $('#generateReadmeBtn').click(function () {
     $('#previewReadmeImg').attr('src', url);
 });
 
+$('#monkeytypeNameError').mouseenter(function () {
+    $('#monkeytypeNameErrorHover').removeClass('hidden');
+});
+
+$('#monkeytypeNameError').mouseleave(function () {
+    $('#monkeytypeNameErrorHover').addClass('hidden');
+});
+
+$('#themeNameError').mouseenter(function () {
+    $('#themeNameErrorHover').removeClass('hidden');
+});
+
+$('#themeNameError').mouseleave(function () {
+    $('#themeNameErrorHover').addClass('hidden');
+});
+
+$('#monkeytypeNameErrorHover').click(function () {
+    $('#monkeytypeNameError').addClass('hidden');
+});
+
+$('#themeNameErrorHover').click(function () {
+    $('#themeNameError').addClass('hidden');
+});
+
 function initialReadmeBtn(buttonId, buttonState) {
     if (!buttonState) {
         $(buttonId).removeClass('bg-slate-100 text-gray-400');
