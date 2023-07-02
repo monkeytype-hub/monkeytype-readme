@@ -87,12 +87,18 @@ To use MonkeyType Readme for your GitHub Readme, follow these steps:
 3. Add SVGs to your GitHub Readme.
 
    > Note: </br>
-   > change YOUR_USERNAME to your MonkeyType username.</br>
-   > change YOUR_REPOSITORY to your repository name.
+   > change YOUR_MONKEYTYPE_USERNAME to your MonkeyType username.</br>
+   > change YOUR_GITHUB_USERNAME to your Github username.</br>
+   > change YOUR_GITHUB_REPOSITORY to your repository name.</br>
+   > change SVG_NAME to the svg you want to use.</br>
+   >> original : monkeytype-readme.svg</br>
+   >> original + leader boards : monkeytype-readme-lb.svg</br>
+   >> original + personal bests : monkeytype-readme-pb.svg</br>
+   >> original + leader boards + personal bests : monkeytype-readme-lbpb.svg
    
    ```md
-    <a href="https://monkeytype.com/profile/YOUR_USERNAME">
-      <img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPOSITORY/monkeytype-readme/monkeytype-readme-lb.svg" alt="My Monkeytype profile" />
+    <a href="https://monkeytype.com/profile/YOUR_MONKEYTYPE_USERNAME">
+      <img src="https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_GITHUB_REPOSITORY/monkeytype-readme/SVG_NAME" alt="My Monkeytype profile" />
     </a>
    ```
 
