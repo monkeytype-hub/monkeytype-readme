@@ -149,7 +149,7 @@
             <div class="flex justify-start text-slate-400 text-lg font-normal tracking-wider mt-8">
                 <i class="bi bi-star-fill px-2"></i><span>initial readme</span>
             </div>
-            <div class="flex justify-start items-center gap-x-5 mt-6 h-12">
+            <div class="flex justify-start items-center gap-x-5 mt-6 h-16">
                 <input type="text" placeholder="Enter Your Monkeytype Name" id="monkeytypeNameInput"
                     class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium h-full border-nord-light-green focus:border-4 focus:outline-none focus:border-opacity-60"
                     style="width: 300px;">
@@ -298,8 +298,14 @@
                         .github/workflows/path
                     </span>
                     .<br>
-                    (please generate your monkeytype readme on the top first)
                 </p>
+            </div>
+            <div
+                class="p-6 w-fit rounded-xl bg-code-bg-brown text-code-bg-black mt-4 flex justify-center items-center h-full">
+                <i class="bi bi-star" style="font-size: 20px;"></i>
+                <span class="font-medium ml-2">
+                    please generate your monkeytype readme on the top first
+                </span>
             </div>
             <div class="mt-4">
                 <a class="text-gray-400 text-base font-medium tracking-wider underline px-1"
@@ -312,44 +318,46 @@
                     <i class="bi bi-filetype-yml pl-1 pr-2"
                         style="font-size: 20px;"></i><span>monkeytype-readme.yml</span>
                 </div>
-                <pre class="rounded-xl language-yaml line-numbers">
-                    <code id="readmeYml">
-name: generate monkeytype readme svg
-
-on:
-schedule:
-    - cron: "0 */6 * * *" # every 6 hours
-workflow_dispatch:
-
-jobs:
-download-svg:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-        uses: actions/checkout@v3
-
-    - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-        node-version: '16.x'
-
-    - name: Download SVG
-        run: |
-        mkdir public
-        curl -o public/monkeytype-readme.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES
-        curl -o public/monkeytype-readme-lb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?lb=true
-        curl -o public/monkeytype-readme-pb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?pb=true
-        curl -o public/monkeytype-readme-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?lbpb=true
-
-    - name: push monkeytype-readme.svg to the monkeytype-readme branch
-        uses: crazy-max/ghaction-github-pages@v2.5.0
-        with:
-        target_branch: monkeytype-readme
-        build_dir: public
-        env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                    </code>
-                </pre>
+                <div id="githubReadmeYml">
+                    <pre class="rounded-xl language-yaml line-numbers">
+                        <code>
+    name: generate monkeytype readme svg
+    
+    on:
+    schedule:
+        - cron: "0 */6 * * *" # every 6 hours
+    workflow_dispatch:
+    
+    jobs:
+    download-svg:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+            uses: actions/checkout@v3
+    
+        - name: Set up Node.js
+            uses: actions/setup-node@v3
+            with:
+            node-version: '16.x'
+    
+        - name: Download SVG
+            run: |
+            mkdir public
+            curl -o public/monkeytype-readme.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES
+            curl -o public/monkeytype-readme-lb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?lb=true
+            curl -o public/monkeytype-readme-pb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?pb=true
+            curl -o public/monkeytype-readme-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?lbpb=true
+    
+        - name: push monkeytype-readme.svg to the monkeytype-readme branch
+            uses: crazy-max/ghaction-github-pages@v2.5.0
+            with:
+            target_branch: monkeytype-readme
+            build_dir: public
+            env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                        </code>
+                    </pre>
+                </div>
             </div>
             <div class="mt-8 px-1">
                 <p class="text-lg font-normal leading-loose tracking-wider text-gray-600">
@@ -370,25 +378,39 @@ download-svg:
             </div>
             <div class="mt-8 px-1">
                 <p class="text-lg font-normal leading-loose tracking-wider text-gray-600">
-                    After the workflow run add SVGs to your GitHub Readme. <br>
-                    (Please change
-                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">YOUR_USERNAME</span>
-                    to your github username, and change
-                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">YOUR_REPOSITORY</span>
-                    to your repository name.)
+                    After the workflow run add SVGs to your GitHub Readme
                 </p>
+            </div>
+            <div
+                class="p-6 w-fit rounded-xl bg-code-bg-brown text-code-bg-black mt-4 flex justify-center items-center h-full">
+                <i class="bi bi-github" style="font-size: 20px;"></i>
+                <div class="ml-4">
+                    <div class="font-medium">
+                        please change
+                        <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
+                            GITHUB_USERNAME
+                        </span>
+                        &
+                        <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
+                            GITHUB_REPOSITORY
+                        </span>
+                        to your github username & github repository name
+                    </div>
+                </div>
             </div>
             <div class="mt-4">
                 <div class="text-gray-600 text-base font-medium tracking-wider">
                     <i class="bi bi-filetype-md pl-1 pr-2" style="font-size: 20px;"></i><span>README.md</span>
                 </div>
-                <pre class="rounded-xl language-css line-numbers">
-                    <code>
-&lt;a href="https://monkeytype.com/profile/YOUR_USERNAME"&gt;
-    &lt;img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPOSITORY/monkeytype-readme/monkeytype-readme-lb.svg" alt="My Monkeytype profile" /&gt;
-&lt;/a&gt;
-                    </code>
-                </pre>
+                <div id="githubReadmeMd">
+                    <pre class="rounded-xl language-css line-numbers">
+                        <code>
+    &lt;a href="https://monkeytype.com/profile/MONKEYTYPE_USERNAME"&gt;
+        &lt;img src="https://raw.githubusercontent.com/GITHUB_USERNAME/GITHUB_REPOSITORY/monkeytype-readme/monkeytype-readme-lb.svg" alt="My Monkeytype profile" /&gt;
+    &lt;/a&gt;
+                        </code>
+                    </pre>
+                </div>
             </div>
         </div>
     </div>
