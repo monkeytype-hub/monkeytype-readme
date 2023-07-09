@@ -1,10 +1,10 @@
-const util = require('util');
-const fs = require('fs');
+const util = require("util");
+const fs = require("fs");
 const readFile = util.promisify(fs.readFile);
 
 async function getOutputCSS() {
     try {
-        const data = await readFile('dist/output.css', 'utf-8');
+        const data = await readFile("dist/output.css", "utf-8");
         return data;
     } catch (err) {
         console.error(err);
@@ -12,7 +12,6 @@ async function getOutputCSS() {
     }
 }
 
-
 module.exports = {
-    getOutputCSS
+    getOutputCSS,
 };

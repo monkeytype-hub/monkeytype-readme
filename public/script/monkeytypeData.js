@@ -1,16 +1,16 @@
-const fs = require('fs');
-const axios = require('axios');
+const fs = require("fs");
+const axios = require("axios");
 
-const { library, icon } = require('@fortawesome/fontawesome-svg-core');
-const { fas } = require('@fortawesome/free-solid-svg-icons');
-const { far } = require('@fortawesome/free-regular-svg-icons');
-const { fab } = require('@fortawesome/free-brands-svg-icons');
-const { findIconDefinition } = require('@fortawesome/fontawesome-svg-core');
+const { library, icon } = require("@fortawesome/fontawesome-svg-core");
+const { fas } = require("@fortawesome/free-solid-svg-icons");
+const { far } = require("@fortawesome/free-regular-svg-icons");
+const { fab } = require("@fortawesome/free-brands-svg-icons");
+const { findIconDefinition } = require("@fortawesome/fontawesome-svg-core");
 
 library.add(fas, far, fab);
 
 function getTheme(themeName) {
-    const themesRawData = fs.readFileSync('./monkeytype-data/themes.json');
+    const themesRawData = fs.readFileSync("./monkeytype-data/themes.json");
     const themesData = JSON.parse(themesRawData);
 
     for (let i = 0; i < themesData.length; i++) {
@@ -21,19 +21,18 @@ function getTheme(themeName) {
     }
 
     let theme = {
-        "name": "serika_dark",
-        "bgColor": "#323437",
-        "mainColor": "#e2b714",
-        "subColor": "#646669",
-        "textColor": "#d1d0c5"
-    }
+        name: "serika_dark",
+        bgColor: "#323437",
+        mainColor: "#e2b714",
+        subColor: "#646669",
+        textColor: "#d1d0c5",
+    };
 
     return theme;
-
 }
 
 function getBadge(badgeId) {
-    const badgesRawData = fs.readFileSync('./monkeytype-data/badges.json');
+    const badgesRawData = fs.readFileSync("./monkeytype-data/badges.json");
     const badgesData = JSON.parse(badgesRawData);
     return badgesData[badgeId];
 }
@@ -45,7 +44,7 @@ async function getUserData(userId) {
     try {
         const response = await axios.get(url, {
             headers: {
-                'Authorization': `ApeKey ${API_KEY}`
+                Authorization: `ApeKey ${API_KEY}`,
             },
         });
         const userData = response.data.data;
@@ -69,32 +68,36 @@ async function getMonkeyTypeThemesData() {
 }
 
 async function getMonkeyTypeThemesList() {
-    const url = 'https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/_list.json';
+    const url =
+        "https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/_list.json";
 
     return fetch(url)
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
             return data;
-        }
-        );
+        });
 }
 
 async function getMonkeyTypeThemesByName(themeName) {
     const themeUrl = `https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/${themeName}.css`;
 
     return fetch(themeUrl)
-        .then(response => response.text())
-        .then(data => {
-            let cssData = data.substring(data.indexOf("{"), data.indexOf("}") + 1);
+        .then((response) => response.text())
+        .then((data) => {
+            let cssData = data.substring(
+                data.indexOf("{"),
+                data.indexOf("}") + 1
+            );
 
-            cssData = cssData.replace(/-(.)/g, (_, letter) => letter.toUpperCase())
-                .replaceAll('-', '')
-                .replaceAll(';', ',')
+            cssData = cssData
+                .replace(/-(.)/g, (_, letter) => letter.toUpperCase())
+                .replaceAll("-", "")
+                .replaceAll(";", ",")
                 .replace(/,\s*([^,]+)\s*$/, "$1")
-                .replace(/([a-zA-Z0-9_]+)(?=:)/g, "\"$1\"")
+                .replace(/([a-zA-Z0-9_]+)(?=:)/g, '"$1"')
                 .replace(/\/\*.*?\*\//g, "")
-                .replace(/(#[a-fA-F0-9]{3,8})(,|\s|$)/g, "\"$1\"$2")
-                .replaceAll(' ', '')
+                .replace(/(#[a-fA-F0-9]{3,8})(,|\s|$)/g, '"$1"$2')
+                .replaceAll(" ", "")
                 .replace(/(\})$/, "\n$1")
                 .replace(/("font":\s*)(\w+)/, '$1"$2"');
 
@@ -103,58 +106,78 @@ async function getMonkeyTypeThemesByName(themeName) {
                 return cssData.match(new RegExp(`"${colorName}":"([^"]+)"`))[1];
             };
 
-            cssData = cssData.replace(/var\([^)]+\)/g, resolveColorVariable)
-                .replace(/(#[a-fA-F0-9]{3,8})(,|\s|$)/g, "\"$1\"$2");
+            cssData = cssData
+                .replace(/var\([^)]+\)/g, resolveColorVariable)
+                .replace(/(#[a-fA-F0-9]{3,8})(,|\s|$)/g, '"$1"$2');
 
             return JSON.parse(cssData);
-        })
+        });
 }
 
 async function getMonkeyTypeBadgesData() {
-    const url = 'https://api.github.com/repos/monkeytypegame/monkeytype/contents/frontend/src/ts/controllers/badge-controller.ts';
+    const url =
+        "https://api.github.com/repos/monkeytypegame/monkeytype/contents/frontend/src/ts/controllers/badge-controller.ts";
 
     return fetch(url)
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
             const content = atob(data.content);
-            let badgesData = content.slice(content.search('{'), content.search('};') + 1);
-            badgesData = badgesData.replace(/(\w+)\s*:/g, '"$1":')
-                .replace(/,(\s*[\]}])/g, '$1')
-                .replace(/(\w+:)|(\w+ :)/g, (matchedStr) => '"' + matchedStr.replace(/:/g, '') + '":')
-                .replace(/\"/g, '\"')
-                .replace(/\"animation\"/g, 'animation');
+            let badgesData = content.slice(
+                content.search("{"),
+                content.search("};") + 1
+            );
+            badgesData = badgesData
+                .replace(/(\w+)\s*:/g, '"$1":')
+                .replace(/,(\s*[\]}])/g, "$1")
+                .replace(
+                    /(\w+:)|(\w+ :)/g,
+                    (matchedStr) => '"' + matchedStr.replace(/:/g, "") + '":'
+                )
+                .replace(/\"/g, '"')
+                .replace(/\"animation\"/g, "animation");
             badgesData = JSON.parse(badgesData);
 
             for (let i = 0; i < Object.keys(badgesData).length; i++) {
                 let badge = badgesData[Object.keys(badgesData)[i]];
                 if (badge.hasOwnProperty("customStyle")) {
-                    if (badge.customStyle == "animation: rgb-bg 10s linear infinite;") {
+                    if (
+                        badge.customStyle ==
+                        "animation: rgb-bg 10s linear infinite;"
+                    ) {
                         badge.color = "white";
-                        badge["background"] = "animation: rgb-bg 10s linear infinite;";
+                        badge["background"] =
+                            "animation: rgb-bg 10s linear infinite;";
                     }
                 } else {
                     if (badge.color.includes("var")) {
-                        badge.color = badge.color.replace("var(--", "")
+                        badge.color = badge.color
+                            .replace("var(--", "")
                             .replace(")", "")
                             .replace("-", "")
                             .replace("c", "C");
                     }
                     if (badge.background.includes("var")) {
-                        badge.background = badge.background.replace("var(--", "")
+                        badge.background = badge.background
+                            .replace("var(--", "")
                             .replace(")", "")
                             .replace("-", "")
                             .replace("c", "C");
                     }
                 }
-                const iconSvg = findIconDefinition({ prefix: 'fas', iconName: `${badge.icon.replace("fa-", "")}` });
-                badge["iconSvg"] = `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 ${iconSvg["icon"][0]} ${iconSvg["icon"][1]}\" fill=\"\" width=\"12\" height=\"12\"><path d=\"${iconSvg["icon"][4]}\"/></svg>`;
+                const iconSvg = findIconDefinition({
+                    prefix: "fas",
+                    iconName: `${badge.icon.replace("fa-", "")}`,
+                });
+                badge[
+                    "iconSvg"
+                ] = `<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 ${iconSvg["icon"][0]} ${iconSvg["icon"][1]}\" fill=\"\" width=\"12\" height=\"12\"><path d=\"${iconSvg["icon"][4]}\"/></svg>`;
             }
 
-            badgesData = JSON.stringify(badgesData, null, 4)
+            badgesData = JSON.stringify(badgesData, null, 4);
 
             return badgesData;
         })
-        .catch(error => console.error(error));
+        .catch((error) => console.error(error));
 }
 
 module.exports = {
@@ -162,5 +185,5 @@ module.exports = {
     getBadge,
     getUserData,
     getMonkeyTypeThemesData,
-    getMonkeyTypeBadgesData
+    getMonkeyTypeBadgesData,
 };

@@ -1,61 +1,61 @@
 name: Update monkeytype theme json list
 
 on:
-  schedule:
-     - cron: '0 */24 * * *'
+    schedule:
+        - cron: "0 */24 * * *"
 
 jobs:
-  make-request:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-        
-      - name: Download theme json file from monkeytype
-        run: curl -o monkeytype-data/themes.json https://monkeytype-readme.repl.co/monkeytype/theme
-        
-      - name: Format JSON data
-        run: |
-          python3 -c 'import json; data = json.load(open("monkeytype-data/themes.json")); json.dump(data, open("monkeytype-data/themes.json", "w"), indent=2)'
-      
-      - name: Print json file contents
-        run: cat monkeytype-data/themes.json
-        
-      - name: Update theme list 
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const fs = require('fs');
-            let monkeytypeThemesJson = fs.readFileSync('monkeytype-data/themes.json');
-            const filePath = '${{ github.workspace }}/monkeytype-data/themes.json';
-            fs.writeFileSync(filePath, monkeytypeThemesJson);
-        
-      - name: Print updated theme contents
-        run: |
-          cat monkeytype-data/themes.json
-          
-      - name: Configure git
-        run: |
-          git config --global user.name "ridemountainpig"
-          git config --global user.email "lin0905580802@gmail.com"
-          
-      - name: Commit and push changes
-        run: |
-          if git diff-index --quiet HEAD --; then
-            echo "No changes detected."
-          else
-            git add .
-            git commit -m "feat: update themes json list"
-          fi
-        continue-on-error: true
-          
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          branch: master
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+    make-request:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "16.x"
+
+            - name: Download theme json file from monkeytype
+              run: curl -o monkeytype-data/themes.json https://monkeytype-readme.repl.co/monkeytype/theme
+
+            - name: Format JSON data
+              run: |
+                  python3 -c 'import json; data = json.load(open("monkeytype-data/themes.json")); json.dump(data, open("monkeytype-data/themes.json", "w"), indent=2)'
+
+            - name: Print json file contents
+              run: cat monkeytype-data/themes.json
+
+            - name: Update theme list
+              uses: actions/github-script@v6
+              with:
+                  script: |
+                      const fs = require('fs');
+                      let monkeytypeThemesJson = fs.readFileSync('monkeytype-data/themes.json');
+                      const filePath = '${{ github.workspace }}/monkeytype-data/themes.json';
+                      fs.writeFileSync(filePath, monkeytypeThemesJson);
+
+            - name: Print updated theme contents
+              run: |
+                  cat monkeytype-data/themes.json
+
+            - name: Configure git
+              run: |
+                  git config --global user.name "ridemountainpig"
+                  git config --global user.email "lin0905580802@gmail.com"
+
+            - name: Commit and push changes
+              run: |
+                  if git diff-index --quiet HEAD --; then
+                    echo "No changes detected."
+                  else
+                    git add .
+                    git commit -m "feat: update themes json list"
+                  fi
+              continue-on-error: true
+
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  branch: master
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
