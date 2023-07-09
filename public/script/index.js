@@ -52,6 +52,7 @@ $('#generateReadmeBtn').click(function () {
     }
     $('#previewReadmeLink').attr('href', `https://monkeytype.com/profile/${monkeytypeName}`);
     $('#previewReadmeImg').attr('src', url);
+    updateReadmeCode();
 });
 
 $('#monkeytypeNameError').mouseenter(function () {
@@ -123,6 +124,61 @@ function showBorder(themeName) {
         themeListState.themeName = themeName;
         themeListState.borderColor = borderColor;
     }
+}
+
+function updateReadmeCode() {
+    const githubReamdeYml = `
+    <pre class="rounded-xl line-numbers language-yaml" tabindex="0">                        <code class="language-yaml">
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> generate monkeytype readme svg
+    
+    <span class="token key atrule">on</span><span class="token punctuation">:</span>
+    <span class="token key atrule">schedule</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">cron</span><span class="token punctuation">:</span> <span class="token string">"0 */6 * * *"</span> <span class="token comment"># every 6 hours</span>
+    <span class="token key atrule">workflow_dispatch</span><span class="token punctuation">:</span>
+    
+    <span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+    <span class="token key atrule">download-svg</span><span class="token punctuation">:</span>
+        <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+        <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Checkout code
+            <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v3
+    
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Set up Node.js
+            <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v3
+            <span class="token key atrule">with</span><span class="token punctuation">:</span>
+            <span class="token key atrule">node-version</span><span class="token punctuation">:</span> <span class="token string">'16.x'</span>
+    
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Download SVG
+            <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+            mkdir public
+            curl -o public/monkeytype-readme.svg https://monkeytype-readme.repl.co/generate-svg/${monkeytypeName}/${themeListState.themeName}
+            curl -o public/monkeytype-readme-lb.svg https://monkeytype-readme.repl.co/generate-svg/${monkeytypeName}/${themeListState.themeName}?lb=true
+            curl -o public/monkeytype-readme-pb.svg https://monkeytype-readme.repl.co/generate-svg/${monkeytypeName}/${themeListState.themeName}?pb=true
+            curl -o public/monkeytype-readme-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/${monkeytypeName}/${themeListState.themeName}?lbpb=true</span>
+    
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> push monkeytype<span class="token punctuation">-</span>readme.svg to the monkeytype<span class="token punctuation">-</span>readme branch
+            <span class="token key atrule">uses</span><span class="token punctuation">:</span> crazy<span class="token punctuation">-</span>max/ghaction<span class="token punctuation">-</span>github<span class="token punctuation">-</span>pages@v2.5.0
+            <span class="token key atrule">with</span><span class="token punctuation">:</span>
+            <span class="token key atrule">target_branch</span><span class="token punctuation">:</span> monkeytype<span class="token punctuation">-</span>readme
+            <span class="token key atrule">build_dir</span><span class="token punctuation">:</span> public
+            <span class="token key atrule">env</span><span class="token punctuation">:</span>
+            <span class="token key atrule">GITHUB_TOKEN</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.GITHUB_TOKEN <span class="token punctuation">}</span><span class="token punctuation">}</span>
+                <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code>
+                    </pre>
+    `
+    $('#githubReadmeYml').empty();
+    $('#githubReadmeYml').append(githubReamdeYml);
+
+    const githubReamdeMd = `
+    <pre class="rounded-xl line-numbers language-css" tabindex="0">                        <code class="language-css">
+    &lt;a href=<span class="token string">"https://monkeytype.com/profile/${monkeytypeName}"</span>&gt;
+        &lt;img src=<span class="token string">"https://raw.githubusercontent.com/GITHUB_USERNAME/GITHUB_REPOSITORY/monkeytype-readme/monkeytype-readme-lb.svg"</span> alt=<span class="token string">"My Monkeytype profile"</span> /&gt;
+    &lt;/a&gt;
+                        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code>
+                    </pre>
+    `
+    $('#githubReadmeMd').empty();
+    $('#githubReadmeMd').append(githubReamdeMd);
 }
 
 function hexToRgb(hex) {
