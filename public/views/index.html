@@ -1,325 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MT Readme</title>
+        <link rel="stylesheet" href="/styles/output.css" />
+        <link
+            rel="icon"
+            href="../image/stupidMonkeyIcon.png"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        />
+        <link href="../style/prism.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MT Readme</title>
-    <link rel="stylesheet" href="/styles/output.css" />
-    <link rel="icon" href="../image/stupidMonkeyIcon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link href='../style/prism.css' rel='stylesheet' type='text/css' />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <style>
+            .scroll {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                overflow-y: scroll;
+            }
 
-    <style>
-        .scroll {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            overflow-y: scroll;
-        }
+            .scroll::-webkit-scrollbar {
+                display: none;
+            }
 
-        .scroll::-webkit-scrollbar {
-            display: none;
-        }
+            .theme-border:hover {
+                border: 4px solid;
+            }
+        </style>
+    </head>
 
-        .theme-border:hover {
-            border: 4px solid;
-        }
-    </style>
-</head>
-
-<body class="scroll not-italic">
-    <div class="h-screen">
-        <div class="h-1/6">
-            <div class="flex justify-between">
-                <div class="p-12">
-                    <a href="/">
-                        <div class="flex items-center justify-center">
-                            <img src="../image/stupidMonkeyIcon.png" alt="icon" class="h-10 w-10" />
-                            <span class="px-4 text-lg font-bold tracking-wide">MonkeyType Readme</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="p-12">
-                    <a href="https://github.com/ridemountainpig/monkeytype-readme">
-                        <img src="../image/github.png" alt="" class="h-10 w-10" />
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="flex h-4/6 items-center justify-center">
-            <div>
-                <div class="text-center text-6xl font-black tracking-wider">
-                    Share
-                    <span
-                        class="bg-gradient-to-br from-nord-light-subAlt to-nord-light-green bg-clip-text text-center text-6xl font-black tracking-wider text-transparent">
-                        MonkeyType Story
-                    </span>
-                </div>
-                <div class="mt-6 text-center text-6xl font-black tracking-wider">
-                    With The World
-                </div>
-                <div class="my-16 text-center text-2xl font-medium text-nord-light-sub opacity-70">
-                    Monkeytype Readme transforms typing data into SVGs for
-                    your GitHub Readme.
-                </div>
-                <div class="flex items-center justify-center">
-                    <div
-                        class="h-14 w-28 rounded-2xl bg-black text-center text-sm font-medium tracking-wide text-white">
-                        <div class="flex h-full items-center justify-center">
-                            Create Now
-                        </div>
+    <body class="scroll not-italic">
+        <div class="h-screen">
+            <div class="h-1/6">
+                <div class="flex justify-between">
+                    <div class="p-6 lg:p-12">
+                        <a href="/">
+                            <div class="flex items-center justify-center">
+                                <img
+                                    src="../image/stupidMonkeyIcon.png"
+                                    alt="icon"
+                                    class="h-8 w-8 lg:h-10 lg:w-10"
+                                />
+                                <span
+                                    class="px-4 text-xs font-semibold tracking-wide lg:text-base lg:font-bold xl:text-lg"
+                                    >MonkeyType Readme</span
+                                >
+                            </div>
+                        </a>
+                    </div>
+                    <div class="p-6 lg:p-12">
+                        <a
+                            href="https://github.com/ridemountainpig/monkeytype-readme"
+                        >
+                            <img
+                                src="../image/github.png"
+                                alt=""
+                                class="h-8 w-8 lg:h-10 lg:w-10"
+                            />
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="h-1/6">
-            <div class="flex h-full items-end justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-arrow-down-circle mb-10 animate-bounce">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="8 12 12 16 16 12"></polyline>
-                    <line x1="12" x2="12" y1="8" y2="16"></line>
-                </svg>
-            </div>
-        </div>
-    </div>
-    <div class="lg:px-20 xl:px-40 mt-16">
-        <h2 class="text-3xl font-bold tracking-wider">What is MonkeyType Readme</h2>
-        <div class="grid grid-cols-2 gap-4">
-            <div class="col-span-1 flex justify-center items-center">
+            <div class="flex h-4/6 items-center justify-center">
                 <div>
-                    <p class="text-xl font-normal leading-loose tracking-wider text-gray-600 px-1">
-                        MonkeyType Readme is a tool that transforms your MonkeyType typing data into SVGs, which you can
-                        put
-                        in your GitHub Readme to show off your typing speed and accuracy.
-                    </p>
-                    <p class="text-xl font-normal leading-loose tracking-wider text-gray-600 mt-5 px-1">
-                        With MonkeyType Readme, you can customize the appearance of your typing stats to match your
-                        GitHub
-                        Readme style. You can also include multiple SVGs to display different MonkeyType data, such as
-                        LeaderBoards and PersonalBests.
-                    </p>
+                    <div class="justify-center sm:flex">
+                        <div
+                            class="text-center text-3xl font-black tracking-wider sm:text-4xl md:text-5xl xl:text-6xl"
+                        >
+                            Share
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-nord-light-subAlt to-nord-light-green bg-clip-text text-center text-3xl font-black tracking-wider text-transparent sm:ml-3 sm:text-4xl md:text-5xl xl:text-6xl"
+                        >
+                            MonkeyType Story
+                        </div>
+                    </div>
+                    <div
+                        class="mt-1 text-center text-3xl font-black tracking-wider sm:mt-6 sm:text-4xl md:text-5xl xl:text-6xl"
+                    >
+                        With The World
+                    </div>
+                    <div
+                        class="my-16 px-4 text-center text-base font-medium text-nord-light-sub opacity-70 md:text-lg lg:text-2xl"
+                    >
+                        Monkeytype Readme transforms typing data into SVGs for
+                        your GitHub Readme.
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <div
+                            class="h-14 w-28 rounded-2xl bg-black text-center text-sm font-medium tracking-wide text-white"
+                        >
+                            <div
+                                class="flex h-full items-center justify-center"
+                            >
+                                Create Now
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-span-1">
-                <div class="flex justify-center items-center h-full">
-                    <a href="https://monkeytype.com/profile/miodec">
-                        <img src="https://monkeytype-readme.repl.co/generate-svg/miodec/nord_light?lb=true" alt="">
+            <div class="h-1/6">
+                <div class="flex h-full items-end justify-center">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-down-circle mb-10 animate-bounce"
+                    >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="8 12 12 16 16 12"></polyline>
+                        <line x1="12" x2="12" y1="8" y2="16"></line>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 px-5 lg:px-20 xl:px-40">
+            <h2 class="text-lg font-bold tracking-wider md:text-3xl">
+                What is MonkeyType Readme
+            </h2>
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                <div class="col-span-1 flex items-center justify-center">
+                    <div>
+                        <p
+                            class="text-base font-normal leading-loose tracking-wider text-gray-600 lg:px-1 lg:text-xl"
+                        >
+                            MonkeyType Readme is a tool that transforms your
+                            MonkeyType typing data into SVGs, which you can put
+                            in your GitHub Readme to show off your typing speed
+                            and accuracy.
+                        </p>
+                        <p
+                            class="mt-5 text-base font-normal leading-loose tracking-wider text-gray-600 lg:px-1 lg:text-xl"
+                        >
+                            With MonkeyType Readme, you can customize the
+                            appearance of your typing stats to match your GitHub
+                            Readme style. You can also include multiple SVGs to
+                            display different MonkeyType data, such as
+                            LeaderBoards and PersonalBests.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <div class="flex h-full items-center justify-center">
+                        <a href="https://monkeytype.com/profile/miodec">
+                            <img
+                                src="https://monkeytype-readme.repl.co/generate-svg/miodec/nord_light?lb=true"
+                                alt=""
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden grid-cols-3 gap-4 pt-20 lg:grid">
+                <div class="col-span-1">
+                    <a href="https://monkeytype.com/profile/rocket">
+                        <img
+                            src="https://monkeytype-readme.repl.co/generate-svg/rocket/slambook?lbpb=true"
+                            alt=""
+                        />
+                    </a>
+                    <a href="https://monkeytype.com/profile/UTF8">
+                        <img
+                            src="https://monkeytype-readme.repl.co/generate-svg/UTF8/camping"
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <div class="col-span-1">
+                    <a href="https://monkeytype.com/profile/ridemountainpig">
+                        <img
+                            src="https://monkeytype-readme.repl.co/generate-svg/ridemountainpig/witch_girl"
+                            alt=""
+                        />
+                    </a>
+                    <a href="https://monkeytype.com/profile/semi">
+                        <img
+                            src="https://monkeytype-readme.repl.co/generate-svg/semi/blueberry_light"
+                            alt=""
+                        />
+                    </a>
+                    <a href="https://monkeytype.com/profile/mac">
+                        <img
+                            src="https://monkeytype-readme.repl.co/generate-svg/mac/mizu?lb=true"
+                            alt=""
+                        />
+                    </a>
+                    <a href="https://monkeytype.com/profile/ze_or">
+                        <img
+                            src="https://monkeytype-readme.repl.co/generate-svg/ze_or/darling"
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <div class="col-span-1">
+                    <a href="https://monkeytype.com/profile/nask">
+                        <img
+                            src="https://monkeytype-readme.repl.co/generate-svg/nask/beach?lb=true"
+                            alt=""
+                        />
+                    </a>
+                    <a href="https://monkeytype.com/profile/davidho0403">
+                        <img
+                            src="https://monkeytype-readme.repl.co/generate-svg/davidho0403/lil_dragon?pb=true"
+                            alt=""
+                        />
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="grid grid-cols-3 gap-4 pt-20">
-            <div class="col-span-1">
-                <a href="https://monkeytype.com/profile/rocket">
-                    <img src="https://monkeytype-readme.repl.co/generate-svg/rocket/slambook?lbpb=true" alt="">
-                </a>
-                <a href="https://monkeytype.com/profile/UTF8">
-                    <img src="https://monkeytype-readme.repl.co/generate-svg/UTF8/camping" alt="">
-                </a>
-            </div>
-            <div class="col-span-1">
-                <a href="https://monkeytype.com/profile/ridemountainpig">
-                    <img src="https://monkeytype-readme.repl.co/generate-svg/ridemountainpig/witch_girl" alt="">
-                </a>
-                <a href="https://monkeytype.com/profile/semi">
-                    <img src="https://monkeytype-readme.repl.co/generate-svg/semi/blueberry_light" alt="">
-                </a>
-                <a href="https://monkeytype.com/profile/mac">
-                    <img src="https://monkeytype-readme.repl.co/generate-svg/mac/mizu?lb=true" alt="">
-                </a>
-                <a href="https://monkeytype.com/profile/ze_or">
-                    <img src="https://monkeytype-readme.repl.co/generate-svg/ze_or/darling" alt="">
-                </a>
-            </div>
-            <div class="col-span-1">
-                <a href="https://monkeytype.com/profile/nask">
-                    <img src="https://monkeytype-readme.repl.co/generate-svg/nask/beach?lb=true" alt="">
-                </a>
-                <a href="https://monkeytype.com/profile/davidho0403">
-                    <img src="https://monkeytype-readme.repl.co/generate-svg/davidho0403/lil_dragon?pb=true" alt="">
-                </a>
-            </div>
-        </div>
-        <div class="pt-16">
-            <h2 class="text-3xl font-bold tracking-wider">Create monkeytype readme</h2>
-            <div class="flex justify-start text-slate-400 text-lg font-normal tracking-wider mt-8">
-                <i class="bi bi-star-fill px-2"></i><span>initial readme</span>
-            </div>
-            <div class="flex justify-start items-center gap-x-5 mt-6 h-16">
-                <input type="text" placeholder="Enter Your Monkeytype Name" id="monkeytypeNameInput"
-                    class="p-4 bg-slate-100 text-gray-400 rounded-xl text-center font-medium h-full border-nord-light-green focus:border-4 focus:outline-none focus:border-opacity-60"
-                    style="width: 300px;">
+            <div class="pt-4 lg:pt-16">
+                <h2 class="text-lg font-bold tracking-wider md:text-3xl">
+                    Create monkeytype readme
+                </h2>
+                <div
+                    class="mt-4 flex justify-start text-sm font-medium tracking-wider text-slate-400 lg:mt-8 lg:text-lg"
+                >
+                    <i class="bi bi-star-fill px-2"></i
+                    ><span>initial readme</span>
+                </div>
+                <div
+                    class="mt-6 h-12 items-center justify-start gap-x-5 md:flex md:h-16"
+                >
+                    <input
+                        type="text"
+                        placeholder="Enter Your Monkeytype Name"
+                        id="monkeytypeNameInput"
+                        class="h-full rounded-xl border-nord-light-green bg-slate-100 p-4 text-center font-medium text-gray-400 focus:border-4 focus:border-opacity-60 focus:outline-none"
+                        style="width: 300px"
+                    />
 
-                <button id="leaderBoardBtn"
-                    class="px-4 h-full bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60">
-                    <div id="leaderBoardTooltip" class="absolute z-10 -top-16 left-0 w-full hidden">
-                        <div
-                            class="text-sm font-medium text-white transition-opacity duration-300 px-3 py-2 bg-gray-900 rounded-lg shadow-sm">
-                            SVGs show with Leader Board
-                        </div>
-                        <div class="flex justify-center w-full -mt-3">
-                            <i class="bi bi-caret-down-fill text-gray-900" style="font-size: 18px;"></i>
-                        </div>
+                    <div>
+                        <button
+                            id="leaderBoardBtn"
+                            class="relative mt-4 h-12 rounded-xl bg-slate-100 px-4 text-center font-medium text-gray-400 hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60 md:mt-0 md:h-16"
+                        >
+                            <div
+                                id="leaderBoardTooltip"
+                                class="absolute -top-16 left-0 z-10 hidden w-full"
+                            >
+                                <div
+                                    class="rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white shadow-sm transition-opacity duration-300"
+                                >
+                                    SVGs show with Leader Board
+                                </div>
+                                <div class="-mt-3 flex w-full justify-center">
+                                    <i
+                                        class="bi bi-caret-down-fill text-gray-900"
+                                        style="font-size: 18px"
+                                    ></i>
+                                </div>
+                            </div>
+                            <div
+                                class="flex h-full items-center justify-center"
+                            >
+                                <i
+                                    class="bi bi-plus"
+                                    style="font-size: 25px"
+                                ></i>
+                                Leader Board
+                            </div>
+                        </button>
                     </div>
-                    <div class="flex justify-center items-center h-full">
-                        <i class="bi bi-plus" style="font-size: 25px;"></i>
-                        Leader Board
-                    </div>
-                </button>
 
-                <button id="personalBestBtn"
-                    class="px-4 h-full bg-slate-100 text-gray-400 rounded-xl text-center font-medium relative hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60">
-                    <div id="personalBestTooltip" class="absolute z-10 -top-16 left-0 w-full hidden">
-                        <div
-                            class="text-sm font-medium text-white transition-opacity duration-300 px-3 py-2 bg-gray-900 rounded-lg shadow-sm">
-                            SVGs show with Personal Best
-                        </div>
-                        <div class="flex justify-center w-full -mt-3">
-                            <i class="bi bi-caret-down-fill text-gray-900" style="font-size: 18px;"></i>
-                        </div>
+                    <div>
+                        <button
+                            id="personalBestBtn"
+                            class="relative mt-4 h-12 rounded-xl bg-slate-100 px-4 text-center font-medium text-gray-400 hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60 md:mt-0 md:h-16"
+                        >
+                            <div
+                                id="personalBestTooltip"
+                                class="absolute -top-16 left-0 z-10 hidden w-full"
+                            >
+                                <div
+                                    class="rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white shadow-sm transition-opacity duration-300"
+                                >
+                                    SVGs show with Personal Best
+                                </div>
+                                <div class="-mt-3 flex w-full justify-center">
+                                    <i
+                                        class="bi bi-caret-down-fill text-gray-900"
+                                        style="font-size: 18px"
+                                    ></i>
+                                </div>
+                            </div>
+                            <div
+                                class="flex h-full items-center justify-center"
+                            >
+                                <i
+                                    class="bi bi-plus"
+                                    style="font-size: 25px"
+                                ></i>
+                                Personal Best
+                            </div>
+                        </button>
                     </div>
-                    <div class="flex justify-center items-center h-full">
-                        <i class="bi bi-plus" style="font-size: 25px;"></i>
-                        Personal Best
-                    </div>
-                </button>
-            </div>
-            <div class="flex justify-start text-slate-400 text-lg font-normal tracking-wider mt-8">
-                <i class="bi bi-palette-fill px-2"></i><span>theme</span>
-            </div>
-            <div id="themeListContainer" class="grid lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8 h-96 overflow-hidden">
-                <!-- <div class="col-span-1 rounded-xl px-2 py-3 h-12 bg-red-50">
+                </div>
+
+                <div
+                    class="mt-38 flex justify-start text-sm font-medium tracking-wider text-slate-400 md:mt-8 lg:text-xl"
+                >
+                    <i class="bi bi-palette-fill px-2"></i><span>theme</span>
+                </div>
+                <div
+                    id="themeListContainer"
+                    class="mt-8 grid h-96 gap-2 overflow-hidden lg:grid-cols-3 lg:gap-4 xl:grid-cols-4"
+                >
+                    <!-- <div class="col-span-1 rounded-xl px-2 py-3 h-12 bg-red-50">
                     <div class="col-span-5 flex justify-center items-center h-full tracking-wider font-medium h-full">hello</div>
                 </div> -->
-            </div>
-            <div id="showThemeBtn">
-                <div class="flex justify-center text-slate-400 text-lg font-normal tracking-wider w-full">
-                    <button class="w-fit p-2" onclick="showThemeList()">
-                        <div>more theme</div>
-                        <i class="bi bi-caret-down" style="font-size: 24px;"></i>
-                    </button>
                 </div>
-            </div>
-            <div id="hideThemeBtn" class="hidden">
-                <div class="flex justify-center text-slate-400 text-lg font-normal tracking-wider w-full">
-                    <button class="w-fit p-2" onclick="hideThemeList()">
-                        <i class="bi bi-caret-up" style="font-size: 24px;"></i>
-                        <div>hide theme</div>
-                    </button>
+                <div id="showThemeBtn">
+                    <div
+                        class="flex w-full justify-center text-lg font-normal tracking-wider text-slate-400"
+                    >
+                        <button class="w-fit p-2" onclick="showThemeList()">
+                            <div>more theme</div>
+                            <i
+                                class="bi bi-caret-down"
+                                style="font-size: 24px"
+                            ></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="flex justify-start text-slate-400 text-lg font-normal tracking-wider">
-                <i class="bi bi-bookmark-star-fill px-2"></i><span>monkeytype readme</span>
-            </div>
-            <div class="flex justify-start mt-6">
-                <div class="flex">
-                    <button id="generateReadmeBtn"
-                        class="p-4 h-16 bg-slate-100 text-gray-400 rounded-xl text-center font-medium hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60">
-                        Generate MonkeyType Readme
-                    </button>
-                    <div id="monkeytypeNameError"
-                        class=" ml-2 relative h-16 rounded-xl border-4 border-nord-light-subAlt overflow-hidden hidden"
-                        style="width: 320px;">
-                        <div class="w-full h-full p-4 bg-nord-light-error bg-opacity-40 absolute flex">
-                            <div class="flex justify-center items-center h-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="#eceff4"
-                                    style="height: 20px; width: 20px;">
-                                    <path
-                                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-                                </svg>
+                <div id="hideThemeBtn" class="hidden">
+                    <div
+                        class="flex w-full justify-center text-lg font-normal tracking-wider text-slate-400"
+                    >
+                        <button class="w-fit p-2" onclick="hideThemeList()">
+                            <i
+                                class="bi bi-caret-up"
+                                style="font-size: 24px"
+                            ></i>
+                            <div>hide theme</div>
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="flex justify-start text-lg font-normal tracking-wider text-slate-400"
+                >
+                    <i class="bi bi-bookmark-star-fill px-2"></i
+                    ><span>monkeytype readme</span>
+                </div>
+                <div class="mt-6 flex justify-start">
+                    <div class="lg:flex">
+                        <button
+                            id="generateReadmeBtn"
+                            class="h-16 rounded-xl bg-slate-100 p-4 text-center font-medium text-gray-400 hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60"
+                        >
+                            Generate MonkeyType Readme
+                        </button>
+                        <div
+                            id="monkeytypeNameError"
+                            class="relative mt-2 hidden h-16 overflow-hidden rounded-xl border-4 border-nord-light-subAlt lg:ml-2 lg:mt-0"
+                            style="width: 320px"
+                        >
+                            <div
+                                class="absolute flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
+                            >
+                                <div
+                                    class="flex h-full items-center justify-center"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 384 512"
+                                        fill="#eceff4"
+                                        style="height: 20px; width: 20px"
+                                    >
+                                        <path
+                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div
+                                    class="ml-3 flex h-full items-center justify-center tracking-wide"
+                                >
+                                    <div
+                                        class="text-left text-base font-medium text-nord-light-bg"
+                                    >
+                                        Please Enter Monkeytype Name
+                                    </div>
+                                </div>
                             </div>
-                            <div class="ml-3 flex justify-center items-center h-full tracking-wide">
-                                <div class="text-nord-light-bg text-base font-medium text-left">
-                                    Please Enter Monkeytype Name
+                            <div
+                                id="monkeytypeNameErrorHover"
+                                class="absolute left-0 top-0 hidden h-full w-full cursor-pointer border-4 border-transparent bg-black bg-opacity-20"
+                            >
+                                <div
+                                    class="flex h-full w-full items-center justify-center"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 384 512"
+                                        fill="#eceff4"
+                                        style="height: 40px; width: 40px"
+                                    >
+                                        <path
+                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                                        />
+                                    </svg>
                                 </div>
                             </div>
                         </div>
-                        <div id="monkeytypeNameErrorHover"
-                            class="w-full h-full absolute bg-black bg-opacity-20 left-0 top-0 border-4 border-transparent cursor-pointer hidden">
-                            <div class="flex justify-center items-center h-full w-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="#eceff4"
-                                    style="height: 40px; width: 40px;">
-                                    <path
-                                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-                                </svg>
+                        <div
+                            id="themeNameError"
+                            class="relative mt-2 hidden h-16 overflow-hidden rounded-xl border-4 border-nord-light-subAlt lg:ml-2 lg:mt-0"
+                            style="width: 235px"
+                        >
+                            <div
+                                class="absolute flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
+                            >
+                                <div
+                                    class="flex h-full items-center justify-center"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 384 512"
+                                        fill="#eceff4"
+                                        style="height: 20px; width: 20px"
+                                    >
+                                        <path
+                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                                        />
+                                    </svg>
+                                </div>
+                                <div
+                                    class="ml-3 flex h-full items-center justify-center tracking-wide"
+                                >
+                                    <div
+                                        class="text-left text-base font-medium text-nord-light-bg"
+                                    >
+                                        Please Select Theme
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div id="themeNameError"
-                        class="ml-2 relative h-16 rounded-xl border-4 border-nord-light-subAlt overflow-hidden hidden"
-                        style="width: 235px;">
-                        <div class="w-full h-full p-4 bg-nord-light-error bg-opacity-40 absolute flex">
-                            <div class="flex justify-center items-center h-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="#eceff4"
-                                    style="height: 20px; width: 20px;">
-                                    <path
-                                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-                                </svg>
-                            </div>
-                            <div class="ml-3 flex justify-center items-center h-full tracking-wide">
-                                <div class="text-nord-light-bg text-base font-medium text-left">
-                                    Please Select Theme
+                            <div
+                                id="themeNameErrorHover"
+                                class="absolute left-0 top-0 hidden h-full w-full cursor-pointer border-4 border-transparent bg-black bg-opacity-20"
+                            >
+                                <div
+                                    class="flex h-full w-full items-center justify-center"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 384 512"
+                                        fill="#eceff4"
+                                        style="height: 40px; width: 40px"
+                                    >
+                                        <path
+                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                                        />
+                                    </svg>
                                 </div>
                             </div>
                         </div>
-                        <div id="themeNameErrorHover"
-                            class="w-full h-full absolute bg-black bg-opacity-20 left-0 top-0 border-4 border-transparent cursor-pointer hidden">
-                            <div class="flex justify-center items-center h-full w-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="#eceff4"
-                                    style="height: 40px; width: 40px;">
-                                    <path
-                                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-                                </svg>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="flex justify-start mt-6">
-                <a id="previewReadmeLink" href="">
-                    <img id="previewReadmeImg" src="" alt="">
-                </a>
-            </div>
-        </div>
-        <div class="mt-8 pb-16">
-            <h2 class="text-3xl font-bold tracking-wider">How to use</h2>
-            <div class="mt-4">
-                <p class="text-lg font-normal leading-loose tracking-wider text-gray-600">
-                    Add your
-                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
-                        monkeytype-readme.yml
-                    </span>
-                    file in your repository's
-                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
-                        .github/workflows/path
-                    </span>
-                    .<br>
-                </p>
-            </div>
-            <div
-                class="p-6 w-fit rounded-xl bg-code-bg-brown text-code-bg-black mt-4 flex justify-center items-center h-full">
-                <i class="bi bi-star" style="font-size: 20px;"></i>
-                <span class="font-medium ml-2">
-                    please generate your monkeytype readme on the top first
-                </span>
-            </div>
-            <div class="mt-4">
-                <a class="text-gray-400 text-base font-medium tracking-wider underline px-1"
-                    href="https://github.com/ridemountainpig/monkeytype-readme/blob/master/.github/workflows/monkeytype-readme.yml">
-                    See the example
-                </a>
-            </div>
-            <div class="mt-8">
-                <div class="text-gray-600 text-base font-medium tracking-wider">
-                    <i class="bi bi-filetype-yml pl-1 pr-2"
-                        style="font-size: 20px;"></i><span>monkeytype-readme.yml</span>
+                <div class="mt-6 flex justify-start">
+                    <a id="previewReadmeLink" href="">
+                        <img id="previewReadmeImg" src="" alt="" />
+                    </a>
                 </div>
-                <div id="githubReadmeYml">
-                    <pre class="rounded-xl language-yaml line-numbers">
+            </div>
+            <div class="mt-4 pb-16 lg:mt-8">
+                <h2 class="text-lg font-bold tracking-wider md:text-3xl">
+                    How to use
+                </h2>
+                <div class="mt-4">
+                    <p
+                        class="text-base font-normal leading-loose tracking-wider text-gray-600 lg:text-xl"
+                    >
+                        Add your
+                        <span
+                            class="mx-1 rounded-md text-rose-400 lg:border lg:border-slate-200 lg:bg-slate-100 lg:px-1.5 lg:py-0.5"
+                        >
+                            monkeytype-readme.yml
+                        </span>
+                        file in your repository's
+                        <span
+                            class="mx-1 rounded-md text-rose-400 lg:border lg:border-slate-200 lg:bg-slate-100 lg:px-1.5 lg:py-0.5"
+                        >
+                            .github/workflows/path
+                        </span>
+                        .<br />
+                    </p>
+                </div>
+                <div
+                    class="mt-4 flex h-full w-fit items-center justify-center rounded-xl bg-code-bg-brown p-6 text-code-bg-black"
+                >
+                    <i class="bi bi-star" style="font-size: 20px"></i>
+                    <span class="ml-2 text-sm font-medium lg:text-base">
+                        please generate your monkeytype readme on the top first
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <a
+                        class="px-1 text-sm font-medium tracking-wider text-gray-400 underline lg:text-base"
+                        href="https://github.com/ridemountainpig/monkeytype-readme/blob/master/.github/workflows/monkeytype-readme.yml"
+                    >
+                        See the example
+                    </a>
+                </div>
+                <div class="mt-8">
+                    <div
+                        class="text-sm font-medium tracking-wider text-gray-600 lg:text-base"
+                    >
+                        <i
+                            class="bi bi-filetype-yml pl-1 pr-2"
+                            style="font-size: 20px"
+                        ></i
+                        ><span>monkeytype-readme.yml</span>
+                    </div>
+                    <div id="githubReadmeYml">
+                        <pre class="language-yaml line-numbers rounded-xl">
                         <code>
     name: generate monkeytype readme svg
     
@@ -357,69 +560,88 @@
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                         </code>
                     </pre>
-                </div>
-            </div>
-            <div class="mt-8 px-1">
-                <p class="text-lg font-normal leading-loose tracking-wider text-gray-600">
-                    This GitHub Actions YAML code sets up a workflow called
-                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
-                        generate monkeytype readme svg
-                    </span>
-                    that automatically generates SVG files for the Monkeytype readme.
-                </p>
-                <p class="text-lg font-normal leading-loose tracking-wider text-gray-600 mt-0.5">
-                    By using this workflow, you can ensure that the Monkeytype readme SVG files are always up to date on
-                    the
-                    <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
-                        monkeytype-readme
-                    </span>
-                    branch.
-                </p>
-            </div>
-            <div class="mt-8 px-1">
-                <p class="text-lg font-normal leading-loose tracking-wider text-gray-600">
-                    After the workflow run add SVGs to your GitHub Readme
-                </p>
-            </div>
-            <div
-                class="p-6 w-fit rounded-xl bg-code-bg-brown text-code-bg-black mt-4 flex justify-center items-center h-full">
-                <i class="bi bi-github" style="font-size: 20px;"></i>
-                <div class="ml-4">
-                    <div class="font-medium">
-                        please change
-                        <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
-                            GITHUB_USERNAME
-                        </span>
-                        &
-                        <span class="mx-1 rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-rose-400">
-                            GITHUB_REPOSITORY
-                        </span>
-                        to your github username & github repository name
                     </div>
                 </div>
-            </div>
-            <div class="mt-4">
-                <div class="text-gray-600 text-base font-medium tracking-wider">
-                    <i class="bi bi-filetype-md pl-1 pr-2" style="font-size: 20px;"></i><span>README.md</span>
+                <div class="mt-8 px-1">
+                    <p
+                        class="text-base font-normal leading-loose tracking-wider text-gray-600 lg:text-xl"
+                    >
+                        This GitHub Actions YAML code sets up a workflow called
+                        <span
+                            class="mx-1 rounded-md text-rose-400 lg:border lg:border-slate-200 lg:bg-slate-100 lg:px-1.5 lg:py-0.5"
+                        >
+                            generate monkeytype readme svg
+                        </span>
+                        that automatically generates SVG files for the
+                        Monkeytype readme.
+                    </p>
+                    <p
+                        class="mt-0.5 text-base font-normal leading-loose tracking-wider text-gray-600 lg:text-xl"
+                    >
+                        By using this workflow, you can ensure that the
+                        Monkeytype readme SVG files are always up to date on the
+                        <span
+                            class="mx-1 rounded-md text-rose-400 lg:border lg:border-slate-200 lg:bg-slate-100 lg:px-1.5 lg:py-0.5"
+                        >
+                            monkeytype-readme
+                        </span>
+                        branch.
+                    </p>
                 </div>
-                <div id="githubReadmeMd">
-                    <pre class="rounded-xl language-css line-numbers">
+                <div class="mt-8 px-1">
+                    <p
+                        class="text-base font-normal leading-loose tracking-wider text-gray-600 lg:text-xl"
+                    >
+                        After the workflow run add SVGs to your GitHub Readme
+                    </p>
+                </div>
+                <div
+                    class="mt-4 flex h-full w-fit items-center justify-center rounded-xl bg-code-bg-brown p-6 text-sm text-code-bg-black lg:text-base"
+                >
+                    <i class="bi bi-github" style="font-size: 20px"></i>
+                    <div class="ml-4">
+                        <div class="font-medium">
+                            please change
+                            <span
+                                class="mx-1 rounded-md text-rose-400 lg:border lg:border-slate-200 lg:bg-slate-100 lg:px-1.5 lg:py-0.5"
+                            >
+                                GITHUB_USERNAME
+                            </span>
+                            &
+                            <span
+                                class="mx-1 rounded-md text-rose-400 lg:border lg:border-slate-200 lg:bg-slate-100 lg:px-1.5 lg:py-0.5"
+                            >
+                                GITHUB_REPOSITORY
+                            </span>
+                            to your github username & github repository name
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div
+                        class="text-base font-medium tracking-wider text-gray-600"
+                    >
+                        <i
+                            class="bi bi-filetype-md pl-1 pr-2"
+                            style="font-size: 20px"
+                        ></i
+                        ><span>README.md</span>
+                    </div>
+                    <div id="githubReadmeMd">
+                        <pre class="language-css line-numbers rounded-xl">
                         <code>
     &lt;a href="https://monkeytype.com/profile/MONKEYTYPE_USERNAME"&gt;
         &lt;img src="https://raw.githubusercontent.com/GITHUB_USERNAME/GITHUB_REPOSITORY/monkeytype-readme/monkeytype-readme-lb.svg" alt="My Monkeytype profile" /&gt;
     &lt;/a&gt;
                         </code>
                     </pre>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="../script/index.js"></script>
-    <script src='../script/prism.js' type='text/javascript'></script>
-    <script>
-
-    </script>
-</body>
-
+        <script src="../script/index.js"></script>
+        <script src="../script/prism.js" type="text/javascript"></script>
+        <script></script>
+    </body>
 </html>
