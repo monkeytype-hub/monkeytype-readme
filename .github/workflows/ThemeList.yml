@@ -1,6 +1,8 @@
 name: Update monkeytype theme json list
 
 on:
+    push:
+        branches: [workflow-dev]
     schedule:
         - cron: "0 */24 * * *"
 
@@ -22,6 +24,9 @@ jobs:
             - name: Format JSON data
               run: |
                   python3 -c 'import json; data = json.load(open("monkeytype-data/themes.json")); json.dump(data, open("monkeytype-data/themes.json", "w"), indent=2)'
+
+            - name: Format code with Prettier
+              run: npx prettier --write ./monkeytype-data/themes.json
 
             - name: Print json file contents
               run: cat monkeytype-data/themes.json
@@ -57,5 +62,5 @@ jobs:
             - name: Push changes
               uses: ad-m/github-push-action@master
               with:
-                  branch: master
+                  branch: workflow-dev
                   github_token: ${{ secrets.GITHUB_TOKEN }}
