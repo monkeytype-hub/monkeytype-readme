@@ -23,7 +23,7 @@ jobs:
               run: curl -o monkeytype-data/badges.json https://monkeytype-readme.repl.co/monkeytype/badge
 
             - name: Format code with Prettier
-              run: npx prettier --write .
+              run: npx prettier --write ./monkeytype-data/badges.json
 
             - name: Print json file contents
               run: cat monkeytype-data/badges.json
