@@ -1,10 +1,8 @@
 name: Update monkeytype badges json list
 
 on:
-    push:
-        branches: [workflow-dev]
-#     schedule:
-#         - cron: "0 */6 * * *"
+    schedule:
+        - cron: "0 */6 * * *"
     workflow_dispatch:
 
 jobs:
@@ -55,5 +53,5 @@ jobs:
             - name: Push changes
               uses: ad-m/github-push-action@master
               with:
-                  branch: workflow-dev
+                  branch: master
                   github_token: ${{ secrets.GITHUB_TOKEN }}
