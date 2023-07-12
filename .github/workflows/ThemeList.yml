@@ -23,6 +23,9 @@ jobs:
               run: |
                   python3 -c 'import json; data = json.load(open("monkeytype-data/themes.json")); json.dump(data, open("monkeytype-data/themes.json", "w"), indent=2)'
 
+            - name: Format code with Prettier
+              run: npx prettier --write ./monkeytype-data/themes.json
+
             - name: Print json file contents
               run: cat monkeytype-data/themes.json
 
