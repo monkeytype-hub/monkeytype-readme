@@ -509,7 +509,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
             <style>
                 ${cssData}
             </style>
-            <foreignObject x="0" y="0" width="${width}" height="${height}" class="bg-white">
+            <foreignObject x="0" y="0" width="${width}" height="${height}">
                 <div xmlns="http://www.w3.org/1999/xhtml">
                     <div class="w-full rounded-2xl" style="background-color: ${
                         theme.bgColor
