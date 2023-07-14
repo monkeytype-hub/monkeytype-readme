@@ -11,14 +11,32 @@ const {
 } = require("./public/script/monkeytypeData");
 const { getOutputCSS } = require("./public/script/tailwindCSS");
 const { getSvg } = require("./public/script/generateSvg");
+const { get } = require("request");
 require("dotenv").config();
 
 app.use(express.static("public"));
 app.use("/styles", express.static("dist"));
 
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "public", "views"));
+
 app.get("/", (req, res) => {
-    const filePath = path.join(__dirname, "public", "views", "index.html");
-    res.sendFile(filePath);
+    const data = {
+        domain: process.env.DOMAIN,
+    };
+
+    res.render("index", { data });
+});
+
+app.get(["/:userId/:themeName", "/:userId"], (req, res) => {
+    const data = {
+        domain: process.env.DOMAIN,
+        userId: req.params.userId,
+        theme: getTheme((req.params.themeName ? req.params.themeName : "serika_dark")),
+        svgUrl: `${process.env.DOMAIN}/generate-svg/${req.params.userId}/${req.params.themeName}?lbpb=true`,
+    };
+
+    res.render("user", { data });
 });
 
 app.get("/generate-svg/:userId/:themeName", async (req, res) => {

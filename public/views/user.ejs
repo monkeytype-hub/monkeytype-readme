@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MT Readme</title>
+    <link rel="stylesheet" href="/styles/output.css" />
+    <link rel="icon" href="../image/stupidMonkeyIcon.png" type="image/x-icon" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= data.domain %>/<%= data.userId %>/<%= data.theme.name %>">
+    <meta property="og:title" content="<%= data.userId %> | MonkeyType Readme">
+    <meta property="og:description" content="Share MonkeyType Story With The World">
+    <meta property="og:image" content="<%= data.domain %>/image/stupidMonkeyIcon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="<%= data.domain %>/<%= data.userId %>/<%= data.theme.name %>">
+    <meta property="twitter:title" content="<%= data.userId %> | MonkeyType Readme">
+    <meta property="twitter:description" content="Share MonkeyType Story With The World">
+    <meta property="twitter:image" content="<%= data.domain %>/image/stupidMonkeyIcon.png">
+
+    <style>
+        .scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            overflow-y: scroll;
+        }
+
+        .scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .theme-border:hover {
+            border: 4px solid;
+        }
+    </style>
+</head>
+
+<body style="background-color: <%= data.theme.subAltColor %>;">
+    <div class="h-screen">
+        <div class="flex justify-center items-center h-full mx-5">
+            <img src="<%= data.svgUrl %>" class="mt-5" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
