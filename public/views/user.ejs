@@ -14,14 +14,26 @@
     <meta property="og:url" content="<%= data.domain %>/<%= data.userId %>/<%= data.theme.name %>">
     <meta property="og:title" content="<%= data.userId %> | MonkeyType Readme">
     <meta property="og:description" content="Share MonkeyType Story With The World">
-    <meta property="og:image" content="<%= data.domain %>/image/stupidMonkeyIcon.png">
+    <meta property="og:image" content="
+        <% if (data && data.userData && data.userData.hasOwnProperty('discordId') && data.userData.discordId !== null && data.userData.hasOwnProperty('discordAvatar') && data.userData.discordAvatar !== null) { %>
+            https://cdn.discordapp.com/avatars/<%= data.userData.discordId %>/<%= data.userData.discordAvatar %>.png?size=256
+        <% } else { %>
+            <%= data.domain %>/image/stupidMonkeyIcon.png
+        <% } %>    
+    ">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="<%= data.domain %>/<%= data.userId %>/<%= data.theme.name %>">
     <meta property="twitter:title" content="<%= data.userId %> | MonkeyType Readme">
     <meta property="twitter:description" content="Share MonkeyType Story With The World">
-    <meta property="twitter:image" content="<%= data.domain %>/image/stupidMonkeyIcon.png">
+    <meta property="twitter:image" content="
+        <% if (data && data.userData && data.userData.hasOwnProperty('discordId') && data.userData.discordId !== null && data.userData.hasOwnProperty('discordAvatar') && data.userData.discordAvatar !== null) { %>
+            https://cdn.discordapp.com/avatars/<%= data.userData.discordId %>/<%= data.userData.discordAvatar %>.png?size=256
+        <% } else { %>
+            <%= data.domain %>/image/stupidMonkeyIcon.png
+        <% } %>
+    ">
 
     <style>
         .scroll {
