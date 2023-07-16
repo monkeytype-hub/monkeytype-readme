@@ -18,7 +18,7 @@ jobs:
                   node-version: "16.x"
 
             - name: Get badge json data from monkeytype
-              run: curl -o monkeytype-data/badges.json https://monkeytype-readme.repl.co/monkeytype/badge
+              run: curl -o monkeytype-data/badges.json https://monkeytype-readme.repl.co/mr-command/badge
 
             - name: Format code with Prettier
               run: npx prettier --write ./monkeytype-data/badges.json

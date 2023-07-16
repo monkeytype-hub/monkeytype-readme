@@ -28,11 +28,24 @@ app.get("/", (req, res) => {
     res.render("index", { data });
 });
 
-app.get(["/:userId/:themeName", "/:userId"], (req, res) => {
+app.get("/mr-command/theme", async (req, res) => {
+    const themesData = await getMonkeyTypeThemesData();
+    res.set("Content-Type", "application/json");
+    res.send(themesData);
+});
+
+app.get("/mr-command/badge", async (req, res) => {
+    const badgesData = await getMonkeyTypeBadgesData();
+    res.set("Content-Type", "application/json");
+    res.send(badgesData);
+});
+
+app.get(["/:userId/:themeName", "/:userId"], async (req, res) => {
     const data = {
         domain: process.env.DOMAIN,
         userId: req.params.userId,
         theme: getTheme((req.params.themeName ? req.params.themeName : "serika_dark")),
+        userData: await getUserData(req.params.userId),
         svgUrl: `${process.env.DOMAIN}/generate-svg/${req.params.userId}/${req.params.themeName}?lbpb=true`,
     };
 
@@ -74,18 +87,6 @@ app.get("/generate-svg/:userId/:themeName", async (req, res) => {
     );
     res.set("Content-Type", "image/svg+xml");
     res.send(svg);
-});
-
-app.get("/monkeytype/theme", async (req, res) => {
-    const themesData = await getMonkeyTypeThemesData();
-    res.set("Content-Type", "application/json");
-    res.send(themesData);
-});
-
-app.get("/monkeytype/badge", async (req, res) => {
-    const badgesData = await getMonkeyTypeBadgesData();
-    res.set("Content-Type", "application/json");
-    res.send(badgesData);
 });
 
 app.get("/GITPULL", (req, res) => {

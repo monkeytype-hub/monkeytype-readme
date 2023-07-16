@@ -17,7 +17,7 @@ jobs:
                   node-version: "16.x"
 
             - name: Download theme json file from monkeytype
-              run: curl -o monkeytype-data/themes.json https://monkeytype-readme.repl.co/monkeytype/theme
+              run: curl -o monkeytype-data/themes.json https://monkeytype-readme.repl.co/mr-command/theme
 
             - name: Format JSON data
               run: |
