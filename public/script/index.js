@@ -6,6 +6,16 @@ let themeListState = {
     borderColor: "",
 };
 
+$("#createNowBtn").click(function () {
+    var targetElement = $("#mr-introduce");
+    $("html, body").animate(
+        {
+            scrollTop: targetElement.offset().top,
+        },
+        800
+    );
+});
+
 $("#monkeytypeNameInput").on("input", function () {
     monkeytypeName = $(this).val();
 });
