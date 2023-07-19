@@ -56,7 +56,9 @@ app.get(["/:userId/:themeName", "/:userId"], async (req, res) => {
     const data = {
         domain: process.env.DOMAIN,
         userId: req.params.userId,
-        theme: getTheme((req.params.themeName ? req.params.themeName : "serika_dark")),
+        theme: getTheme(
+            req.params.themeName ? req.params.themeName : "serika_dark"
+        ),
         userData: await getUserData(req.params.userId),
         svgUrl: `${process.env.DOMAIN}/generate-svg/${req.params.userId}/${req.params.themeName}?lbpb=true`,
     };

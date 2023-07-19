@@ -12,7 +12,7 @@ library.add(fas, far, fab);
 function getTheme(themeName) {
     const themesRawData = fs.readFileSync("./monkeytype-data/themes.json");
     const themesData = JSON.parse(themesRawData);
-    let serika_dark = {}
+    let serika_dark = {};
 
     for (let i = 0; i < themesData.length; i++) {
         const theme = themesData[i];

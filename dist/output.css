@@ -1382,6 +1382,34 @@ video {
   .lg\:font-bold {
     font-weight: 700;
   }
+
+  .lg\:font-light {
+    font-weight: 300;
+  }
+
+  .lg\:leading-6 {
+    line-height: 1.5rem;
+  }
+
+  .lg\:leading-10 {
+    line-height: 2.5rem;
+  }
+
+  .lg\:leading-\[10\] {
+    line-height: 10;
+  }
+
+  .lg\:leading-\[3-re\] {
+    line-height: 3-re;
+  }
+
+  .lg\:leading-\[3-rem\] {
+    line-height: 3-rem;
+  }
+
+  .lg\:leading-\[3rem\] {
+    line-height: 3rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1402,5 +1430,10 @@ video {
   .xl\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
