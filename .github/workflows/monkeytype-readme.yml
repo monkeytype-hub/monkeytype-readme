@@ -1,8 +1,10 @@
 name: generate monkeytype readme svg
 
 on:
-    schedule:
-        - cron: "0 */12 * * *"
+#     schedule:
+#         - cron: "0 */12 * * *"
+    push:
+        branches: [svg-workflow-dev]
     workflow_dispatch:
 
 jobs:
@@ -29,6 +31,46 @@ jobs:
                   curl -o monkeytype-readme-svg/monkeytype-readme-Miodec-lb.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light?lb=true
                   curl -o monkeytype-readme-svg/monkeytype-readme-Miodec-pb.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light?pb=true
                   curl -o monkeytype-readme-svg/monkeytype-readme-Miodec-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/Miodec/nord_light?lbpb=true
+                  
+                  curl -o monkeytype-readme-svg/monkeytype-readme-rocket-slambook.svg https://monkeytype-readme.repl.co/generate-svg/rocket/slambook
+                  curl -o monkeytype-readme-svg/monkeytype-readme-rocket-slambook-lb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/slambook?lb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-rocket-slambook-pb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/slambook?pb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-rocket-slambook-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/rocket/slambook?lbpb=true
+                  
+                  curl -o monkeytype-readme-svg/monkeytype-readme-UTF8.svg https://monkeytype-readme.repl.co/generate-svg/UTF8/camping
+                  curl -o monkeytype-readme-svg/monkeytype-readme-UTF8-lb.svg https://monkeytype-readme.repl.co/generate-svg/UTF8/camping?lb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-UTF8-pb.svg https://monkeytype-readme.repl.co/generate-svg/UTF8/camping?pb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-UTF8-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/UTF8/camping?lbpb=true
+                  
+                  curl -o monkeytype-readme-svg/monkeytype-readme-ridemountainpig.svg https://monkeytype-readme.repl.co/generate-svg/ridemountainpig/witch_girl
+                  curl -o monkeytype-readme-svg/monkeytype-readme-ridemountainpig-lb.svg https://monkeytype-readme.repl.co/generate-svg/ridemountainpig/witch_girl?lb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-ridemountainpig-pb.svg https://monkeytype-readme.repl.co/generate-svg/ridemountainpig/witch_girl?pb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-ridemountainpig-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/ridemountainpig/witch_girl?lbpb=true
+                  
+                  curl -o monkeytype-readme-svg/monkeytype-readme-semi.svg https://monkeytype-readme.repl.co/generate-svg/semi/blueberry_light
+                  curl -o monkeytype-readme-svg/monkeytype-readme-semi-lb.svg https://monkeytype-readme.repl.co/generate-svg/semi/blueberry_light?lb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-semi-pb.svg https://monkeytype-readme.repl.co/generate-svg/semi/blueberry_light?pb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-semi-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/semi/blueberry_light?lbpb=true
+                  
+                  curl -o monkeytype-readme-svg/monkeytype-readme-mac.svg https://monkeytype-readme.repl.co/generate-svg/mac/mizu
+                  curl -o monkeytype-readme-svg/monkeytype-readme-mac-lb.svg https://monkeytype-readme.repl.co/generate-svg/mac/mizu?lb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-mac-pb.svg https://monkeytype-readme.repl.co/generate-svg/mac/mizu?pb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-mac-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/mac/mizu?lbpb=true
+                  
+                  curl -o monkeytype-readme-svg/monkeytype-readme-ze_or.svg https://monkeytype-readme.repl.co/generate-svg/ze_or/darling
+                  curl -o monkeytype-readme-svg/monkeytype-readme-ze_or-lb.svg https://monkeytype-readme.repl.co/generate-svg/ze_or/darling?lb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-ze_or-pb.svg https://monkeytype-readme.repl.co/generate-svg/ze_or/darling?pb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-ze_or-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/ze_or/darling?lbpb=true
+                  
+                  curl -o monkeytype-readme-svg/monkeytype-readme-nask.svg https://monkeytype-readme.repl.co/generate-svg/nask/beach
+                  curl -o monkeytype-readme-svg/monkeytype-readme-nask-lb.svg https://monkeytype-readme.repl.co/generate-svg/nask/beach?lb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-nask-pb.svg https://monkeytype-readme.repl.co/generate-svg/nask/beach?pb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-nask-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/nask/beach?lbpb=true
+                  
+                  curl -o monkeytype-readme-svg/monkeytype-readme-davidho0403.svg https://monkeytype-readme.repl.co/generate-svg/davidho0403/lil_dragon
+                  curl -o monkeytype-readme-svg/monkeytype-readme-davidho0403-lb.svg https://monkeytype-readme.repl.co/generate-svg/davidho0403/lil_dragon?lb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-davidho0403-pb.svg https://monkeytype-readme.repl.co/generate-svg/davidho0403/lil_dragon?pb=true
+                  curl -o monkeytype-readme-svg/monkeytype-readme-davidho0403-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/davidho0403/lil_dragon?lbpb=true
 
             - name: push monkeytype-readme.svg to the monkeytype-readme branch
               uses: crazy-max/ghaction-github-pages@v2.5.0
