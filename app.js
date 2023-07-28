@@ -103,6 +103,6 @@ app.get("/generate-svg/:userId/:themeName", async (req, res) => {
     res.send(svg);
 });
 
-app.listen(3000, () => {
-    console.log("app listening on port 3000!");
+app.listen(process.env.PORT || 3000, async () => {
+    console.log('Server started on port ' + (process.env.PORT || 3000))
 });
