@@ -49,7 +49,7 @@ $("#generateReadmeBtn").click(function () {
         return;
     }
 
-    let url = `https://monkeytype-readme.repl.co/generate-svg/${monkeytypeName}/${themeListState.themeName}`;
+    let url = `${domain}/generate-svg/${monkeytypeName}/${themeListState.themeName}`;
     if (leaderBoardBtnState && personalBestBtnState) {
         url += "?lbpb=true";
     } else {
@@ -171,10 +171,10 @@ function updateReadmeCode() {
         <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Download SVG
             <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
             mkdir public
-            curl -o public/monkeytype-readme.svg https://monkeytype-readme.repl.co/generate-svg/${monkeytypeName}/${themeListState.themeName}
-            curl -o public/monkeytype-readme-lb.svg https://monkeytype-readme.repl.co/generate-svg/${monkeytypeName}/${themeListState.themeName}?lb=true
-            curl -o public/monkeytype-readme-pb.svg https://monkeytype-readme.repl.co/generate-svg/${monkeytypeName}/${themeListState.themeName}?pb=true
-            curl -o public/monkeytype-readme-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/${monkeytypeName}/${themeListState.themeName}?lbpb=true</span>
+            curl -o public/monkeytype-readme.svg ${domain}/generate-svg/${monkeytypeName}/${themeListState.themeName}
+            curl -o public/monkeytype-readme-lb.svg ${domain}/generate-svg/${monkeytypeName}/${themeListState.themeName}?lb=true
+            curl -o public/monkeytype-readme-pb.svg ${domain}/generate-svg/${monkeytypeName}/${themeListState.themeName}?pb=true
+            curl -o public/monkeytype-readme-lb-pb.svg ${domain}/generate-svg/${monkeytypeName}/${themeListState.themeName}?lbpb=true</span>
     
         <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> push monkeytype<span class="token punctuation">-</span>readme.svg to the monkeytype<span class="token punctuation">-</span>readme branch
             <span class="token key atrule">uses</span><span class="token punctuation">:</span> crazy<span class="token punctuation">-</span>max/ghaction<span class="token punctuation">-</span>github<span class="token punctuation">-</span>pages@v2.5.0

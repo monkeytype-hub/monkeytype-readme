@@ -73,10 +73,10 @@ To use MonkeyType Readme for your GitHub Readme, follow these steps:
                 - name: Download SVG
                   run: |
                       mkdir public
-                      curl -o public/monkeytype-readme.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES
-                      curl -o public/monkeytype-readme-lb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?lb=true
-                      curl -o public/monkeytype-readme-pb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?pb=true
-                      curl -o public/monkeytype-readme-lb-pb.svg https://monkeytype-readme.repl.co/generate-svg/YOUR_USERNAME/THEMES?lbpb=true
+                      curl -o public/monkeytype-readme.svg https://monkeytype-readme.zeabur.app/generate-svg/YOUR_USERNAME/THEMES
+                      curl -o public/monkeytype-readme-lb.svg https://monkeytype-readme.zeabur.app/generate-svg/YOUR_USERNAME/THEMES?lb=true
+                      curl -o public/monkeytype-readme-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/YOUR_USERNAME/THEMES?pb=true
+                      curl -o public/monkeytype-readme-lb-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/YOUR_USERNAME/THEMES?lbpb=true
 
                 - name: push monkeytype-readme.svg to the monkeytype-readme branch
                   uses: crazy-max/ghaction-github-pages@v2.5.0
