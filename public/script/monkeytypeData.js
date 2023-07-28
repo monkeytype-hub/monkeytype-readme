@@ -1,6 +1,6 @@
 const fs = require("fs");
 const axios = require("axios");
-const fetch = require('node-fetch');
+const fetch = import('node-fetch').then(module => module.default);
 
 const { library, icon } = require("@fortawesome/fontawesome-svg-core");
 const { fas } = require("@fortawesome/free-solid-svg-icons");
