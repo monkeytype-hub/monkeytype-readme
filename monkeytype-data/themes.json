@@ -2186,5 +2186,16 @@
         "colorfulErrorColor": "#ff4081",
         "colorfulErrorExtraColor": "#bf2054",
         "name": "grape"
+    },
+    {
+        "bgColor": "#f5f5f5",
+        "mainColor": "#363636",
+        "caretColor": "#0d0d0d",
+        "subColor": "#4f4f4f",
+        "subAltColor": "#e0e0e0",
+        "textColor": "#1f1f1f",
+        "errorColor": "#ff0008",
+        "colorfulErrorColor": "#ff0008",
+        "name": "rainbow_trail"
     }
 ]
