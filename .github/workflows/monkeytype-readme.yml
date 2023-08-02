@@ -29,21 +29,21 @@ jobs:
                   curl -o monkeytype-readme-svg/monkeytype-readme-Miodec-lb.svg https://monkeytype-readme.zeabur.app/generate-svg/Miodec/nord_light?lb=true
                   curl -o monkeytype-readme-svg/monkeytype-readme-Miodec-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/Miodec/nord_light?pb=true
                   curl -o monkeytype-readme-svg/monkeytype-readme-Miodec-lb-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/Miodec/nord_light?lbpb=true
-                  
+
                   curl -o monkeytype-readme-svg/monkeytype-readme-rocket-slambook-lb-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/rocket/slambook?lbpb=true
-                  
+
                   curl -o monkeytype-readme-svg/monkeytype-readme-UTF8.svg https://monkeytype-readme.zeabur.app/generate-svg/UTF8/camping
-                  
+
                   curl -o monkeytype-readme-svg/monkeytype-readme-ridemountainpig.svg https://monkeytype-readme.zeabur.app/generate-svg/ridemountainpig/witch_girl
-                  
+
                   curl -o monkeytype-readme-svg/monkeytype-readme-semi.svg https://monkeytype-readme.zeabur.app/generate-svg/semi/blueberry_light
-                  
+
                   curl -o monkeytype-readme-svg/monkeytype-readme-mac-lb.svg https://monkeytype-readme.zeabur.app/generate-svg/mac/mizu?lb=true
-                  
+
                   curl -o monkeytype-readme-svg/monkeytype-readme-ze_or.svg https://monkeytype-readme.zeabur.app/generate-svg/ze_or/darling
-                  
+
                   curl -o monkeytype-readme-svg/monkeytype-readme-nask-lb.svg https://monkeytype-readme.zeabur.app/generate-svg/nask/beach?lb=true
-                  
+
                   curl -o monkeytype-readme-svg/monkeytype-readme-davidho0403-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/davidho0403/lil_dragon?pb=true
 
             - name: push monkeytype-readme.svg to the monkeytype-readme branch
