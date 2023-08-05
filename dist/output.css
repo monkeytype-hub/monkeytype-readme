@@ -1427,6 +1427,35 @@ video {
     height: 100%;
   }
 
+  .lg\:h-fit {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+
+  .lg\:h-\[\] {
+    height: ;
+  }
+
+  .lg\:h-\[ca\] {
+    height: ca;
+  }
+
+  .lg\:h-\[calc\(100\%\+2rem\)\] {
+    height: calc(100% + 2rem);
+  }
+
+  .lg\:h-\[calc\(100\%-2rem\)\] {
+    height: calc(100% - 2rem);
+  }
+
+  .lg\:h-\[calc\(100\%-1\.2rem\)\] {
+    height: calc(100% - 1.2rem);
+  }
+
+  .lg\:h-\[calc\(100\%-1\.25rem\)\] {
+    height: calc(100% - 1.25rem);
+  }
+
   .lg\:w-10 {
     width: 2.5rem;
   }
