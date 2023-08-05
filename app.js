@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const { convert } = require('convert-svg-to-png');
 const app = express();
 
 const {
@@ -100,13 +99,8 @@ app.get("/generate-svg/:userId/:themeName", async (req, res) => {
         leaderBoards,
         personalBests
     );
-    // res.set("Content-Type", "image/svg+xml");
-    // res.send(svg);
-
-    const png = await convert(svg);
-
-    res.set('Content-Type', 'image/png');
-    res.send(png);
+    res.set("Content-Type", "image/svg+xml");
+    res.send(svg);
 });
 
 app.listen(process.env.PORT || 3000, async () => {

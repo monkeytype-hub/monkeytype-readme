@@ -367,7 +367,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     style="color: ${theme.textColor};">
                                     ${pbTime["15"].wpm}
                                 </div>
-                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbTime["15"].acc}${
             pbTime["15"].acc == "-" ? "" : "%"
@@ -383,7 +383,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     style="color: ${theme.textColor};">
                                     ${pbTime["30"].wpm}
                                 </div>
-                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbTime["30"].acc}${
             pbTime["30"].acc == "-" ? "" : "%"
@@ -399,7 +399,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     style="color: ${theme.textColor};">
                                     ${pbTime["60"].wpm}
                                 </div>
-                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbTime["60"].acc}${
             pbTime["60"].acc == "-" ? "" : "%"
@@ -415,7 +415,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     style="color: ${theme.textColor};">
                                     ${pbTime["120"].wpm}
                                 </div>
-                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbTime["120"].acc}${
             pbTime["120"].acc == "-" ? "" : "%"
@@ -441,7 +441,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     style="color: ${theme.textColor};">
                                     ${pbWords["10"].wpm}
                                 </div>
-                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbWords["10"].acc}${
             pbWords["10"].acc == "-" ? "" : "%"
@@ -457,7 +457,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     style="color: ${theme.textColor};">
                                     ${pbWords["25"].wpm}
                                 </div>
-                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbWords["25"].acc}${
             pbWords["25"].acc == "-" ? "" : "%"
@@ -473,7 +473,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     style="color: ${theme.textColor};">
                                     ${pbWords["50"].wpm}
                                 </div>
-                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbWords["50"].acc}${
             pbWords["50"].acc == "-" ? "" : "%"
@@ -489,7 +489,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     style="color: ${theme.textColor};">
                                     ${pbWords["100"].wpm}
                                 </div>
-                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider opacity-75"
+                                <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbWords["100"].acc}${
             pbWords["100"].acc == "-" ? "" : "%"
