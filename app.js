@@ -40,17 +40,17 @@ app.get("/mr-command/badge", async (req, res) => {
     res.send(badgesData);
 });
 
-app.get("/mr-command/GITPULL", (req, res) => {
-    const { exec } = require("child_process");
-    exec("git pull", (err, stdout, stderr) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        console.log(stdout);
-        res.send("GIT PULL SUCCESSFUL");
-    });
-});
+// app.get("/mr-command/GITPULL", (req, res) => {
+//     const { exec } = require("child_process");
+//     exec("git pull", (err, stdout, stderr) => {
+//         if (err) {
+//             console.error(err);
+//             return;
+//         }
+//         console.log(stdout);
+//         res.send("GIT PULL SUCCESSFUL");
+//     });
+// });
 
 app.get(["/:userId/:themeName", "/:userId"], async (req, res) => {
     const data = {
