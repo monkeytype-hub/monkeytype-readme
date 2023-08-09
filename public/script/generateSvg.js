@@ -285,7 +285,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                 pbTime[j] = { wpm: "-", acc: "-" };
             }
             if (pbTime[j].wpm != "-") {
-                pbTime[j].wpm = Math.floor(parseFloat(pbTime[j].wpm));
+                pbTime[j].wpm = Math.round(parseFloat(pbTime[j].wpm));
             }
             if (pbTime[j].acc != "-") {
                 pbTime[j].acc = Math.floor(parseFloat(pbTime[j].acc));
@@ -348,7 +348,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                 pbWords[words[i]] = { wpm: "-", acc: "-" };
             }
             if (pbWords[words[i]].wpm != "-") {
-                pbWords[words[i]].wpm = Math.floor(
+                pbWords[words[i]].wpm = Math.round(
                     parseFloat(pbWords[words[i]].wpm)
                 );
             }
