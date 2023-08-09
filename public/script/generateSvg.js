@@ -248,6 +248,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                             "english_1k" &&
                         userData.personalBests.time[j][i].difficulty ==
                             "normal" &&
+                        userData.personalBests.time[j][i].punctuation ==
+                            false &&
                         english_1k == true
                     ) {
                         english_1k_pb = userData.personalBests.time[j][i];
@@ -258,6 +260,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                             "english" &&
                         userData.personalBests.time[j][i].difficulty ==
                             "normal" &&
+                        userData.personalBests.time[j][i].punctuation ==
+                            false &&
                         english == true
                     ) {
                         english_pb = userData.personalBests.time[j][i];
@@ -281,10 +285,10 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                 pbTime[j] = { wpm: "-", acc: "-" };
             }
             if (pbTime[j].wpm != "-") {
-                pbTime[j].wpm = Math.round(parseFloat(pbTime[j].wpm));
+                pbTime[j].wpm = Math.floor(parseFloat(pbTime[j].wpm));
             }
             if (pbTime[j].acc != "-") {
-                pbTime[j].acc = Math.round(parseFloat(pbTime[j].acc));
+                pbTime[j].acc = Math.floor(parseFloat(pbTime[j].acc));
             }
         }
 
@@ -306,6 +310,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                             "english_1k" &&
                         userData.personalBests.words[words[i]][j].difficulty ==
                             "normal" &&
+                        userData.personalBests.words[words[i]][j].punctuation ==
+                            false &&
                         english_1k == true
                     ) {
                         english_1k_pb =
@@ -317,6 +323,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                             "english" &&
                         userData.personalBests.words[words[i]][j].difficulty ==
                             "normal" &&
+                        userData.personalBests.words[words[i]][j].punctuation ==
+                            false &&
                         english == true
                     ) {
                         english_pb = userData.personalBests.words[words[i]][j];
@@ -340,12 +348,12 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                 pbWords[words[i]] = { wpm: "-", acc: "-" };
             }
             if (pbWords[words[i]].wpm != "-") {
-                pbWords[words[i]].wpm = Math.round(
+                pbWords[words[i]].wpm = Math.floor(
                     parseFloat(pbWords[words[i]].wpm)
                 );
             }
             if (pbWords[words[i]].acc != "-") {
-                pbWords[words[i]].acc = Math.round(
+                pbWords[words[i]].acc = Math.floor(
                     parseFloat(pbWords[words[i]].acc)
                 );
             }
