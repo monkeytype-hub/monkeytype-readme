@@ -35,6 +35,24 @@ function getTheme(themeName) {
     return serika_dark;
 }
 
+function getFaviconTheme() {
+    const themesRawData = fs.readFileSync("./monkeytype-data/themes.json");
+    const themesData = JSON.parse(themesRawData);
+    let faviconData = {};
+
+    let data;
+    for (let i = 0; i < themesData.length; i++) {
+        data = {
+            name: themesData[i].name,
+            bgColor: themesData[i].bgColor,
+            mainColor: themesData[i].mainColor,
+        }
+        faviconData[i] = data;
+    }
+
+    return faviconData;
+}
+
 function getBadge(badgeId) {
     const badgesRawData = fs.readFileSync("./monkeytype-data/badges.json");
     const badgesData = JSON.parse(badgesRawData);
@@ -186,6 +204,7 @@ async function getMonkeyTypeBadgesData() {
 
 module.exports = {
     getTheme,
+    getFaviconTheme,
     getBadge,
     getUserData,
     getMonkeyTypeThemesData,

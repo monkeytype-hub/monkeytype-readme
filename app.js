@@ -4,6 +4,7 @@ const app = express();
 
 const {
     getTheme,
+    getFaviconTheme,
     getBadge,
     getUserData,
     getMonkeyTypeThemesData,
@@ -38,6 +39,11 @@ app.get("/mr-command/badge", async (req, res) => {
     const badgesData = await getMonkeyTypeBadgesData();
     res.set("Content-Type", "application/json");
     res.send(badgesData);
+});
+
+app.get("/mr-command/favicon", async (req, res) => {
+    const faviconData = getFaviconTheme();
+    res.render("favicon", { faviconData });
 });
 
 // app.get("/mr-command/GITPULL", (req, res) => {
