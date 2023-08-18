@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>monkeytype favicon</title>
+    <link rel="icon" href="../image/stupidMonkeyIcon.png" type="image/x-icon" />
+</head>
+
+<body>
+    <div id="faviconImageData"></div>
+    <script>
+        function generateFavicon(faviconTheme, size, curveSize) {
+            faviconTheme = JSON.parse(faviconTheme.replaceAll('&#34;', '"'));
+            let faviconImage = {};
+
+            for (let i = 0; i < Object.keys(faviconTheme).length; i++) {
+                setTimeout(async () => {
+                    let themeName = faviconTheme[i].name, maincolor = faviconTheme[i].mainColor, bgcolor = faviconTheme[i].bgColor;
+
+                    if (bgcolor === maincolor) {
+                        bgcolor = "#111";
+                        maincolor = "#eee";
+                    }
+                    const canvas = document.createElement("canvas");
+                    canvas.width = size;
+                    canvas.height = size;
+                    const ctx = canvas.getContext("2d");
+
+                    const scale = size / 500;
+                    // const moffset = [71 * scale,188 * scale];
+                    const currentPos = [0, 0];
+
+                    function mRelativeMove(x, y) {
+                        currentPos[0] += x * scale;
+                        currentPos[1] += y * scale;
+                        ctx.moveTo(currentPos[0], currentPos[1]);
+                    }
+
+                    function mRelativeLine(x, y) {
+                        currentPos[0] += x * scale;
+                        currentPos[1] += y * scale;
+                        ctx.lineTo(currentPos[0], currentPos[1]);
+                    }
+
+                    function mRelativeCurve(
+                        cpx,
+                        cpy,
+                        x,
+                        y
+                    ) {
+                        currentPos[0] += x * scale;
+                        currentPos[1] += y * scale;
+                        ctx.quadraticCurveTo(
+                            currentPos[0] + cpx * scale,
+                            currentPos[1] + cpy * scale,
+                            currentPos[0],
+                            currentPos[1]
+                        );
+                    }
+
+                    ctx.beginPath();
+                    ctx.moveTo(0, curveSize);
+                    //top left
+                    ctx.quadraticCurveTo(0, 0, curveSize, 0);
+                    ctx.lineTo(size - curveSize, 0);
+                    //top right
+                    ctx.quadraticCurveTo(size, 0, size, curveSize);
+                    ctx.lineTo(size, size - curveSize);
+                    ctx.quadraticCurveTo(size, size, size - curveSize, size);
+                    ctx.lineTo(curveSize, size);
+                    ctx.quadraticCurveTo(0, size, 0, size - curveSize);
+                    ctx.fillStyle = bgcolor;
+                    ctx.fill();
+                    // ctx.font = "900 " + (size / 2) * 1.2 + "px Lexend Deca";
+                    // ctx.textAlign = "center";
+                    // ctx.fillStyle = maincolor;
+                    // ctx.fillText("mt", size / 2 + 1, (size / 3) * 2.1);
+
+                    ctx.beginPath();
+                    mRelativeMove(71, 188);
+                    mRelativeLine(0, 166);
+                    mRelativeLine(40, 0);
+                    mRelativeLine(0, -95);
+
+                    mRelativeCurve(-33, 0, 35, -36);
+                    mRelativeCurve(0, -27, 27, 30);
+                    mRelativeLine(0, 101);
+                    mRelativeLine(40, 0);
+                    mRelativeLine(0, -90);
+
+                    mRelativeCurve(-36, 0, 35, -41);
+                    mRelativeCurve(0, -27, 27, 30);
+                    mRelativeLine(0, 101);
+                    mRelativeLine(40, 0);
+                    mRelativeLine(0, -95);
+
+                    mRelativeCurve(55, 0, -55, -74);
+                    mRelativeCurve(22, -27, -55, 27);
+
+                    mRelativeCurve(30, 0, -47, -27);
+                    mRelativeCurve(20, -19, -47, 19);
+
+                    mRelativeLine(0, -16);
+
+                    ctx.fillStyle = maincolor;
+
+                    ctx.fill();
+                    ctx.closePath();
+
+                    ctx.beginPath();
+                    mRelativeMove(256, -40);
+                    mRelativeLine(0, 40);
+                    mRelativeLine(-36, 0);
+                    mRelativeLine(0, 40);
+                    mRelativeLine(36, 0);
+
+                    mRelativeLine(0, 126);
+                    mRelativeLine(40, 0);
+                    mRelativeLine(0, -126);
+
+                    mRelativeLine(36, 0);
+                    mRelativeLine(0, -40);
+                    mRelativeLine(-36, 0);
+                    mRelativeLine(0, -40);
+
+                    ctx.fillStyle = maincolor;
+
+                    ctx.fill();
+
+                    faviconImage[i] = {
+                        name: themeName,
+                        data: canvas.toDataURL("image/png")
+                    };
+
+                    document.getElementById("faviconImageData").innerHTML = JSON.stringify(faviconImage);
+                }, 125);
+            }
+        }
+
+        generateFavicon("<%= JSON.stringify(faviconData) %>", 64, 16);
+    </script>
+</body>
+
+</html>
