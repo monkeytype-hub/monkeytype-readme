@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/ridemountainpig/monkeytype-readme/assets/92412722/dc9b0754-9974-44c1-97c5-1b739049b9e9" style="width:550px;"/>
+  <img src="https://github.com/ridemountainpig/monkeytype-readme/assets/92412722/4491a4ef-f0e1-438d-84a4-c2205c33cd7e" style="width:1000px;"/>
 </p>
 
 # MonkeyType Readme
