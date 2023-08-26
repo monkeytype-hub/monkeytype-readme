@@ -1,9 +1,13 @@
 name: Update monkeytype theme json list
 
 on:
+    push:
+        branches:
+            -theme-workflow-dev
     schedule:
         - cron: "0 */24 * * *"
-
+    workflow_dispatch:
+    
 jobs:
     make-request:
         runs-on: ubuntu-latest
@@ -17,7 +21,7 @@ jobs:
                   node-version: "16.x"
 
             - name: Download theme json file from monkeytype
-              run: curl -o monkeytype-data/themes.json https://monkeytype-readme.zeabur.app/mr-command/theme
+              run: curl --max-time 120 -o monkeytype-data/themes.json https://monkeytype-readme.zeabur.app/mr-command/theme
 
             - name: Format JSON data
               run: |
