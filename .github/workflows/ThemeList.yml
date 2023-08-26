@@ -3,7 +3,7 @@ name: Update monkeytype theme json list
 on:
     push:
         branches:
-            -theme-workflow-dev
+            - theme-workflow-dev
     # schedule:
     #     - cron: "0 */24 * * *"
     # workflow_dispatch:
