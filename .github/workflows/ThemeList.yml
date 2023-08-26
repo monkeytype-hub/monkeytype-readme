@@ -4,9 +4,9 @@ on:
     push:
         branches:
             - theme-workflow-dev
-    # schedule:
-    #     - cron: "0 */24 * * *"
-    # workflow_dispatch:
+    schedule:
+        - cron: "0 */24 * * *"
+    workflow_dispatch:
     
 jobs:
     make-request:
