@@ -21,8 +21,8 @@ jobs:
                   node-version: "16.x"
 
             - name: Download theme json file from monkeytype
+              run: curl -o monkeytype-data/themes.json https://monkeytype-readme.zeabur.app/mr-command/theme
               timeout-minutes: 2
-              run: curl --connect-timeout 120 --max-time 120 -o monkeytype-data/themes.json https://monkeytype-readme.zeabur.app/mr-command/theme
 
             - name: Format JSON data
               run: |
