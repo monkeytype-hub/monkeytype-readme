@@ -46,7 +46,7 @@ function getFaviconTheme() {
             name: themesData[i].name,
             bgColor: themesData[i].bgColor,
             mainColor: themesData[i].mainColor,
-        }
+        };
         faviconData[i] = data;
     }
 
@@ -108,7 +108,7 @@ async function getMonkeyTypeThemesByName(themeName) {
         .then((data) => {
             let cssData = data.substring(
                 data.indexOf("{"),
-                data.indexOf("}") + 1
+                data.indexOf("}") + 1,
             );
 
             cssData = cssData
@@ -146,14 +146,14 @@ async function getMonkeyTypeBadgesData() {
             const content = atob(data.content);
             let badgesData = content.slice(
                 content.search("{"),
-                content.search("};") + 1
+                content.search("};") + 1,
             );
             badgesData = badgesData
                 .replace(/(\w+)\s*:/g, '"$1":')
                 .replace(/,(\s*[\]}])/g, "$1")
                 .replace(
                     /(\w+:)|(\w+ :)/g,
-                    (matchedStr) => '"' + matchedStr.replace(/:/g, "") + '":'
+                    (matchedStr) => '"' + matchedStr.replace(/:/g, "") + '":',
                 )
                 .replace(/\"/g, '"')
                 .replace(/\"animation\"/g, "animation");

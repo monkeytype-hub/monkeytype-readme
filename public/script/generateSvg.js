@@ -41,7 +41,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
         const imagePath = `public/image/userImg/${userData.discordId}-${userData.discordAvatar}.png`;
         await downloadUserImg(
             `https://cdn.discordapp.com/avatars/${userData.discordId}/${userData.discordAvatar}.png?size=256`,
-            imagePath
+            imagePath,
         );
 
         // Convert the image file to base64
@@ -349,12 +349,12 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
             }
             if (pbWords[words[i]].wpm != "-") {
                 pbWords[words[i]].wpm = Math.round(
-                    parseFloat(pbWords[words[i]].wpm)
+                    parseFloat(pbWords[words[i]].wpm),
                 );
             }
             if (pbWords[words[i]].acc != "-") {
                 pbWords[words[i]].acc = Math.floor(
-                    parseFloat(pbWords[words[i]].acc)
+                    parseFloat(pbWords[words[i]].acc),
                 );
             }
         }
@@ -378,8 +378,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbTime["15"].acc}${
-            pbTime["15"].acc == "-" ? "" : "%"
-        }
+                                        pbTime["15"].acc == "-" ? "" : "%"
+                                    }
                                 </div>
                             </div>
                             <div class="mx-2 w-26 flex-col items-center justify-center">
@@ -394,8 +394,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbTime["30"].acc}${
-            pbTime["30"].acc == "-" ? "" : "%"
-        }
+                                        pbTime["30"].acc == "-" ? "" : "%"
+                                    }
                                 </div>
                             </div>
                             <div class="mx-2 w-26 flex-col items-center justify-center">
@@ -410,8 +410,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbTime["60"].acc}${
-            pbTime["60"].acc == "-" ? "" : "%"
-        }
+                                        pbTime["60"].acc == "-" ? "" : "%"
+                                    }
                                 </div>
                             </div>
                             <div class="mx-2 w-26 flex-col items-center justify-center">
@@ -426,8 +426,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbTime["120"].acc}${
-            pbTime["120"].acc == "-" ? "" : "%"
-        }
+                                        pbTime["120"].acc == "-" ? "" : "%"
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -452,8 +452,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbWords["10"].acc}${
-            pbWords["10"].acc == "-" ? "" : "%"
-        }
+                                        pbWords["10"].acc == "-" ? "" : "%"
+                                    }
                                 </div>
                             </div>
                             <div class="mx-2 w-26 flex-col items-center justify-center">
@@ -468,8 +468,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbWords["25"].acc}${
-            pbWords["25"].acc == "-" ? "" : "%"
-        }
+                                        pbWords["25"].acc == "-" ? "" : "%"
+                                    }
                                 </div>
                             </div>
                             <div class="mx-2 w-26 flex-col items-center justify-center">
@@ -484,8 +484,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbWords["50"].acc}${
-            pbWords["50"].acc == "-" ? "" : "%"
-        }
+                                        pbWords["50"].acc == "-" ? "" : "%"
+                                    }
                                 </div>
                             </div>
                             <div class="mx-2 w-26 flex-col items-center justify-center">
@@ -500,8 +500,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                 <div class="py-1 text-center font-mono text-2xl font-medium tracking-wider"
                                     style="color: ${theme.textColor};">
                                     ${pbWords["100"].acc}${
-            pbWords["100"].acc == "-" ? "" : "%"
-        }
+                                        pbWords["100"].acc == "-" ? "" : "%"
+                                    }
                                 </div>
                             </div>
                         </div>

@@ -73,7 +73,7 @@ var _self =
                     setLanguage: function (e, t) {
                         (e.className = e.className.replace(
                             RegExp(n, "gi"),
-                            ""
+                            "",
                         )),
                             e.classList.add("language-" + t);
                     },
@@ -85,7 +85,7 @@ var _self =
                             throw new Error();
                         } catch (r) {
                             var e = (/at [^(\r\n]*\((.*):[^:]+:[^:]+\)$/i.exec(
-                                r.stack
+                                r.stack,
                             ) || [])[1];
                             if (e) {
                                 var n = document.getElementsByTagName("script");
@@ -162,7 +162,7 @@ var _self =
                     };
                     a.hooks.run("before-highlightall", r),
                         (r.elements = Array.prototype.slice.apply(
-                            r.container.querySelectorAll(r.selector)
+                            r.container.querySelectorAll(r.selector),
                         )),
                         a.hooks.run("before-all-elements-highlight", r);
                     for (var i, l = 0; (i = r.elements[l++]); )
@@ -213,7 +213,7 @@ var _self =
                                         language: s.language,
                                         code: s.code,
                                         immediateClose: !0,
-                                    })
+                                    }),
                                 );
                         } else u(a.highlight(s.code, s.grammar, s.language));
                     else u(a.util.encode(s.code));
@@ -222,7 +222,7 @@ var _self =
                     var r = { code: e, grammar: n, language: t };
                     if ((a.hooks.run("before-tokenize", r), !r.grammar))
                         throw new Error(
-                            'The language "' + r.language + '" has no grammar.'
+                            'The language "' + r.language + '" has no grammar.',
                         );
                     return (
                         (r.tokens = a.tokenize(r.code, r.grammar)),
@@ -340,7 +340,12 @@ var _self =
                                     (w = u(
                                         n,
                                         z,
-                                        new i(f, p ? a.tokenize(N, p) : N, k, N)
+                                        new i(
+                                            f,
+                                            p ? a.tokenize(N, p) : N,
+                                            k,
+                                            N,
+                                        ),
                                     )),
                                     M && u(n, w, M),
                                     L > 1)
@@ -433,7 +438,7 @@ var _self =
                               e.postMessage(a.highlight(i, a.languages[r], r)),
                                   l && e.close();
                           },
-                          !1
+                          !1,
                       ),
                   a)
                 : a;
@@ -544,9 +549,9 @@ var _self =
                         /__/g,
                         function () {
                             return a;
-                        }
+                        },
                     ),
-                    "i"
+                    "i",
                 ),
                 lookbehind: !0,
                 greedy: !0,
@@ -562,7 +567,7 @@ var _self =
                     "(^|[\"'\\s])(?:" +
                         a +
                         ")\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+(?=[\\s>]))",
-                    "i"
+                    "i",
                 ),
                 lookbehind: !0,
                 inside: {
@@ -603,7 +608,7 @@ var _self =
             pattern: RegExp(
                 "@[\\w-](?:[^;{\\s\"']|\\s+(?!\\s)|" +
                     e.source +
-                    ")*?(?:;|(?=\\s*\\{))"
+                    ")*?(?:;|(?=\\s*\\{))",
             ),
             inside: {
                 rule: /^@[\w-]+/,
@@ -624,7 +629,7 @@ var _self =
                 "\\burl\\((?:" +
                     e.source +
                     "|(?:[^\\\\\r\n()\"']|\\\\[^])*)\\)",
-                "i"
+                "i",
             ),
             greedy: !0,
             inside: {
@@ -637,7 +642,7 @@ var _self =
             pattern: RegExp(
                 "(^|[{}\\s])[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|" +
                     e.source +
-                    ")*(?=\\s*\\{)"
+                    ")*(?=\\s*\\{)",
             ),
             lookbehind: !0,
         },
@@ -706,7 +711,7 @@ Prism.languages.clike = {
         /#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,
     number: {
         pattern: RegExp(
-            "(^|[^\\w$])(?:NaN|Infinity|0[bB][01]+(?:_[01]+)*n?|0[oO][0-7]+(?:_[0-7]+)*n?|0[xX][\\dA-Fa-f]+(?:_[\\dA-Fa-f]+)*n?|\\d+(?:_\\d+)*n|(?:\\d+(?:_\\d+)*(?:\\.(?:\\d+(?:_\\d+)*)?)?|\\.\\d+(?:_\\d+)*)(?:[Ee][+-]?\\d+(?:_\\d+)*)?)(?![\\w$])"
+            "(^|[^\\w$])(?:NaN|Infinity|0[bB][01]+(?:_[01]+)*n?|0[oO][0-7]+(?:_[0-7]+)*n?|0[xX][\\dA-Fa-f]+(?:_[\\dA-Fa-f]+)*n?|\\d+(?:_\\d+)*n|(?:\\d+(?:_\\d+)*(?:\\.(?:\\d+(?:_\\d+)*)?)?|\\.\\d+(?:_\\d+)*)(?:[Ee][+-]?\\d+(?:_\\d+)*)?)(?![\\w$])",
         ),
         lookbehind: !0,
     },
@@ -718,7 +723,7 @@ Prism.languages.clike = {
     Prism.languages.insertBefore("javascript", "keyword", {
         regex: {
             pattern: RegExp(
-                "((?:^|[^$\\w\\xA0-\\uFFFF.\"'\\])\\s]|\\b(?:return|yield))\\s*)/(?:(?:\\[(?:[^\\]\\\\\r\n]|\\\\.)*\\]|\\\\.|[^/\\\\\\[\r\n])+/[dgimyus]{0,7}|(?:\\[(?:[^[\\]\\\\\r\n]|\\\\.|\\[(?:[^[\\]\\\\\r\n]|\\\\.|\\[(?:[^[\\]\\\\\r\n]|\\\\.)*\\])*\\])*\\]|\\\\.|[^/\\\\\\[\r\n])+/[dgimyus]{0,7}v[dgimyus]{0,7})(?=(?:\\s|/\\*(?:[^*]|\\*(?!/))*\\*/)*(?:$|[\r\n,.;:})\\]]|//))"
+                "((?:^|[^$\\w\\xA0-\\uFFFF.\"'\\])\\s]|\\b(?:return|yield))\\s*)/(?:(?:\\[(?:[^\\]\\\\\r\n]|\\\\.)*\\]|\\\\.|[^/\\\\\\[\r\n])+/[dgimyus]{0,7}|(?:\\[(?:[^[\\]\\\\\r\n]|\\\\.|\\[(?:[^[\\]\\\\\r\n]|\\\\.|\\[(?:[^[\\]\\\\\r\n]|\\\\.)*\\])*\\])*\\]|\\\\.|[^/\\\\\\[\r\n])+/[dgimyus]{0,7}v[dgimyus]{0,7})(?=(?:\\s|/\\*(?:[^*]|\\*(?!/))*\\*/)*(?:$|[\r\n,.;:})\\]]|//))",
             ),
             lookbehind: !0,
             greedy: !0,
@@ -809,7 +814,7 @@ Prism.languages.clike = {
         (Prism.languages.markup.tag.addInlined("script", "javascript"),
         Prism.languages.markup.tag.addAttribute(
             "on(?:abort|blur|change|click|composition(?:end|start|update)|dblclick|error|focus(?:in|out)?|key(?:down|up)|load|mouse(?:down|enter|leave|move|out|over|up)|reset|resize|scroll|select|slotchange|submit|unload|wheel)",
-            "javascript"
+            "javascript",
         )),
     (Prism.languages.js = Prism.languages.javascript);
 !(function (e) {
@@ -831,7 +836,7 @@ Prism.languages.clike = {
                 /<PLAIN>/g,
                 function () {
                     return "[^\\s\\x00-\\x08\\x0e-\\x1f,[\\]{}\\x7f-\\x84\\x86-\\x9f\\ud800-\\udfff\\ufffe\\uffff]";
-                }
+                },
             ),
         d = "\"(?:[^\"\\\\\r\n]|\\\\.)*\"|'(?:[^'\\\\\r\n]|\\\\.)*'";
     function o(e, n) {
@@ -853,8 +858,8 @@ Prism.languages.clike = {
                     /<<prop>>/g,
                     function () {
                         return t;
-                    }
-                )
+                    },
+                ),
             ),
             lookbehind: !0,
             alias: "string",
@@ -868,7 +873,7 @@ Prism.languages.clike = {
                     })
                     .replace(/<<key>>/g, function () {
                         return "(?:" + a + "|" + d + ")";
-                    })
+                    }),
             ),
             lookbehind: !0,
             greedy: !0,
@@ -881,7 +886,7 @@ Prism.languages.clike = {
         },
         datetime: {
             pattern: o(
-                "\\d{4}-\\d\\d?-\\d\\d?(?:[tT]|[ \t]+)\\d\\d?:\\d{2}:\\d{2}(?:\\.\\d*)?(?:[ \t]*(?:Z|[-+]\\d\\d?(?::\\d{2})?))?|\\d{4}-\\d{2}-\\d{2}|\\d\\d?:\\d{2}(?::\\d{2}(?:\\.\\d*)?)?"
+                "\\d{4}-\\d\\d?-\\d\\d?(?:[tT]|[ \t]+)\\d\\d?:\\d{2}:\\d{2}(?:\\.\\d*)?(?:[ \t]*(?:Z|[-+]\\d\\d?(?::\\d{2})?))?|\\d{4}-\\d{2}-\\d{2}|\\d\\d?:\\d{2}(?::\\d{2}(?:\\.\\d*)?)?",
             ),
             lookbehind: !0,
             alias: "number",
@@ -896,7 +901,7 @@ Prism.languages.clike = {
         number: {
             pattern: o(
                 "[+-]?(?:0x[\\da-f]+|0o[0-7]+|(?:\\d+(?:\\.\\d*)?|\\.\\d+)(?:e[+-]?\\d+)?|\\.inf|\\.nan)",
-                "i"
+                "i",
             ),
             lookbehind: !0,
         },
@@ -974,7 +979,7 @@ Prism.languages.clike = {
                     if (!((n = Math.min(b + d, n)) < i)) {
                         var r =
                             o.querySelector(
-                                '.line-highlight[data-range="' + e + '"]'
+                                '.line-highlight[data-range="' + e + '"]',
                             ) || document.createElement("div");
                         if (
                             (v.push(function () {
@@ -1010,7 +1015,7 @@ Prism.languages.clike = {
                                         r.setAttribute("data-end", String(n)),
                                     (r.style.top = (i - d - 1) * f + A + "px"),
                                     (r.textContent = new Array(n - i + 2).join(
-                                        " \n"
+                                        " \n",
                                     ));
                             });
                         v.push(function () {
@@ -1110,7 +1115,7 @@ Prism.languages.clike = {
                 Prism.plugins.lineHighlight.highlightLines(
                     n,
                     t,
-                    "temporary "
+                    "temporary ",
                 )(),
                 r &&
                     document
@@ -1131,7 +1136,7 @@ Prism.languages.clike = {
                             var r =
                                     parseInt(
                                         n.getAttribute("data-start"),
-                                        10
+                                        10,
                                     ) || 1,
                                 s = r + (i.children.length - 1);
                             t < r && (t = r), t > s && (t = s);
@@ -1151,8 +1156,8 @@ Prism.languages.clike = {
                 ((i = window.innerWidth),
                 r(
                     Array.prototype.slice.call(
-                        document.querySelectorAll("pre.line-numbers")
-                    )
+                        document.querySelectorAll("pre.line-numbers"),
+                    ),
                 ));
         }),
             Prism.hooks.add("complete", function (t) {
@@ -1172,7 +1177,7 @@ Prism.languages.clike = {
                             u = new Array(a + 1).join("<span></span>");
                         (l = document.createElement("span")).setAttribute(
                             "aria-hidden",
-                            "true"
+                            "true",
                         ),
                             (l.className = "line-numbers-rows"),
                             (l.innerHTML = u),
@@ -1181,7 +1186,7 @@ Prism.languages.clike = {
                                     "linenumber " +
                                     (parseInt(
                                         s.getAttribute("data-start"),
-                                        10
+                                        10,
                                     ) -
                                         1)),
                             t.element.appendChild(l),
@@ -1244,7 +1249,7 @@ Prism.languages.clike = {
                     t.forEach(function (e, t) {
                         if (e && e.length > 1) {
                             var s = n.appendChild(
-                                document.createElement("span")
+                                document.createElement("span"),
                             );
                             (s.style.display = "block"), (s.textContent = e);
                         } else i[t] = r;
@@ -1289,13 +1294,13 @@ Prism.languages.clike = {
                                   "function" == typeof a.onClick
                                       ? (((t =
                                             document.createElement(
-                                                "button"
+                                                "button",
                                             )).type = "button"),
                                         t.addEventListener(
                                             "click",
                                             function () {
                                                 a.onClick.call(this, e);
-                                            }
+                                            },
                                         ))
                                       : "string" == typeof a.url
                                       ? ((t =
@@ -1311,7 +1316,7 @@ Prism.languages.clike = {
                         ? console.warn(
                               'There is a button with the key "' +
                                   n +
-                                  '" registered already.'
+                                  '" registered already.',
                           )
                         : e.push((t[n] = r));
             }),
@@ -1776,9 +1781,9 @@ Prism.languages.clike = {
                           (r.textContent = n[t]),
                               c.setAttribute("data-copy-state", t);
                       }
-                  }
+                  },
               )
             : console.warn(
-                  "Copy to Clipboard plugin loaded before Toolbar plugin."
+                  "Copy to Clipboard plugin loaded before Toolbar plugin.",
               ));
 })();

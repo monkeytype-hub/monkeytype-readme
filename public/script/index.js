@@ -12,7 +12,7 @@ $("#createNowBtn").click(function () {
         {
             scrollTop: targetElement.offset().top,
         },
-        800
+        800,
     );
 });
 
@@ -62,7 +62,7 @@ $("#generateReadmeBtn").click(function () {
     }
     $("#previewReadmeLink").attr(
         "href",
-        `https://monkeytype.com/profile/${monkeytypeName}`
+        `https://monkeytype.com/profile/${monkeytypeName}`,
     );
     $("#previewReadmeImg").attr("src", url);
     updateReadmeCode();
@@ -96,11 +96,11 @@ function initialReadmeBtn(buttonId, buttonState) {
     if (!buttonState) {
         $(buttonId).removeClass("bg-slate-100 text-gray-400");
         $(buttonId).addClass(
-            "bg-nord-light-green text-nord-light-bg opacity-60"
+            "bg-nord-light-green text-nord-light-bg opacity-60",
         );
     } else {
         $(buttonId).removeClass(
-            "bg-nord-light-green text-nord-light-bg opacity-60"
+            "bg-nord-light-green text-nord-light-bg opacity-60",
         );
         $(buttonId).addClass("bg-slate-100 text-gray-400");
     }
@@ -137,7 +137,7 @@ function showBorder(themeName) {
             $(`#${themeListState.themeName}`).css("border", "");
             $(`#${themeListState.themeName}`).css(
                 "border-color",
-                themeListState.borderColor
+                themeListState.borderColor,
             );
         }
         $(`#${themeName}`).css("border", `4px solid ${borderColor}`);
@@ -259,7 +259,7 @@ async function themeList() {
                     themeList[i]["bgColor"],
                     themeList[j]["bgColor"],
                     themeList[i]["name"],
-                    themeList[j]["name"]
+                    themeList[j]["name"],
                 )
             ) {
                 let temp = themeList[i];
@@ -280,8 +280,8 @@ async function themeList() {
             onclick="showBorder('${themeList[i]["name"]}')">
             <div class="col-span-5 flex justify-center items-center tracking-wider font-medium h-full"
                 style="color: ${themeList[i]["mainColor"]};">${themeList[i][
-            "name"
-        ].replace(/_/g, " ")}</div>
+                    "name"
+                ].replace(/_/g, " ")}</div>
         </div>
         `;
         $("#themeListContainer").append(html);

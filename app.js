@@ -63,7 +63,7 @@ app.get(["/:userId/:themeName", "/:userId"], async (req, res) => {
         domain: process.env.DOMAIN,
         userId: req.params.userId,
         theme: getTheme(
-            req.params.themeName ? req.params.themeName : "serika_dark"
+            req.params.themeName ? req.params.themeName : "serika_dark",
         ),
         userData: await getUserData(req.params.userId),
         svgUrl: `${process.env.DOMAIN}/generate-svg/${req.params.userId}/${req.params.themeName}?lbpb=true`,
@@ -103,7 +103,7 @@ app.get("/generate-svg/:userId/:themeName", async (req, res) => {
         theme,
         badge,
         leaderBoards,
-        personalBests
+        personalBests,
     );
     res.set("Content-Type", "image/svg+xml");
     res.send(svg);
