@@ -291,11 +291,11 @@
     },
     {
         "bgColor": "#242933",
-        "caretColor": "#d8dee9",
-        "mainColor": "#d8dee9",
-        "subColor": "#617b94",
-        "subAltColor": "#1b1f27",
-        "textColor": "#d8dee9",
+        "caretColor": "#ECEFF4",
+        "mainColor": "#88C0D0",
+        "subColor": "#929aaa",
+        "subAltColor": "#2E3440",
+        "textColor": "#D8DEE9",
         "errorColor": "#bf616a",
         "errorExtraColor": "#793e44",
         "colorfulErrorColor": "#bf616a",
@@ -2097,17 +2097,17 @@
         "name": "earthsong"
     },
     {
-        "bgColor": "#1f2533",
-        "mainColor": "#9999ff",
-        "caretColor": "#9999ff",
-        "subColor": "#ccddff",
-        "subAltColor": "#3d4b66",
-        "textColor": "#9999ff",
+        "bgColor": "#1e1e32",
+        "mainColor": "#7a52cc",
+        "caretColor": "#7a52cc",
+        "subColor": "#5c5c99",
+        "subAltColor": "#181829",
+        "textColor": "#a3a3cc",
         "errorColor": "#ff6666",
         "errorExtraColor": "#ff6666",
         "colorfulErrorColor": "#ff6666",
         "colorfulErrorExtraColor": "#ff6666",
-        "name": "purpurite"
+        "name": "purpleish"
     },
     {
         "bgColor": "#eceff4",
