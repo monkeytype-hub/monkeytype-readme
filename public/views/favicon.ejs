@@ -20,7 +20,9 @@
 
 <body>
     <div id="faviconImageData"></div>
-    <script>
+    <script type="module">
+        import { Canvg } from 'https://cdn.skypack.dev/canvg@^4.0.0';
+
         function generateFavicon(faviconTheme, size, curveSize) {
             faviconTheme = JSON.parse(faviconTheme.replaceAll('&#34;', '"'));
             let faviconImage = {};
@@ -33,7 +35,7 @@
                         bgcolor = "#111";
                         maincolor = "#eee";
                     }
-                    
+
                     const svgPre = `
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
                         <style>
@@ -46,9 +48,20 @@
                         </g>
                         </svg>`;
 
+                    // Convert SVG to PNG using canvg
+                    const canvas = document.createElement("canvas");
+                    canvas.width = size;
+                    canvas.height = size;
+                    const ctx = canvas.getContext("2d");
+
+                    const v = Canvg.fromString(ctx, svgPre);
+
+                    v.start();
+
                     faviconImage[i] = {
                         name: themeName,
-                        data: "data:image/svg+xml;base64," + btoa(svgPre)
+                        svgData: "data:image/svg+xml;base64," + btoa(svgPre),
+                        pngData: canvas.toDataURL("image/png")
                     };
 
                     document.getElementById("faviconImageData").innerHTML = JSON.stringify(faviconImage);
