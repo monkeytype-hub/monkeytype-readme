@@ -84,13 +84,9 @@ $("#themeNameError").mouseleave(function () {
     $("#themeNameErrorHover").addClass("hidden");
 });
 
-$("#monkeytypeNameErrorHover").click(function () {
-    $("#monkeytypeNameError").addClass("hidden");
-});
-
-$("#themeNameErrorHover").click(function () {
-    $("#themeNameError").addClass("hidden");
-});
+function errorHoverClick(id) {
+    $(`#${id}`).addClass("hidden");
+}
 
 function initialReadmeBtn(buttonId, buttonState) {
     if (!buttonState) {
@@ -271,7 +267,7 @@ async function themeList() {
 
     for (let i = themeList.length - 1; i >= 0; i--) {
         let html = `
-        <div id="${
+        <button id="${
             themeList[i]["name"]
         }" class="theme-border col-span-1 rounded-xl px-2 py-3 h-12"
             style="background-color: ${
@@ -282,7 +278,7 @@ async function themeList() {
                 style="color: ${themeList[i]["mainColor"]};">${themeList[i][
                     "name"
                 ].replace(/_/g, " ")}</div>
-        </div>
+        </button>
         `;
         $("#themeListContainer").append(html);
     }

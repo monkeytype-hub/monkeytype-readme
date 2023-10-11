@@ -15,6 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>MonkeyType Readme</title>
+        <meta name="description" content="Transform your MonkeyType typing data into SVGs for your GitHub Readme and share your monkeytype story with the world.">
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
@@ -72,9 +73,9 @@
                                     alt="icon"
                                     class="h-8 w-8 lg:h-10 lg:w-10"
                                 />
-                                <span
+                                <h1
                                     class="px-4 text-xs font-semibold tracking-wide lg:text-base lg:font-bold xl:text-lg"
-                                    >MonkeyType Readme</span
+                                    >MonkeyType Readme</h1
                                 >
                             </div>
                         </a>
@@ -95,28 +96,28 @@
             <div class="flex h-4/6 items-center justify-center">
                 <div>
                     <div class="justify-center sm:flex">
-                        <div
+                        <h2
                             class="text-center text-3xl font-black tracking-wider sm:text-4xl md:text-5xl xl:text-6xl"
                         >
                             Share
-                        </div>
-                        <div
+                        </h2>
+                        <h2
                             class="bg-gradient-to-br from-nord-light-subAlt to-nord-light-green bg-clip-text text-center text-3xl font-black tracking-wider text-transparent sm:ml-3 sm:text-4xl md:text-5xl xl:text-6xl"
                         >
                             MonkeyType Story
-                        </div>
+                        </h2>
                     </div>
-                    <div
+                    <h2
                         class="mt-1 text-center text-3xl font-black tracking-wider sm:mt-6 sm:text-4xl md:text-5xl xl:text-6xl"
                     >
                         With The World
-                    </div>
-                    <div
+                    </h2>
+                    <h3
                         class="my-16 px-4 text-center text-base font-medium text-nord-light-sub opacity-70 md:text-lg lg:text-2xl"
                     >
                         Monkeytype Readme transforms typing data into SVGs for
                         your GitHub Readme.
-                    </div>
+                    </h3>
                     <div class="flex items-center justify-center">
                         <button
                             class="h-14 w-28 rounded-2xl bg-black text-center text-sm font-medium tracking-wide text-white"
@@ -253,7 +254,7 @@
                     class="mt-4 flex justify-start text-sm font-medium tracking-wider text-slate-400 lg:mt-8 lg:text-lg"
                 >
                     <i class="bi bi-star-fill px-2"></i
-                    ><span>initial readme</span>
+                    ><h4>initial readme</h4>
                 </div>
                 <div
                     class="mt-6 h-12 items-center justify-start gap-x-5 md:flex md:h-16"
@@ -336,7 +337,7 @@
                 <div
                     class="mt-38 flex justify-start text-sm font-medium tracking-wider text-slate-400 md:mt-8 lg:text-xl"
                 >
-                    <i class="bi bi-palette-fill px-2"></i><span>theme</span>
+                    <i class="bi bi-palette-fill px-2"></i><h4>theme</h4>
                 </div>
                 <div
                     id="themeListContainer"
@@ -376,7 +377,7 @@
                     class="flex justify-start text-lg font-normal tracking-wider text-slate-400"
                 >
                     <i class="bi bi-bookmark-star-fill px-2"></i
-                    ><span>monkeytype readme</span>
+                    ><h4>monkeytype readme</h4>
                 </div>
                 <div class="mt-6 flex justify-start">
                     <div class="lg:flex">
@@ -386,13 +387,14 @@
                         >
                             Generate MonkeyType Readme
                         </button>
-                        <div
+                        <button
                             id="monkeytypeNameError"
                             class="relative mt-2 hidden h-16 overflow-hidden rounded-xl border-4 border-nord-light-subAlt lg:ml-2 lg:mt-0"
                             style="width: 320px"
+                            onclick="errorHoverClick('monkeytypeNameError')"
                         >
                             <div
-                                class="absolute flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
+                                class="absolute left-0 top-0 flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
                             >
                                 <div
                                     class="flex h-full items-center justify-center"
@@ -420,7 +422,7 @@
                             </div>
                             <div
                                 id="monkeytypeNameErrorHover"
-                                class="absolute left-0 top-0 hidden h-full w-full cursor-pointer border-4 border-transparent bg-black bg-opacity-20"
+                                class="absolute left-0 top-0 hidden h-full w-full border-4 border-transparent bg-black bg-opacity-20"
                             >
                                 <div
                                     class="flex h-full w-full items-center justify-center"
@@ -437,14 +439,15 @@
                                     </svg>
                                 </div>
                             </div>
-                        </div>
-                        <div
+                        </button>
+                        <button
                             id="themeNameError"
                             class="relative mt-2 hidden h-16 overflow-hidden rounded-xl border-4 border-nord-light-subAlt lg:ml-2 lg:mt-0"
                             style="width: 235px"
+                            onclick="errorHoverClick('themeNameError')"
                         >
                             <div
-                                class="absolute flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
+                                class="absolute left-0 top-0 flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
                             >
                                 <div
                                     class="flex h-full items-center justify-center"
@@ -472,7 +475,7 @@
                             </div>
                             <div
                                 id="themeNameErrorHover"
-                                class="absolute left-0 top-0 hidden h-full w-full cursor-pointer border-4 border-transparent bg-black bg-opacity-20"
+                                class="absolute left-0 top-0 hidden h-full w-full border-4 border-transparent bg-black bg-opacity-20"
                             >
                                 <div
                                     class="flex h-full w-full items-center justify-center"
@@ -489,7 +492,7 @@
                                     </svg>
                                 </div>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
                 <div class="mt-6 flex justify-start">
