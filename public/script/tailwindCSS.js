@@ -4,7 +4,7 @@ const readFile = util.promisify(fs.readFile);
 
 async function getOutputCSS() {
     try {
-        const data = await readFile("dist/output.css", "utf-8");
+        const data = await readFile("public/style/output.css", "utf-8");
         return data;
     } catch (err) {
         console.error(err);
