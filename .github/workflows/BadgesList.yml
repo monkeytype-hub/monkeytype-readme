@@ -37,8 +37,8 @@ jobs:
 
             - name: Configure git
               run: |
-                  git config --global user.name "ridemountainpig"
-                  git config --global user.email "lin0905580802@gmail.com"
+                  git config --global user.name "${{ vars.GITUSERNAME }}"
+                  git config --global user.email "${{ vars.GITUSEREMAIL }}"
 
             - name: Commit and push changes
               run: |
