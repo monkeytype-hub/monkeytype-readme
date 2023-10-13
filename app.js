@@ -46,6 +46,10 @@ app.get("/mr-command/favicon", async (req, res) => {
     res.render("favicon", { faviconData });
 });
 
+app.get("/sitemap.xml", (req, res) => {
+    res.sendFile(path.join(__dirname, "public/assets", "sitemap.xml"));
+});
+
 // app.get("/mr-command/GITPULL", (req, res) => {
 //     const { exec } = require("child_process");
 //     exec("git pull", (err, stdout, stderr) => {
