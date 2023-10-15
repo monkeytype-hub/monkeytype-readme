@@ -42,12 +42,28 @@ $("#generateReadmeBtn").click(function () {
     if (monkeytypeName === "" || themeListState.themeName === "") {
         if (monkeytypeName === "") {
             $("#monkeytypeNameError").removeClass("absolute hidden");
+        } else {
+            $("#monkeytypeNameError").addClass("absolute hidden");
         }
+
         if (themeListState.themeName === "") {
             $("#themeNameError").removeClass("absolute hidden");
+        } else {
+            $("#themeNameError").addClass("absolute hidden");
         }
         return;
+    } else {
+        $("#monkeytypeNameError").addClass("absolute hidden");
+        $("#themeNameError").addClass("absolute hidden");
     }
+
+    $("#generateReadmeBtn").prop("disabled", true);
+    $("#generateReadmeBtn").addClass("cursor-not-allowed");
+    $("#generateReadmeBtn").removeClass(
+        "hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60",
+    );
+    $("#generateReadmeBtnLoad").removeClass("hidden");
+    $("#generateReadmeBtnText").text("Monkeytype Readme Generating...");
 
     let url = `${domain}/generate-svg/${monkeytypeName}/${themeListState.themeName}`;
     if (leaderBoardBtnState && personalBestBtnState) {
@@ -60,12 +76,27 @@ $("#generateReadmeBtn").click(function () {
             url += "?pb=true";
         }
     }
-    $("#previewReadmeLink").attr(
-        "href",
-        `https://monkeytype.com/profile/${monkeytypeName}`,
-    );
-    $("#previewReadmeImg").attr("src", url);
-    updateReadmeCode();
+
+    const img = new Image();
+
+    img.src = url;
+
+    img.onload = function () {
+        $("#previewReadmeLink").attr(
+            "href",
+            `https://monkeytype.com/profile/${monkeytypeName}`,
+        );
+        $("#previewReadmeImg").attr("src", url);
+        updateReadmeCode();
+
+        $("#generateReadmeBtn").prop("disabled", false);
+        $("#generateReadmeBtn").removeClass("cursor-not-allowed");
+        $("#generateReadmeBtn").addClass(
+            "hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60",
+        );
+        $("#generateReadmeBtnLoad").addClass("hidden");
+        $("#generateReadmeBtnText").text("Generate Monkeytype Readme");
+    };
 });
 
 $("#monkeytypeNameError").mouseenter(function () {
