@@ -58,6 +58,10 @@
             .theme-border:hover {
                 border: 4px solid;
             }
+
+            .outline-border:hover {
+                outline: 4px solid;
+            }
         </style>
     </head>
 
@@ -499,7 +503,20 @@
                     </div>
                 </div>
                 <div class="mt-6 flex justify-start">
-                    <a id="previewReadmeLink" href="">
+                    <a id="personalReadmeLink" href="" target="_blank">
+                        <button
+                            id="personalReadmeBtn"
+                            class="outline-border h-16 rounded-xl p-4 text-center font-medium hidden"
+                        >
+                            <div class="flex justify-center items-center w-full h-full">
+                                <span id="generateReadmeBtnText">Go To Your MonkeyType Readme Page</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><path d="M6 9h6V5l7 7-7 7v-4H6V9z"/></svg>
+                            </div>
+                        </button>
+                    </a>
+                </div>
+                <div class="mt-6 flex justify-start">
+                    <a id="previewReadmeLink" href="" target="_blank">
                         <img id="previewReadmeImg" src="" alt="" />
                     </a>
                 </div>

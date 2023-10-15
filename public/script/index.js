@@ -38,7 +38,7 @@ $("#personalBestBtn").click(function () {
     personalBestBtnState = !personalBestBtnState;
 });
 
-$("#generateReadmeBtn").click(function () {
+$("#generateReadmeBtn").click(async function () {
     if (monkeytypeName === "" || themeListState.themeName === "") {
         if (monkeytypeName === "") {
             $("#monkeytypeNameError").removeClass("absolute hidden");
@@ -65,6 +65,19 @@ $("#generateReadmeBtn").click(function () {
     $("#generateReadmeBtnLoad").removeClass("hidden");
     $("#generateReadmeBtnText").text("Monkeytype Readme Generating...");
 
+    let themeList = await getMonkeyTypeThemesList();
+    let themeData = {};
+
+    for (let i = 0; i < themeList.length; i++) {
+        if (themeListState.themeName === themeList[i]["name"]) {
+            themeData = themeList[i];
+            break;
+        }
+    }
+
+    let personalReadmeUrl = `${domain}/${monkeytypeName}/${themeListState.themeName}`;
+    let personalReadmeBtnStyle = `color: ${themeData["mainColor"]}; background-color: ${themeData["bgColor"]}; outline-color: ${themeData["mainColor"]};"`;
+
     let url = `${domain}/generate-svg/${monkeytypeName}/${themeListState.themeName}`;
     if (leaderBoardBtnState && personalBestBtnState) {
         url += "?lbpb=true";
@@ -87,6 +100,9 @@ $("#generateReadmeBtn").click(function () {
             `https://monkeytype.com/profile/${monkeytypeName}`,
         );
         $("#previewReadmeImg").attr("src", url);
+        $("#personalReadmeLink").attr("href", personalReadmeUrl);
+        $("#personalReadmeBtn").attr("style", personalReadmeBtnStyle);
+
         updateReadmeCode();
 
         $("#generateReadmeBtn").prop("disabled", false);
@@ -94,6 +110,9 @@ $("#generateReadmeBtn").click(function () {
         $("#generateReadmeBtn").addClass(
             "hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60",
         );
+        
+        $("#personalReadmeBtn").removeClass("hidden");
+
         $("#generateReadmeBtnLoad").addClass("hidden");
         $("#generateReadmeBtnText").text("Generate Monkeytype Readme");
     };
