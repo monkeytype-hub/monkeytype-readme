@@ -100,6 +100,7 @@ $("#generateReadmeBtn").click(async function () {
             `https://monkeytype.com/profile/${monkeytypeName}`,
         );
         $("#previewReadmeImg").attr("src", url);
+        $("#previewReadmeImg").attr("alt", monkeytypeName + " | Monkeytype Readme");
         $("#personalReadmeLink").attr("href", personalReadmeUrl);
         $("#personalReadmeBtn").attr("style", personalReadmeBtnStyle);
 
