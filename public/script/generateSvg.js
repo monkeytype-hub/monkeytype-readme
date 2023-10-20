@@ -288,7 +288,11 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                 pbTime[j].wpm = Math.round(parseFloat(pbTime[j].wpm));
             }
             if (pbTime[j].acc != "-") {
-                pbTime[j].acc = Math.floor(parseFloat(pbTime[j].acc));
+                if (pbTime[j].acc == null || pbTime[j].acc == undefined) {
+                    pbTime[j].acc = "-";
+                } else {
+                    pbTime[j].acc = Math.floor(parseFloat(pbTime[j].acc));
+                }
             }
         }
 
@@ -353,9 +357,13 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                 );
             }
             if (pbWords[words[i]].acc != "-") {
-                pbWords[words[i]].acc = Math.floor(
-                    parseFloat(pbWords[words[i]].acc),
-                );
+                if (pbWords[words[i]].acc == null || pbWords[words[i]].acc == undefined) {
+                    pbWords[words[i]].acc = "-";
+                } else {
+                    pbWords[words[i]].acc = Math.floor(
+                        parseFloat(pbWords[words[i]].acc),
+                    );
+                }
             }
         }
 
