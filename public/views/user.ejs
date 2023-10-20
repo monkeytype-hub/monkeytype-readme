@@ -15,7 +15,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MonkeyType Readme</title>
+    <title><%= data.userId %> | MonkeyType Readme</title>
+    <meta name="description" content="Share <%= data.userId %> MonkeyType Story With The World">
+
     <link rel="stylesheet" href="../style/output.css" />
     <link rel="icon" href="../image/stupidMonkeyIcon.png" type="image/x-icon" />
 
@@ -94,6 +96,7 @@
                 <div class="h-10 w-10 lg:h-12 lg:w-12 rounded-full"
                     style="background-color: <%= data.theme.bgColor %>;">
                     <div class="flex items-center justify-center w-full h-full">
+                        <h1 class="hidden">MonkeyType Readme</h1>
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40px"
                             height="40px" viewBox="0 0 40 40" version="1.1" class="big-icon">
                             <g id="surface1">
@@ -176,7 +179,7 @@
             </a>
         </div>
         <div class="flex justify-center items-center h-full mx-5">
-            <img src="<%= data.svgUrl %>" class="mt-5 h-5/6 lg:h-[calc(100%-1.25rem)]" alt="">
+            <img src="<%= data.svgUrl %>" class="mt-5 h-5/6 lg:h-[calc(100%-1.25rem)]" alt="<%= data.userId %> | MonkeyType Readme">
         </div>
         <div class="absolute bottom-0 right-0 left-0 lg:left-auto lg:flex-col flex justify-center">
             <div id="shareList" class="hidden">
