@@ -92,7 +92,7 @@
 <body style="background-color: <%= data.theme.subAltColor %>;">
     <div class="h-screen relative">
         <div class="absolute top-0 left-0 mx-5 mt-3 lg:mt-5">
-            <a href="https://monkeytype-readme.zeabur.app/">
+            <a href="https://monkeytype-readme.zeabur.app/" title="MonkeyType Readme">
                 <div class="h-10 w-10 lg:h-12 lg:w-12 rounded-full"
                     style="background-color: <%= data.theme.bgColor %>;">
                     <div class="flex items-center justify-center w-full h-full">
@@ -141,7 +141,7 @@
             </a>
         </div>
         <div class="absolute top-0 right-0 mx-5 mt-3 lg:mt-5">
-            <a href="https://github.com/ridemountainpig/monkeytype-readme">
+            <a href="https://github.com/ridemountainpig/monkeytype-readme" title="MonkeyType Readme Github Link">
                 <div class="h-10 w-10 lg:h-12 lg:w-12 rounded-full"
                     style="background-color: <%= data.theme.bgColor %>;">
                     <div class="flex items-center justify-center w-full h-full">
@@ -184,7 +184,7 @@
         <div class="absolute bottom-0 right-0 left-0 lg:left-auto lg:flex-col flex justify-center">
             <div id="shareList" class="hidden">
                 <div class="flex lg:flex-col">
-                    <div class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4 cursor-pointer"
+                    <div class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4"
                         style="background-color: <%= data.theme.bgColor %>;">
                         <a class="h-full w-full flex justify-center items-center" href="https://twitter.com/intent/tweet?text=Share%20MonkeyType%20Store%20With%20The%20World!
                         https://monkeytype-readme.zeabur.app/<%= data.userId %>/<%= data.theme.name %>
@@ -192,27 +192,27 @@
                             <i class="bi bi-twitter share-icon" style="color: <%= data.theme.mainColor %>;"></i>
                         </a>
                     </div>
-                    <div class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4 cursor-pointer"
+                    <div class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4"
                         style="background-color: <%= data.theme.bgColor %>;">
                         <a class="h-full w-full flex justify-center items-center"
                             href="https://www.facebook.com/sharer/sharer.php?u=https%3A//monkeytype-readme.zeabur.app/<%= data.userId %>/<%= data.theme.name %>&quote=Share%20MonkeyType%20Store%20With%20The%20World!">
                             <i class="bi bi-facebook share-icon" style="color: <%= data.theme.mainColor %>;"></i>
                         </a>
                     </div>
-                    <div class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4 cursor-pointer"
+                    <div class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4"
                         style="background-color: <%= data.theme.bgColor %>;">
-                        <div class="h-full w-full flex justify-center items-center"
+                        <button class="h-full w-full flex justify-center items-center"
                             onclick="copyReadmeUrl('https://monkeytype-readme.zeabur.app/<%= data.userId %>/<%= data.theme.name %>')">
                             <i class="bi bi-link-45deg share-icon" style="color: <%= data.theme.mainColor %>;"></i>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4 cursor-pointer"
+            <div class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4"
                 style="background-color: <%= data.theme.bgColor %>;" id="shareBtn">
-                <div class="h-full w-full flex justify-center items-center">
+                <button class="h-full w-full flex justify-center items-center">
                     <i class="bi bi-share-fill share-icon" style="color: <%= data.theme.mainColor %>;"></i>
-                </div>
+                </button>
             </div>
         </div>
     </div>

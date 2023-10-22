@@ -357,7 +357,10 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                 );
             }
             if (pbWords[words[i]].acc != "-") {
-                if (pbWords[words[i]].acc == null || pbWords[words[i]].acc == undefined) {
+                if (
+                    pbWords[words[i]].acc == null ||
+                    pbWords[words[i]].acc == undefined
+                ) {
                     pbWords[words[i]].acc = "-";
                 } else {
                     pbWords[words[i]].acc = Math.floor(

@@ -100,8 +100,16 @@ $("#generateReadmeBtn").click(async function () {
             `https://monkeytype.com/profile/${monkeytypeName}`,
         );
         $("#previewReadmeImg").attr("src", url);
-        $("#previewReadmeImg").attr("alt", monkeytypeName + " | Monkeytype Readme");
+        $("#previewReadmeImg").attr(
+            "alt",
+            monkeytypeName + " | Monkeytype Readme",
+        );
+
         $("#personalReadmeLink").attr("href", personalReadmeUrl);
+        $("#personalReadmeLink").attr(
+            "title",
+            `${monkeytypeName} | Monkeytype Readme`,
+        );
         $("#personalReadmeBtn").attr("style", personalReadmeBtnStyle);
 
         updateReadmeCode();
@@ -111,7 +119,7 @@ $("#generateReadmeBtn").click(async function () {
         $("#generateReadmeBtn").addClass(
             "hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60",
         );
-        
+
         $("#personalReadmeBtn").removeClass("hidden");
 
         $("#generateReadmeBtnLoad").addClass("hidden");
