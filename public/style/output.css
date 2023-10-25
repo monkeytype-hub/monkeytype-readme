@@ -835,10 +835,6 @@ video {
   cursor: not-allowed;
 }
 
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -1064,6 +1060,10 @@ video {
   padding-bottom: 4rem;
 }
 
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
 .pl-1 {
   padding-left: 0.25rem;
 }
@@ -1082,14 +1082,6 @@ video {
 
 .pt-4 {
   padding-top: 1rem;
-}
-
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
-
-.pb-4 {
-  padding-bottom: 1rem;
 }
 
 .text-left {
@@ -1204,6 +1196,11 @@ video {
   color: rgb(236 239 244 / var(--tw-text-opacity));
 }
 
+.text-nord-light-green {
+  --tw-text-opacity: 1;
+  color: rgb(143 188 187 / var(--tw-text-opacity));
+}
+
 .text-nord-light-sub {
   --tw-text-opacity: 1;
   color: rgb(106 119 145 / var(--tw-text-opacity));
@@ -1226,16 +1223,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-nord-light-subAlt {
-  --tw-text-opacity: 1;
-  color: rgb(216 222 233 / var(--tw-text-opacity));
-}
-
-.text-nord-light-green {
-  --tw-text-opacity: 1;
-  color: rgb(143 188 187 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -1297,6 +1284,10 @@ video {
   outline-offset: 2px;
 }
 
+.group:hover .group-hover\:block {
+  display: block;
+}
+
 @media (min-width: 640px) {
   .sm\:ml-3 {
     margin-left: 0.75rem;
@@ -1347,6 +1338,21 @@ video {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
+
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .md\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1373,6 +1379,10 @@ video {
 
   .lg\:mt-8 {
     margin-top: 2rem;
+  }
+
+  .lg\:block {
+    display: block;
   }
 
   .lg\:flex {
@@ -1508,6 +1518,24 @@ video {
 
   .lg\:leading-\[3rem\] {
     line-height: 3rem;
+  }
+
+  .lg\:hover\:bg-nord-light-green:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(143 188 187 / var(--tw-bg-opacity));
+  }
+
+  .lg\:hover\:text-nord-light-bg:hover {
+    --tw-text-opacity: 1;
+    color: rgb(236 239 244 / var(--tw-text-opacity));
+  }
+
+  .lg\:hover\:opacity-60:hover {
+    opacity: 0.6;
+  }
+
+  .group:hover .lg\:group-hover\:block {
+    display: block;
   }
 }
 

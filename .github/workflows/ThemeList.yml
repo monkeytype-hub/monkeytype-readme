@@ -55,7 +55,7 @@ jobs:
                     echo "No changes detected."
                   else
                     git add .
-                    git commit -m "feat: update themes json list"
+                    git commit -m "chore: update themes json list"
                   fi
               continue-on-error: true
 

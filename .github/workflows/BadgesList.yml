@@ -46,7 +46,7 @@ jobs:
                     echo "No changes detected."
                   else
                     git add .
-                    git commit -m "feat: update badges json list"
+                    git commit -m "chore: update badges json list"
                   fi
               continue-on-error: true
 

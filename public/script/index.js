@@ -20,14 +20,6 @@ $("#monkeytypeNameInput").on("input", function () {
     monkeytypeName = $(this).val();
 });
 
-$("#leaderBoardBtn").mouseenter(function () {
-    $("#leaderBoardTooltip").removeClass("hidden");
-});
-
-$("#leaderBoardBtn").mouseleave(function () {
-    $("#leaderBoardTooltip").addClass("hidden");
-});
-
 $("#leaderBoardBtn").click(function () {
     initialReadmeBtn("#leaderBoardBtn", leaderBoardBtnState);
     leaderBoardBtnState = !leaderBoardBtnState;
@@ -160,14 +152,6 @@ function initialReadmeBtn(buttonId, buttonState) {
         $(buttonId).addClass("bg-slate-100 text-gray-400");
     }
 }
-
-$("#personalBestBtn").mouseenter(function () {
-    $("#personalBestTooltip").removeClass("hidden");
-});
-
-$("#personalBestBtn").mouseleave(function () {
-    $("#personalBestTooltip").addClass("hidden");
-});
 
 function showThemeList() {
     $("#showThemeBtn").addClass("hidden");
