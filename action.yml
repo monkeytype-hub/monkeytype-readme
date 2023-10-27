@@ -1,0 +1,46 @@
+name: "Monkeytype Readme"
+description: "A GitHub Action to generate Monkeytype Readme SVGs, let you share Monkeytype story with the world."
+branding:
+  icon: 'bookmark'
+  color: 'yellow'
+inputs:
+  username:
+    description: "Your Monkeytype username"
+    required: true
+  themes:
+    description: "Themes to generate SVGs for"
+    required: true
+  target-branch:
+    description: "Branch to deploy Monkeytype Readme SVGs"
+    required: true
+  github-token:
+    description: "GitHub token use to deploy github pages"
+    required: true
+  
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+          node-version: "16.x"
+
+    - name: Download SVG
+      shell: bash
+      run: |
+          mkdir monkeytype-readme-svg
+          curl -o monkeytype-readme-svg/${{ inputs.username }}-monkeytype-readme.svg https://monkeytype-readme.zeabur.app/generate-svg/${{ inputs.username }}/${{ inputs.themes }}
+          curl -o monkeytype-readme-svg/${{ inputs.username }}-monkeytype-readme-lb.svg https://monkeytype-readme.zeabur.app/generate-svg/${{ inputs.username }}/${{ inputs.themes }}?lb=true
+          curl -o monkeytype-readme-svg/${{ inputs.username }}-monkeytype-readme-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/${{ inputs.username }}/${{ inputs.themes }}?pb=true
+          curl -o monkeytype-readme-svg/${{ inputs.username }}-monkeytype-readme-lb-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/${{ inputs.username }}/${{ inputs.themes }}?lbpb=true
+
+    - name: push monkeytype-readme.svg to the monkeytype-readme branch
+      uses: crazy-max/ghaction-github-pages@v4.0.0
+      with:
+          target_branch: ${{ inputs.target-branch }}
+          build_dir: monkeytype-readme-svg
+      env:
+          GITHUB_TOKEN: ${{ inputs.github-token }}
