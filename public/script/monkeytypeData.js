@@ -60,17 +60,14 @@ function getBadge(badgeId) {
 }
 
 async function getUserData(userId) {
-    const API_KEY = process.env.MONKEYTYPE_APEKEY;
     const url = `https://api.monkeytype.com/users/${userId}/profile`;
 
     try {
-        const response = await axios.get(url, {
-            headers: {
-                Authorization: `ApeKey ${API_KEY}`,
-            },
+        return fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            return data.data;
         });
-        const userData = response.data.data;
-        return userData;
     } catch (error) {
         console.error(error);
     }
