@@ -12,7 +12,60 @@ Monkeytype Readme transforms MonkeyType typing data into SVGs for your GitHub Re
   
 ## Usage
 
-To use MonkeyType Readme for your GitHub Readme, follow these steps:
+Two way to generate MonkeyType Readme
+
+1. #### Using GitHub Action from Marketplace
+2. #### Setting Up Custom MonkeyType Readme GitHub Action
+
+### Using GitHub Action from Marketplace ([MonkeyType Readme Github Action](https://github.com/marketplace/actions/monkeytype-readme))
+
+1. Add a `monkeytype-readme.yml` file in your repository's `.github/workflows/` path.
+2. Configure `monkeytype-readme.yml` with the following format:
+
+    - **Username**: Change `MONKEYTYPE_USERNAME` to your username in MonkeyType.
+
+    - **Themes**: Change `MONKEYTYPE_THEME_NAME` to your favorite theme in MonkeyType.<br/>
+      If theme name have `space`, please change `space` to `_`.<br/>
+
+      > Example: `nord light` => `nord_light`
+
+    - **Target Branch**: Change `BRANCH_NAME` to the branch you want to put MonkeyType Readme.
+
+```yml
+name: generate monkeytype readme svg
+
+on:
+    schedule:
+        - cron: "0 */6 * * *" # every 6 hours
+    workflow_dispatch:
+
+jobs:
+  download-svg:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+
+      - name: Generate Monkeytype Readme SVG
+        uses: ridemountainpig/monkeytype-readme@v1.0.0
+        with:
+          username: MONKEYTYPE_USERNAME
+          themes: MONKEYTYPE_THEME_NAME
+          target-branch: BRANCH_NAME
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+```
+
+3. Go to actions and run `generate monkeytype readme svg` workflow.
+
+4. Done! Now, navigate to your target branch and you'll find the MonkeyType README file. You can also integrate it into your GitHub README.
+
+### Setting Up Custom MonkeyType Readme GitHub Action
 
 1. Add a `monkeytype-readme.yml` file in your repository's `.github/workflows/` path.
 2. Configure `monkeytype-readme.yml` with the following format:
