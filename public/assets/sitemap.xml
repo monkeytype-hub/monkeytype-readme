@@ -67,12 +67,6 @@
   <priority>0.80</priority>
   <changefreq>daily</changefreq>
 </url>
-<url>
-  <loc>https://github.com/ridemountainpig/monkeytype-readme</loc>
-  <lastmod>2023-10-20T14:12:44+00:00</lastmod>
-  <priority>0.80</priority>
-  <changefreq>daily</changefreq>
-</url>
 
 
 </urlset>
