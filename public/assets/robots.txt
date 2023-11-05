@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /generate-svg/YOUR_USERNAME/THEMES
+Sitemap: https://monkeytype-readme.zeabur.app/sitemap.xml

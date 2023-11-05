@@ -27,7 +27,7 @@ Two way to generate MonkeyType Readme
     - **Themes**: Change `MONKEYTYPE_THEME_NAME` to your favorite theme in MonkeyType.<br/>
       If theme name have `space`, please change `space` to `_`.<br/>
 
-      > Example: `nord light` => `nord_light`
+        > Example: `nord light` => `nord_light`
 
     - **Target Branch**: Change `BRANCH_NAME` to the branch you want to put MonkeyType Readme.
 
@@ -40,25 +40,25 @@ on:
     workflow_dispatch:
 
 jobs:
-  download-svg:
-    runs-on: ubuntu-latest
+    download-svg:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16.x"
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "16.x"
 
-      - name: Generate Monkeytype Readme SVG
-        uses: ridemountainpig/monkeytype-readme@v1.0.0
-        with:
-          username: MONKEYTYPE_USERNAME
-          themes: MONKEYTYPE_THEME_NAME
-          target-branch: BRANCH_NAME
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+            - name: Generate Monkeytype Readme SVG
+              uses: ridemountainpig/monkeytype-readme@v1.0.0
+              with:
+                  username: MONKEYTYPE_USERNAME
+                  themes: MONKEYTYPE_THEME_NAME
+                  target-branch: BRANCH_NAME
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 3. Go to actions and run `generate monkeytype readme svg` workflow.

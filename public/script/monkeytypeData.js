@@ -64,10 +64,10 @@ async function getUserData(userId) {
 
     try {
         return fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            return data.data;
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                return data.data;
+            });
     } catch (error) {
         console.error(error);
     }
