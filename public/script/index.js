@@ -31,22 +31,34 @@ $("#personalBestBtn").click(function () {
 });
 
 $("#generateReadmeBtn").click(async function () {
-    if (monkeytypeName === "" || themeListState.themeName === "") {
-        if (monkeytypeName === "") {
-            $("#monkeytypeNameError").removeClass("absolute hidden");
-        } else {
-            $("#monkeytypeNameError").addClass("absolute hidden");
-        }
+    $("#monkeytypeNameError").addClass("absolute hidden");
+    $("#themeNameError").addClass("absolute hidden");
+    $("#monkeytypeNameInvalidError").addClass("absolute hidden");
 
-        if (themeListState.themeName === "") {
-            $("#themeNameError").removeClass("absolute hidden");
-        } else {
-            $("#themeNameError").addClass("absolute hidden");
-        }
+    let svgDataCheck = false;
+    const VALID_NAME_PATTERN = /^[\da-zA-Z_.-]+$/;
+
+    if (monkeytypeName === "") {
+        $("#monkeytypeNameError").removeClass("absolute hidden");
+        svgDataCheck = true;
+    }
+
+    if (themeListState.themeName === "") {
+        $("#themeNameError").removeClass("absolute hidden");
+        svgDataCheck = true;
+    }
+
+    if (
+        monkeytypeName !== "" &&
+        (!VALID_NAME_PATTERN.test(monkeytypeName) ||
+            !(monkeytypeName.length > 1 && monkeytypeName.length < 16))
+    ) {
+        $("#monkeytypeNameInvalidError").removeClass("absolute hidden");
+        svgDataCheck = true;
+    }
+
+    if (svgDataCheck) {
         return;
-    } else {
-        $("#monkeytypeNameError").addClass("absolute hidden");
-        $("#themeNameError").addClass("absolute hidden");
     }
 
     $("#generateReadmeBtn").prop("disabled", true);
@@ -133,6 +145,14 @@ $("#themeNameError").mouseenter(function () {
 
 $("#themeNameError").mouseleave(function () {
     $("#themeNameErrorHover").addClass("hidden");
+});
+
+$("#monkeytypeNameInvalidError").mouseenter(function () {
+    $("#monkeytypeNameInvalidErrorHover").removeClass("hidden");
+});
+
+$("#monkeytypeNameInvalidError").mouseleave(function () {
+    $("#monkeytypeNameInvalidErrorHover").addClass("hidden");
 });
 
 function errorHoverClick(id) {

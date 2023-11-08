@@ -88,7 +88,7 @@ app.get("/generate-svg/:userId/:themeName", async (req, res) => {
     req.query.lbpb == "true" ? (leaderBoards = personalBests = true) : null;
     const userData = await getUserData(userId);
     const theme = getTheme(themeName);
-    if (userData === undefined) {
+    if (userData === undefined || userData.name === undefined) {
         const svg = await getSvg(null, theme, null, false, false);
         res.set("Content-Type", "image/svg+xml");
         res.send(svg);
