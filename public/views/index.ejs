@@ -189,7 +189,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-16 px-5 lg:px-20 xl:px-40">
+        <div class="mt-16 px-6 md:px-10 lg:px-14 xl:px-18">
             <h2
                 class="text-lg font-bold tracking-wider md:text-3xl"
                 id="mr-introduce"
@@ -328,7 +328,7 @@
                     <h4>initial monkeytype readme</h4>
                 </div>
                 <div
-                    class="mt-6 h-12 items-center justify-start gap-x-5 md:flex md:h-16"
+                    class="mt-6 h-16 items-center justify-start gap-x-5 md:flex"
                 >
                     <input
                         type="text"
@@ -341,7 +341,7 @@
                     <div>
                         <button
                             id="leaderBoardBtn"
-                            class="relative group mt-4 h-12 rounded-xl bg-slate-100 px-4 text-center font-medium text-gray-400 lg:hover:bg-nord-light-green lg:hover:text-nord-light-bg lg:hover:opacity-60 md:mt-0 md:h-16"
+                            class="relative group mt-4 h-16 rounded-xl bg-slate-100 px-4 text-center font-medium text-gray-400 lg:hover:bg-nord-light-green lg:hover:text-nord-light-bg lg:hover:opacity-60 md:mt-0"
                         >
                             <div
                                 id="leaderBoardTooltip"
@@ -376,7 +376,7 @@
                     <div>
                         <button
                             id="personalBestBtn"
-                            class="relative group mt-4 h-12 rounded-xl bg-slate-100 px-4 text-center font-medium text-gray-400 lg:hover:bg-nord-light-green lg:hover:text-nord-light-bg lg:hover:opacity-60 md:mt-0 md:h-16"
+                            class="relative group mt-4 h-16 rounded-xl bg-slate-100 px-4 text-center font-medium text-gray-400 lg:hover:bg-nord-light-green lg:hover:text-nord-light-bg lg:hover:opacity-60 md:mt-0"
                         >
                             <div
                                 id="personalBestTooltip"
@@ -410,13 +410,13 @@
                 </div>
 
                 <div
-                    class="mt-38 flex justify-start text-sm font-medium tracking-wider text-slate-400 md:mt-8 lg:text-xl"
+                    class="mt-44 flex justify-start text-sm font-medium tracking-wider text-slate-400 md:mt-8 lg:text-xl"
                 >
                     <i class="bi bi-palette-fill px-2"></i><span>theme</span>
                 </div>
                 <div
                     id="themeListContainer"
-                    class="mt-8 grid h-96 gap-2 overflow-hidden lg:grid-cols-3 lg:gap-4 xl:grid-cols-4"
+                    class="mt-8 grid h-96 gap-2 overflow-hidden md:grid-cols-2 lg:grid-cols-3 lg:gap-4 xl:grid-cols-4"
                 >
                     <!-- <div class="col-span-1 rounded-xl px-2 py-3 h-12 bg-red-50">
                     <div class="col-span-5 flex justify-center items-center h-full tracking-wider font-medium h-full">hello</div>
@@ -458,7 +458,7 @@
                     <div class="lg:flex">
                         <button
                             id="generateReadmeBtn"
-                            class="h-12 md:h-16 rounded-xl bg-slate-100 p-4 text-center font-medium text-gray-400 hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60"
+                            class="h-16 rounded-xl bg-slate-100 p-4 text-center font-medium text-gray-400 hover:bg-nord-light-green hover:text-nord-light-bg hover:opacity-60"
                         >
                             <div
                                 class="flex justify-center items-center w-full h-full"
@@ -485,165 +485,174 @@
                                 >
                             </div>
                         </button>
-                        <button
-                            id="monkeytypeNameError"
-                            class="relative mt-2 hidden h-12 md:h-16 overflow-hidden rounded-xl border-4 border-nord-light-subAlt lg:ml-2 lg:mt-0"
-                            style="width: 320px"
-                            onclick="errorHoverClick('monkeytypeNameError')"
-                        >
-                            <div
-                                class="absolute left-0 top-0 flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
+                        <div>
+                            
+                            <button
+                                id="monkeytypeNameError"
+                                class="relative mt-2 hidden h-16 overflow-hidden rounded-xl border-4 border-nord-light-subAlt lg:ml-2 lg:mt-0"
+                                style="width: 320px"
+                                onclick="errorHoverClick('monkeytypeNameError')"
                             >
                                 <div
-                                    class="flex h-full items-center justify-center"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 384 512"
-                                        fill="#eceff4"
-                                        style="height: 20px; width: 20px"
-                                    >
-                                        <path
-                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                                        />
-                                    </svg>
-                                </div>
-                                <div
-                                    class="ml-3 flex h-full items-center justify-center tracking-wide"
+                                    class="absolute left-0 top-0 flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
                                 >
                                     <div
-                                        class="text-left text-sm md:text-base font-medium text-nord-light-bg"
+                                        class="flex h-full items-center justify-center"
                                     >
-                                        Please Enter Monkeytype Name
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            fill="#eceff4"
+                                            style="height: 20px; width: 20px"
+                                        >
+                                            <path
+                                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div
+                                        class="ml-3 flex h-full items-center justify-center tracking-wide"
+                                    >
+                                        <div
+                                            class="text-left text-sm md:text-base font-medium text-nord-light-bg"
+                                        >
+                                            Please Enter Monkeytype Name
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div
-                                id="monkeytypeNameErrorHover"
-                                class="absolute left-0 top-0 hidden h-full w-full border-4 border-transparent bg-black bg-opacity-20"
-                            >
                                 <div
-                                    class="flex h-full w-full items-center justify-center"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 384 512"
-                                        fill="#eceff4"
-                                        style="height: 40px; width: 40px"
-                                    >
-                                        <path
-                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                                        />
-                                    </svg>
-                                </div>
-                            </div>
-                        </button>
-                        <button
-                            id="themeNameError"
-                            class="relative mt-2 hidden h-12 md:h-16 overflow-hidden rounded-xl border-4 border-nord-light-subAlt lg:ml-2 lg:mt-0"
-                            style="width: 235px"
-                            onclick="errorHoverClick('themeNameError')"
-                        >
-                            <div
-                                class="absolute left-0 top-0 flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
-                            >
-                                <div
-                                    class="flex h-full items-center justify-center"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 384 512"
-                                        fill="#eceff4"
-                                        style="height: 20px; width: 20px"
-                                    >
-                                        <path
-                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                                        />
-                                    </svg>
-                                </div>
-                                <div
-                                    class="ml-3 flex h-full items-center justify-center tracking-wide"
+                                    id="monkeytypeNameErrorHover"
+                                    class="absolute left-0 top-0 hidden h-full w-full border-4 border-transparent bg-black bg-opacity-20"
                                 >
                                     <div
-                                        class="text-left text-sm md:text-base font-medium text-nord-light-bg"
+                                        class="flex h-full w-full items-center justify-center"
                                     >
-                                        Please Select Theme
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            fill="#eceff4"
+                                            style="height: 40px; width: 40px"
+                                        >
+                                            <path
+                                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                                            />
+                                        </svg>
                                     </div>
                                 </div>
-                            </div>
-                            <div
-                                id="themeNameErrorHover"
-                                class="absolute left-0 top-0 hidden h-full w-full border-4 border-transparent bg-black bg-opacity-20"
+                            </button>
+                        </div>
+                        <div>
+
+                            <button
+                                id="themeNameError"
+                                class="relative mt-2 hidden h-16 overflow-hidden rounded-xl border-4 border-nord-light-subAlt lg:ml-2 lg:mt-0"
+                                style="width: 235px"
+                                onclick="errorHoverClick('themeNameError')"
                             >
                                 <div
-                                    class="flex h-full w-full items-center justify-center"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 384 512"
-                                        fill="#eceff4"
-                                        style="height: 40px; width: 40px"
-                                    >
-                                        <path
-                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                                        />
-                                    </svg>
-                                </div>
-                            </div>
-                        </button>
-                        <button
-                            id="monkeytypeNameInvalidError"
-                            class="relative mt-2 hidden h-12 md:h-16 overflow-hidden rounded-xl border-4 border-nord-light-subAlt lg:ml-2 lg:mt-0"
-                            style="width: 280px"
-                            onclick="errorHoverClick('monkeytypeNameInvalidError')"
-                        >
-                            <div
-                                class="absolute left-0 top-0 flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
-                            >
-                                <div
-                                    class="flex h-full items-center justify-center"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 384 512"
-                                        fill="#eceff4"
-                                        style="height: 20px; width: 20px"
-                                    >
-                                        <path
-                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                                        />
-                                    </svg>
-                                </div>
-                                <div
-                                    class="ml-3 flex h-full items-center justify-center tracking-wide"
+                                    class="absolute left-0 top-0 flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
                                 >
                                     <div
-                                        class="text-left text-sm md:text-base font-medium text-nord-light-bg"
+                                        class="flex h-full items-center justify-center"
                                     >
-                                        Invalid Monkeytype Name
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            fill="#eceff4"
+                                            style="height: 20px; width: 20px"
+                                        >
+                                            <path
+                                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div
+                                        class="ml-3 flex h-full items-center justify-center tracking-wide"
+                                    >
+                                        <div
+                                            class="text-left text-sm md:text-base font-medium text-nord-light-bg"
+                                        >
+                                            Please Select Theme
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div
-                                id="monkeytypeNameInvalidErrorHover"
-                                class="absolute left-0 top-0 hidden h-full w-full border-4 border-transparent bg-black bg-opacity-20"
+                                <div
+                                    id="themeNameErrorHover"
+                                    class="absolute left-0 top-0 hidden h-full w-full border-4 border-transparent bg-black bg-opacity-20"
+                                >
+                                    <div
+                                        class="flex h-full w-full items-center justify-center"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            fill="#eceff4"
+                                            style="height: 40px; width: 40px"
+                                        >
+                                            <path
+                                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div>
+
+                            <button
+                                id="monkeytypeNameInvalidError"
+                                class="relative mt-2 hidden h-16 overflow-hidden rounded-xl border-4 border-nord-light-subAlt lg:ml-2 lg:mt-0"
+                                style="width: 280px"
+                                onclick="errorHoverClick('monkeytypeNameInvalidError')"
                             >
                                 <div
-                                    class="flex h-full w-full items-center justify-center"
+                                    class="absolute left-0 top-0 flex h-full w-full bg-nord-light-error bg-opacity-40 p-4"
                                 >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 384 512"
-                                        fill="#eceff4"
-                                        style="height: 40px; width: 40px"
+                                    <div
+                                        class="flex h-full items-center justify-center"
                                     >
-                                        <path
-                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                                        />
-                                    </svg>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            fill="#eceff4"
+                                            style="height: 20px; width: 20px"
+                                        >
+                                            <path
+                                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div
+                                        class="ml-3 flex h-full items-center justify-center tracking-wide"
+                                    >
+                                        <div
+                                            class="text-left text-sm md:text-base font-medium text-nord-light-bg"
+                                        >
+                                            Invalid Monkeytype Name
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </button>
+                                <div
+                                    id="monkeytypeNameInvalidErrorHover"
+                                    class="absolute left-0 top-0 hidden h-full w-full border-4 border-transparent bg-black bg-opacity-20"
+                                >
+                                    <div
+                                        class="flex h-full w-full items-center justify-center"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 384 512"
+                                            fill="#eceff4"
+                                            style="height: 40px; width: 40px"
+                                        >
+                                            <path
+                                                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-6 flex justify-start">
