@@ -21,6 +21,8 @@ app.use("/styles", express.static("dist"));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "public", "views"));
 
+app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
+
 app.get("/", (req, res) => {
     const data = {
         domain: process.env.DOMAIN,
