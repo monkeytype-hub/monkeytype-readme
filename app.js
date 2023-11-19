@@ -10,7 +10,11 @@ const {
     getMonkeyTypeThemesData,
     getMonkeyTypeBadgesData,
 } = require("./public/script/monkeytypeData");
-const { getOutputCSS } = require("./public/script/tailwindCSS");
+
+const {
+    getImageDataFromPB,
+    uploadImageToPB,
+} = require("./public/script/pocketbase");
 const { getSvg } = require("./public/script/generateSvg");
 const { get } = require("request");
 require("dotenv").config();
@@ -20,12 +24,28 @@ app.use("/styles", express.static("dist"));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "public", "views"));
-
 app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+    const pbDomain = process.env.PB_DOMAIN;
+    const pbImageData = await getImageDataFromPB();
+
+    let pbImage = {};
+    for (const data of pbImageData) {
+        pbImage[data.monkeytype_name] =
+            pbDomain +
+            "api/files/" +
+            data["collectionId"] +
+            "/" +
+            data["id"] +
+            "/" +
+            data["mr_image"] +
+            "?token=";
+    }
+
     const data = {
         domain: process.env.DOMAIN,
+        mrImage: pbImage,
     };
 
     res.render("index", { data });
