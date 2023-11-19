@@ -91,7 +91,6 @@ async function uploadImage(username, theme, type, authToken) {
         const form = new FormData();
 
         const imageName = `${username}_${type != "" ? type + "_" : ""}${theme}`;
-        console.log(imageName);
         form.append("monkeytype_name", imageName);
         form.append("mr_image", imageStream, { filename: `${imageName}.svg` });
 
@@ -110,8 +109,29 @@ async function uploadImage(username, theme, type, authToken) {
         await finished(imageStream);
 
         console.log("Upload successful:", uploadResponse.data);
+        return true;
     } catch (error) {
         console.error("Error uploading image:", error);
+        return false;
+    }
+}
+
+async function deleteImage(imageId, authToken) {
+    try {
+        const deleteResponse = await axios.delete(
+            pbDomain + `api/collections/monkeytype_readme_image/records/${imageId}`,
+            {
+                headers: {
+                    Authorization: `${authToken}`,
+                },
+            },
+        );
+
+        console.log("Delete successful");
+        return true;
+    } catch (error) {
+        console.error("Error deleting image:", error);
+        return false;
     }
 }
 
@@ -122,14 +142,29 @@ async function uploadImageToPB() {
         return;
     }
 
+    const pbData = await getImageDataFromPB();
+
     for (const image of imageData) {
         for (const type of image.type) {
-            await uploadImage(
+            const result = await uploadImage(
                 image.monkeytype_name,
                 image.theme,
                 type,
                 authToken,
             );
+
+            if (result == true) {
+                for (const pbImage of pbData) {
+                    if (
+                        pbImage.monkeytype_name ===
+                        `${image.monkeytype_name}_${type != "" ? type + "_" : ""}${
+                            image.theme
+                        }`
+                    ) {
+                        await deleteImage(pbImage.id, authToken);
+                    }
+                }
+            }
         }
     }
 }
@@ -148,6 +183,9 @@ async function getImageDataFromPB() {
 
     return response.data.items;
 }
+
+uploadImageToPB();
+
 module.exports = {
     getImageDataFromPB,
     uploadImageToPB,
