@@ -56,18 +56,6 @@ app.get("/robots.txt", (req, res) => {
     res.sendFile(path.join(__dirname, "public/assets", "robots.txt"));
 });
 
-// app.get("/mr-command/GITPULL", (req, res) => {
-//     const { exec } = require("child_process");
-//     exec("git pull", (err, stdout, stderr) => {
-//         if (err) {
-//             console.error(err);
-//             return;
-//         }
-//         console.log(stdout);
-//         res.send("GIT PULL SUCCESSFUL");
-//     });
-// });
-
 app.get(["/:userId/:themeName", "/:userId"], async (req, res) => {
     const data = {
         domain: process.env.DOMAIN,
