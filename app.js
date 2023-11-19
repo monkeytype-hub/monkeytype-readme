@@ -1,4 +1,5 @@
 const express = require("express");
+const compression = require('compression');
 const path = require("path");
 const app = express();
 
@@ -19,6 +20,7 @@ const { getSvg } = require("./public/script/generateSvg");
 const { get } = require("request");
 require("dotenv").config();
 
+app.use(compression());
 app.use(express.static("public"));
 app.use("/styles", express.static("dist"));
 
@@ -75,18 +77,6 @@ app.get("/sitemap.xml", (req, res) => {
 app.get("/robots.txt", (req, res) => {
     res.sendFile(path.join(__dirname, "public/assets", "robots.txt"));
 });
-
-// app.get("/mr-command/GITPULL", (req, res) => {
-//     const { exec } = require("child_process");
-//     exec("git pull", (err, stdout, stderr) => {
-//         if (err) {
-//             console.error(err);
-//             return;
-//         }
-//         console.log(stdout);
-//         res.send("GIT PULL SUCCESSFUL");
-//     });
-// });
 
 app.get(["/:userId/:themeName", "/:userId"], async (req, res) => {
     const data = {
