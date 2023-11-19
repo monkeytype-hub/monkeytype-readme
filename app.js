@@ -1,4 +1,5 @@
 const express = require("express");
+const compression = require('compression');
 const path = require("path");
 const app = express();
 
@@ -15,6 +16,7 @@ const { getSvg } = require("./public/script/generateSvg");
 const { get } = require("request");
 require("dotenv").config();
 
+app.use(compression());
 app.use(express.static("public"));
 app.use("/styles", express.static("dist"));
 
