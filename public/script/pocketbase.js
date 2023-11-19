@@ -1,4 +1,3 @@
-global.fetch = require('node-fetch');
 const PocketBase = require("pocketbase/cjs");
 const FormData = require("form-data");
 const axios = require("axios");
