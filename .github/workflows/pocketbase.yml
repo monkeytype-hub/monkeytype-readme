@@ -22,6 +22,14 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
+    - name: Log Environment Variables
+      run: |
+        echo "PB_DOMAIN: $PB_DOMAIN"
+        echo "PB_EMAIL: $PB_EMAIL"
+      env:
+        PB_DOMAIN: ${{ secrets.PB_DOMAIN }}
+        PB_EMAIL: ${{ secrets.PB_EMAIL }}
+
     - name: Run uploadImageToPB
       run: node -e "require('./public/script/pocketbase.js').uploadImageToPB()"
       env:
