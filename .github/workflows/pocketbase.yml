@@ -23,7 +23,7 @@ jobs:
       run: npm install
 
     - name: Run uploadImageToPB
-      run: node -e "require('../../public/script/pocketbase.js').uploadImageToPB()"
+      run: node -e "require('./public/script/pocketbase.js').uploadImageToPB()"
       env:
         PB_DOMAIN: ${{ secrets.PB_DOMAIN }}
         PB_EMAIL: ${{ secrets.PB_EMAIL }}
