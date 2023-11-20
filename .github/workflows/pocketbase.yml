@@ -1,9 +1,8 @@
 name: Upload Image to PocketBase
 
 on:
-  push:
-    branches:
-      - pocketbase-action
+  schedule:
+        - cron: "0 */24 * * *"
   workflow_dispatch:
 
 jobs:
