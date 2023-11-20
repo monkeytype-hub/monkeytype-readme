@@ -5,10 +5,10 @@ const stream = require("stream");
 const { promisify } = require("util");
 require("dotenv").config();
 
-const pb = new PocketBase("https://pocket-monkeytype-readme.zeabur.app");
 const pbDomain = process.env.PB_DOMAIN;
 const pbEmail = process.env.PB_EMAIL;
 const pbPassword = process.env.PB_PASSWORD;
+const pb = new PocketBase(pbDomain);
 
 async function authenticate() {
     try {
@@ -185,7 +185,33 @@ async function getImageDataFromPB() {
     return response.data.items;
 }
 
+async function mrGenerateRecord(monkeytypeName, type, theme) {
+    const authToken = await authenticate();
+    if (!authToken) {
+        console.error("Authentication failed. No token received.");
+        return;
+    }
+
+    const form = new FormData();
+    form.append("monkeytype_name", monkeytypeName);
+    form.append("theme", theme);
+    form.append("type", type);
+
+    const recordResponse = await axios.post(
+        pbDomain + "api/collections/monkeytype_readme_generate/records",
+        form,
+        {
+            headers: {
+                Authorization: `${authToken}`,
+            },
+        },
+    );
+
+    console.log("Record successful:", recordResponse.data);
+}
+
 module.exports = {
-    getImageDataFromPB,
     uploadImageToPB,
+    getImageDataFromPB,
+    mrGenerateRecord,
 };
