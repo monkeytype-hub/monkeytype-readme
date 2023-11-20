@@ -118,8 +118,9 @@ async function uploadImage(username, theme, type, authToken) {
 
 async function deleteImage(imageId, authToken) {
     try {
-        const deleteResponse = await axios.delete(
-            pbDomain + `api/collections/monkeytype_readme_image/records/${imageId}`,
+        await axios.delete(
+            pbDomain +
+                `api/collections/monkeytype_readme_image/records/${imageId}`,
             {
                 headers: {
                     Authorization: `${authToken}`,
@@ -157,9 +158,9 @@ async function uploadImageToPB() {
                 for (const pbImage of pbData) {
                     if (
                         pbImage.monkeytype_name ===
-                        `${image.monkeytype_name}_${type != "" ? type + "_" : ""}${
-                            image.theme
-                        }`
+                        `${image.monkeytype_name}_${
+                            type != "" ? type + "_" : ""
+                        }${image.theme}`
                     ) {
                         await deleteImage(pbImage.id, authToken);
                     }
@@ -183,8 +184,6 @@ async function getImageDataFromPB() {
 
     return response.data.items;
 }
-
-uploadImageToPB();
 
 module.exports = {
     getImageDataFromPB,
