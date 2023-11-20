@@ -1,0 +1,29 @@
+name: Upload Image to PocketBase
+
+on:
+    schedule:
+        - cron: "0 */24 * * *"
+    workflow_dispatch:
+
+jobs:
+    upload-image:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v2
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "18"
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: Run uploadImageToPB
+              run: node -e "require('./public/script/pocketbase.js').uploadImageToPB()"
+              env:
+                  PB_DOMAIN: ${{ secrets.PB_DOMAIN }}
+                  PB_EMAIL: ${{ secrets.PB_EMAIL }}
+                  PB_PASSWORD: ${{ secrets.PB_PASSWORD }}
