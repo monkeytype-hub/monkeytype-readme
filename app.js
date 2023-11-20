@@ -14,7 +14,7 @@ const {
 
 const {
     getImageDataFromPB,
-    uploadImageToPB,
+    mrGenerateRecord,
 } = require("./public/script/pocketbase");
 const { getSvg } = require("./public/script/generateSvg");
 const { get } = require("request");
@@ -125,6 +125,19 @@ app.get("/generate-svg/:userId/:themeName", async (req, res) => {
         leaderBoards,
         personalBests,
     );
+
+    await mrGenerateRecord(
+        userData.name,
+        leaderBoards && personalBests
+            ? "lbpb"
+            : leaderBoards
+            ? "lb"
+            : personalBests
+            ? "pb"
+            : "none",
+        themeName
+    );
+
     res.set("Content-Type", "image/svg+xml");
     res.send(svg);
 });
