@@ -1,6 +1,7 @@
 // app.js
 
 const express = require("express");
+const compression = require("compression");
 const path = require("path");
 const app = express();
 
@@ -15,12 +16,13 @@ const {
 
 const {
     getImageDataFromPB,
-    uploadImageToPB,
+    mrGenerateRecord,
 } = require("./public/script/pocketbase");
 const { getSvg } = require("./public/script/generateSvg");
 const { get } = require("request");
 require("dotenv").config();
 
+app.use(compression());
 app.use(express.static("public"));
 app.use("/styles", express.static("dist"));
 
@@ -125,6 +127,19 @@ app.get("/generate-svg/:userId/:themeName", async (req, res) => {
         leaderBoards,
         personalBests,
     );
+
+    await mrGenerateRecord(
+        userData.name,
+        leaderBoards && personalBests
+            ? "lbpb"
+            : leaderBoards
+            ? "lb"
+            : personalBests
+            ? "pb"
+            : "none",
+        themeName
+    );
+
     res.set("Content-Type", "image/svg+xml");
     res.send(svg);
 });
@@ -132,6 +147,7 @@ app.get("/generate-svg/:userId/:themeName", async (req, res) => {
 app.listen(process.env.PORT || 3000, async () => {
     console.log("Server started on port " + (process.env.PORT || 3000));
 });
+
 
 
 // indes.ejs
