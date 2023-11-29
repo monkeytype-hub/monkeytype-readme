@@ -32,7 +32,10 @@
             type="image/x-icon"
         />
 
-        <link href="/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <link
+            href="/node_modules/bootstrap-icons/font/bootstrap-icons.css"
+            rel="stylesheet"
+        />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
         <!-- Open Graph / Facebook -->
@@ -362,15 +365,37 @@
                     src="<%= data.svgUrl %>"
                     class="mt-5 h-5/6 lg:h-[calc(100%-1.25rem)]"
                     alt="<%= data.userId %> | MonkeyType Readme"
+                    title="<%= data.userId %> | MonkeyType Readme"
                 />
             </div>
+            <div class="absolute bottom-0 left-0 mx-5 mb-3 lg:mb-5">
+                <a
+                    href="https://monkeytype.com/profile/<%= data.userId %>"
+                    title="<%= data.userId %> | MonkeyType Profile"
+                >
+                    <div
+                        class="h-10 w-10 lg:h-12 lg:w-12 rounded-full"
+                        style="background-color: <%= data.theme.bgColor %>"
+                    >
+                        <div
+                            class="flex items-center justify-center w-full h-full"
+                        >
+                            <img
+                                src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-icon/master/monkeytype-icon/svg/<%= data.theme.name %>.svg"
+                                alt="MonkeyType Icon | Link to <%= data.userId %> MonkeyType Profile"
+                                class="h-8 w-8"
+                            />
+                        </div>
+                    </div>
+                </a>
+            </div>
             <div
-                class="absolute bottom-0 right-0 left-0 lg:left-auto lg:flex-col flex justify-center"
+                class="absolute bottom-0 right-0 mx-5 mb-3 lg:mb-5 flex md:flex-col"
             >
                 <div id="shareList" class="hidden">
-                    <div class="flex lg:flex-col">
+                    <div class="flex md:flex-col">
                         <div
-                            class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4"
+                            class="h-10 w-10 lg:h-12 lg:w-12 rounded-full mx-2 md:mx-0 md:my-2 lg:my-4"
                             style="background-color: <%= data.theme.bgColor %>"
                         >
                             <a
@@ -386,7 +411,7 @@
                             </a>
                         </div>
                         <div
-                            class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4"
+                            class="h-10 w-10 lg:h-12 lg:w-12 rounded-full mx-2 md:mx-0 md:my-2 lg:my-4"
                             style="background-color: <%= data.theme.bgColor %>"
                         >
                             <a
@@ -400,7 +425,7 @@
                             </a>
                         </div>
                         <div
-                            class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4"
+                            class="h-10 w-10 lg:h-12 lg:w-12 rounded-full mx-2 md:mx-0 md:my-2 lg:my-4"
                             style="background-color: <%= data.theme.bgColor %>"
                         >
                             <button
@@ -416,7 +441,7 @@
                     </div>
                 </div>
                 <div
-                    class="h-9 w-9 lg:h-11 lg:w-11 rounded-full mx-4 my-2 lg:my-4"
+                    class="h-10 w-10 lg:h-12 lg:w-12 rounded-full ml-2 md:mx-0 md:my-2"
                     style="background-color: <%= data.theme.bgColor %>"
                     id="shareBtn"
                 >
