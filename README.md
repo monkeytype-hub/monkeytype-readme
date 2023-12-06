@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/ridemountainpig/monkeytype-readme/assets/92412722/4491a4ef-f0e1-438d-84a4-c2205c33cd7e" style="width:1000px;"/>
+  <img src="https://github.com/monkeytype-hub/monkeytype-readme/assets/92412722/4491a4ef-f0e1-438d-84a4-c2205c33cd7e" style="width:1000px;"/>
 </p>
 
 # MonkeyType Readme
@@ -7,7 +7,7 @@
 Monkeytype Readme transforms MonkeyType typing data into SVGs for your GitHub Readme.
 
   <a href="https://monkeytype.com/profile/miodec">
-   <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme-Miodec.svg" alt="My Monkeytype profile" />
+   <img src="https://raw.githubusercontent.com/monkeytype-hub/monkeytype-readme/monkeytype-readme/monkeytype-readme-Miodec.svg" alt="My Monkeytype profile" />
   </a>
   
 ## Usage
@@ -53,7 +53,7 @@ jobs:
                   node-version: "16.x"
 
             - name: Generate Monkeytype Readme SVG
-              uses: ridemountainpig/monkeytype-readme@v1.0.0
+              uses: monkeytype-hub/monkeytype-readme@v1.0.0
               with:
                   username: MONKEYTYPE_USERNAME
                   themes: MONKEYTYPE_THEME_NAME
@@ -84,19 +84,19 @@ jobs:
     #### SVGs information
 
     <a href="https://monkeytype.com/profile/rocket">
-      <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme.svg" alt="My Monkeytype profile" />
+      <img src="https://raw.githubusercontent.com/monkeytype-hub/monkeytype-readme/monkeytype-readme/monkeytype-readme.svg" alt="My Monkeytype profile" />
     </a>
 
     #### With LeaderBoards: `?lb=true`
 
     <a href="https://monkeytype.com/profile/rocket">
-      <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme-lb.svg" alt="My Monkeytype profile" />
+      <img src="https://raw.githubusercontent.com/monkeytype-hub/monkeytype-readme/monkeytype-readme/monkeytype-readme-lb.svg" alt="My Monkeytype profile" />
     </a>
 
     #### With PersonalBests: `?pb=true`
 
     <a href="https://monkeytype.com/profile/rocket">
-      <img src="https://raw.githubusercontent.com/ridemountainpig/monkeytype-readme/monkeytype-readme/monkeytype-readme-pb.svg" alt="My Monkeytype profile" />
+      <img src="https://raw.githubusercontent.com/monkeytype-hub/monkeytype-readme/monkeytype-readme/monkeytype-readme-pb.svg" alt="My Monkeytype profile" />
     </a>
 
     #### With LeaderBoards and PersonalBests: `?lbpb=true`
@@ -170,7 +170,7 @@ To run MonkeyType Readme locally, follow these steps:
 1. Clone this repository:
 
     ```bash
-    git clone https://github.com/ridemountainpig/monkeytype-readme.git
+    git clone https://github.com/monkeytype-hub/monkeytype-readme.git
     ```
 
 2. Store the MonkeyType APE keys in `.env`:
