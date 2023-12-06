@@ -260,7 +260,7 @@ app.listen(process.env.PORT || 3000, async () => {
                         </div>
                         <div class="p-6 lg:p-12">
                             <a
-                                href="https://github.com/ridemountainpig/monkeytype-readme"
+                                href="https://github.com/monkeytype-hub/monkeytype-readme"
                                 title="MonkeyType Readme Github Link"
                                 target="_blank"
                             >
@@ -878,7 +878,7 @@ app.listen(process.env.PORT || 3000, async () => {
                 <div class="mt-4">
                     <a
                         class="px-1 text-sm font-medium tracking-wider text-gray-400 underline lg:text-base"
-                        href="https://github.com/ridemountainpig/monkeytype-readme/blob/master/.github/workflows/monkeytype-readme.yml"
+                        href="https://github.com/monkeytype-hub/monkeytype-readme/blob/master/.github/workflows/monkeytype-readme.yml"
                         title="MonkeyType Readme Github Actions Example"
                         target="_blank"
                     >
