@@ -534,10 +534,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.pointer-events-none {
-  pointer-events: none;
-}
-
 .static {
   position: static;
 }
@@ -714,10 +710,6 @@ video {
   height: 5rem;
 }
 
-.h-4\/6 {
-  height: 66.666667%;
-}
-
 .h-5\/6 {
   height: 83.333333%;
 }
@@ -732,6 +724,10 @@ video {
 
 .h-96 {
   height: 24rem;
+}
+
+.h-\[85\%\] {
+  height: 85%;
 }
 
 .h-full {
@@ -793,6 +789,54 @@ video {
 
 .animate-bounce {
   animation: bounce 1s infinite;
+}
+
+@keyframes fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-left {
+  animation: fade-left 1s both;
+}
+
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-right {
+  animation: fade-right 1s both;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 1s both;
 }
 
 @keyframes rgb-bg {
@@ -1254,8 +1298,48 @@ video {
   transition-duration: 150ms;
 }
 
+.delay-\[300ms\] {
+  transition-delay: 300ms;
+}
+
 .duration-300 {
   transition-duration: 300ms;
+}
+
+.duration-\[600ms\] {
+  transition-duration: 600ms;
+}
+
+.animate-delay-\[100ms\] {
+  animation-delay: 100ms;
+}
+
+.animate-delay-\[300ms\] {
+  animation-delay: 300ms;
+}
+
+.animate-delay-\[400ms\] {
+  animation-delay: 400ms;
+}
+
+.animate-delay-\[600ms\] {
+  animation-delay: 600ms;
+}
+
+.animate-delay-\[00ms\] {
+  animation-delay: 00ms;
+}
+
+.animate-duration-1000 {
+  animation-duration: 1000ms;
+}
+
+.animate-once {
+  animation-iteration-count: 1;
+}
+
+.animate-ease-out {
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
 .hover\:bg-nord-light-green:hover {
@@ -1371,11 +1455,6 @@ video {
     margin-bottom: 1rem;
   }
 
-  .lg\:my-5 {
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-  }
-
   .lg\:mb-5 {
     margin-bottom: 1.25rem;
   }
@@ -1396,10 +1475,6 @@ video {
     margin-top: 2rem;
   }
 
-  .lg\:mb-4 {
-    margin-bottom: 1rem;
-  }
-
   .lg\:flex {
     display: flex;
   }
@@ -1418,6 +1493,10 @@ video {
 
   .lg\:h-64 {
     height: 16rem;
+  }
+
+  .lg\:h-\[75\%\] {
+    height: 75%;
   }
 
   .lg\:h-\[calc\(100\%-1\.25rem\)\] {

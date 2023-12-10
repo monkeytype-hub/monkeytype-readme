@@ -88,7 +88,7 @@
             <header>
                 <nav class="h-1/6">
                     <div class="flex justify-between">
-                        <div class="p-6 lg:p-12">
+                        <div class="p-6 lg:p-12 animate-fade-right animate-once animate-duration-1000 animate-delay-[600ms] animate-ease-out">
                             <a href="/" title="MonkeyType Readme">
                                 <div class="flex items-center justify-center">
                                     <img
@@ -104,7 +104,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="p-6 lg:p-12">
+                        <div class="p-6 lg:p-12 animate-fade-left animate-once animate-duration-1000 animate-delay-[600ms] animate-ease-out">
                             <a
                                 href="https://github.com/monkeytype-hub/monkeytype-readme"
                                 title="MonkeyType Readme Github Link"
@@ -123,66 +123,72 @@
                     </div>
                 </nav>
             </header>
-            <div class="flex h-4/6 items-center justify-center">
-                <div>
-                    <h2 class="hidden">
-                        Share MonkeyType Story With The World
-                    </h2>
-                    <div class="justify-center sm:flex">
-                        <p
-                            class="text-center text-3xl font-black tracking-wider sm:text-4xl md:text-5xl xl:text-6xl"
-                        >
-                            Share
-                        </p>
-                        <p
-                            class="bg-gradient-to-br from-nord-light-subAlt to-nord-light-green bg-clip-text text-center text-3xl font-black tracking-wider text-transparent sm:ml-3 sm:text-4xl md:text-5xl xl:text-6xl"
-                        >
-                            MonkeyType Story
-                        </p>
-                    </div>
-                    <p
-                        class="mt-1 text-center text-3xl font-black tracking-wider sm:mt-6 sm:text-4xl md:text-5xl xl:text-6xl"
-                    >
-                        With The World
-                    </p>
-                    <h2
-                        class="my-16 px-4 text-center text-base font-medium text-nord-light-sub opacity-70 md:text-lg lg:text-2xl"
-                    >
-                        Monkeytype Readme transforms typing data into SVGs for
-                        your GitHub Readme.
-                    </h2>
-                    <div class="flex items-center justify-center">
-                        <button
-                            class="h-14 w-28 rounded-2xl bg-black text-center text-sm font-medium tracking-wide text-white"
-                            id="createNowBtn"
-                        >
-                            <div
-                                class="flex h-full items-center justify-center"
-                            >
-                                Create Now
+            <div class="h-full">
+                <div class="flex h-[85%] lg:h-[75%] items-center justify-center">
+                    <div>
+                        <div class="animate-fade-up animate-once animate-duration-1000 animate-delay-[100ms] animate-ease-out">
+                            <h2 class="hidden">
+                                Share MonkeyType Story With The World
+                            </h2>
+                            <div class="justify-center sm:flex">
+                                <p
+                                    class="text-center text-3xl font-black tracking-wider sm:text-4xl md:text-5xl xl:text-6xl"
+                                >
+                                    Share
+                                </p>
+                                <p
+                                    class="bg-gradient-to-br from-nord-light-subAlt to-nord-light-green bg-clip-text text-center text-3xl font-black tracking-wider text-transparent sm:ml-3 sm:text-4xl md:text-5xl xl:text-6xl"
+                                >
+                                    MonkeyType Story
+                                </p>
                             </div>
-                        </button>
+                            <p
+                                class="mt-1 text-center text-3xl font-black tracking-wider sm:mt-6 sm:text-4xl md:text-5xl xl:text-6xl"
+                            >
+                                With The World
+                            </p>
+                        </div>
+                        <div class="animate-fade-up animate-once animate-duration-1000 animate-delay-[300ms] animate-ease-out">
+                            <h2
+                                class="my-16 px-4 text-center text-base font-medium text-nord-light-sub opacity-70 md:text-lg lg:text-2xl"
+                            >
+                                Monkeytype Readme transforms typing data into SVGs for
+                                your GitHub Readme.
+                            </h2>
+                        </div>
+                        <div class="flex items-center justify-center animate-fade-up animate-once animate-duration-1000 animate-delay-[400ms] animate-ease-out">
+                            <button
+                                class="h-14 w-28 rounded-2xl bg-black text-center text-sm font-medium tracking-wide text-white"
+                                id="createNowBtn"
+                            >
+                                <div
+                                    class="flex h-full items-center justify-center"
+                                >
+                                    Create Now
+                                </div>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="h-1/6">
-                <div class="flex h-full items-end justify-center">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-arrow-down-circle mb-10 animate-bounce"
-                    >
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="8 12 12 16 16 12"></polyline>
-                        <line x1="12" x2="12" y1="8" y2="16"></line>
-                    </svg>
+                <div class="animate-fade-up animate-once animate-duration-1000 animate-delay-[600ms] animate-ease-out">
+                    <div class="flex h-full items-end justify-center">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-arrow-down-circle mb-10 animate-bounce"
+                        >
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="8 12 12 16 16 12"></polyline>
+                            <line x1="12" x2="12" y1="8" y2="16"></line>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
@@ -907,6 +913,7 @@
         <script src="../script/prism.js" type="text/javascript"></script>
         <script>
             const domain = "<%= data.domain %>";
+            AOS.init();
         </script>
     </body>
 </html>
