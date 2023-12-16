@@ -534,6 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 .static {
   position: static;
 }
@@ -1298,16 +1302,8 @@ video {
   transition-duration: 150ms;
 }
 
-.delay-\[300ms\] {
-  transition-delay: 300ms;
-}
-
 .duration-300 {
   transition-duration: 300ms;
-}
-
-.duration-\[600ms\] {
-  transition-duration: 600ms;
 }
 
 .animate-delay-\[100ms\] {
@@ -1326,8 +1322,48 @@ video {
   animation-delay: 600ms;
 }
 
+.animate-delay-\[150ms\] {
+  animation-delay: 150ms;
+}
+
+.animate-delay-\[1000ms\] {
+  animation-delay: 1000ms;
+}
+
+.animate-delay-\[10ms\] {
+  animation-delay: 10ms;
+}
+
+.animate-delay-\[ms\] {
+  animation-delay: ms;
+}
+
+.animate-delay-\[50ms\] {
+  animation-delay: 50ms;
+}
+
+.animate-delay-\[30ms\] {
+  animation-delay: 30ms;
+}
+
+.animate-delay-\[20ms\] {
+  animation-delay: 20ms;
+}
+
+.animate-delay-\[5ms\] {
+  animation-delay: 5ms;
+}
+
 .animate-delay-\[00ms\] {
   animation-delay: 00ms;
+}
+
+.animate-delay-\[200ms\] {
+  animation-delay: 200ms;
+}
+
+.animate-delay-\[500ms\] {
+  animation-delay: 500ms;
 }
 
 .animate-duration-1000 {
@@ -1407,6 +1443,10 @@ video {
     margin-top: 2rem;
   }
 
+  .md\:block {
+    display: block;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -1475,6 +1515,10 @@ video {
     margin-top: 2rem;
   }
 
+  .lg\:block {
+    display: block;
+  }
+
   .lg\:flex {
     display: flex;
   }
@@ -1513,6 +1557,10 @@ video {
 
   .lg\:w-28 {
     width: 7rem;
+  }
+
+  .lg\:flex-none {
+    flex: none;
   }
 
   .lg\:grid-cols-2 {
