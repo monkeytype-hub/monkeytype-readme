@@ -17,7 +17,6 @@ const {
     mrGenerateRecord,
 } = require("./public/script/pocketbase");
 const { getSvg } = require("./public/script/generateSvg");
-const { get } = require("request");
 require("dotenv").config();
 
 app.use(compression());
