@@ -11,9 +11,7 @@ const {
     getMonkeyTypeThemesData,
     getMonkeyTypeBadgesData,
 } = require("./public/script/monkeytypeData");
-const { getOutputCSS } = require("./public/script/tailwindCSS");
 const { getSvg } = require("./public/script/generateSvg");
-const { get } = require("request");
 require("dotenv").config();
 
 app.use(compression());
