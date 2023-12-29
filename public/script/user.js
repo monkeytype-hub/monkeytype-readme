@@ -1,4 +1,3 @@
-// JavaScript
 let shareListState = false;
 
 $("#shareBtn").click(function () {
@@ -6,6 +5,18 @@ $("#shareBtn").click(function () {
         $("#shareList").removeClass("hidden");
         shareListState = true;
     } else {
+        $("#shareList").addClass("hidden");
+        shareListState = false;
+    }
+});
+
+$(document).click(function (event) {
+    if (
+        !$(event.target).closest(
+            "#shareTwitterBtn, #shareFacebookBtn, #shareUrlBtn, #shareBtn"
+        ).length &&
+        shareListState == true
+    ) {
         $("#shareList").addClass("hidden");
         shareListState = false;
     }
