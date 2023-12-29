@@ -131,7 +131,7 @@
         <div class="h-screen relative">
             <div class="absolute top-0 left-0 mx-5 mt-3 lg:mt-5">
                 <a
-                    href="https://monkeytype-readme.zeabur.app/"
+                    href="https://monkeytype-readme.com/"
                     title="MonkeyType Readme"
                 >
                     <div
@@ -206,7 +206,7 @@
                                 xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="30px"
-                                height="px"
+                                height="30px"
                                 viewBox="0 0 30 30"
                                 version="1.1"
                                 class="small-icon"
@@ -397,11 +397,13 @@
                         <div
                             class="h-10 w-10 lg:h-12 lg:w-12 rounded-full mx-2 md:mx-0 md:my-2 lg:my-4"
                             style="background-color: <%= data.theme.bgColor %>"
+                            id="shareTwitterBtn"
                         >
                             <a
                                 class="h-full w-full flex justify-center items-center"
+                                target="_blank"
                                 href="https://twitter.com/intent/tweet?text=Share%20MonkeyType%20Store%20With%20The%20World!
-                        https://monkeytype-readme.zeabur.app/<%= data.userId %>/<%= data.theme.name %>
+                        https://monkeytype-readme.com/<%= data.userId %>/<%= data.theme.name %>
                         "
                             >
                                 <i
@@ -413,10 +415,12 @@
                         <div
                             class="h-10 w-10 lg:h-12 lg:w-12 rounded-full mx-2 md:mx-0 md:my-2 lg:my-4"
                             style="background-color: <%= data.theme.bgColor %>"
+                            id="shareFacebookBtn"
                         >
                             <a
                                 class="h-full w-full flex justify-center items-center"
-                                href="https://www.facebook.com/sharer/sharer.php?u=https%3A//monkeytype-readme.zeabur.app/<%= data.userId %>/<%= data.theme.name %>&quote=Share%20MonkeyType%20Store%20With%20The%20World!"
+                                target="_blank"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https%3A//monkeytype-readme.com/<%= data.userId %>/<%= data.theme.name %>&quote=Share%20MonkeyType%20Store%20With%20The%20World!"
                             >
                                 <i
                                     class="bi bi-facebook share-icon"
@@ -427,10 +431,11 @@
                         <div
                             class="h-10 w-10 lg:h-12 lg:w-12 rounded-full mx-2 md:mx-0 md:my-2 lg:my-4"
                             style="background-color: <%= data.theme.bgColor %>"
+                            id="shareUrlBtn"
                         >
                             <button
                                 class="h-full w-full flex justify-center items-center"
-                                onclick="copyReadmeUrl('https://monkeytype-readme.zeabur.app/<%= data.userId %>/<%= data.theme.name %>')"
+                                onclick="copyReadmeUrl('https://monkeytype-readme.com/<%= data.userId %>/<%= data.theme.name %>')"
                             >
                                 <i
                                     class="bi bi-link-45deg share-icon"
