@@ -13,7 +13,7 @@ $("#shareBtn").click(function () {
 $(document).click(function (event) {
     if (
         !$(event.target).closest(
-            "#shareTwitterBtn, #shareFacebookBtn, #shareUrlBtn, #shareBtn"
+            "#shareTwitterBtn, #shareFacebookBtn, #shareUrlBtn, #shareBtn",
         ).length &&
         shareListState == true
     ) {
