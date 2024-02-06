@@ -127,7 +127,7 @@
         </style>
     </head>
 
-    <body style="background-color: <%= data.theme.subAltColor %>">
+    <body style="background-color: <%= data.theme.subAltColor %>" class="font-sans">
         <div class="h-screen relative">
             <div class="absolute top-0 left-0 mx-5 mt-3 lg:mt-5">
                 <a
@@ -402,6 +402,7 @@
                             <a
                                 class="h-full w-full flex justify-center items-center"
                                 target="_blank"
+                                title="Share on Twitter"
                                 href="https://twitter.com/intent/tweet?text=Share%20MonkeyType%20Store%20With%20The%20World!
                         https://monkeytype-readme.com/<%= data.userId %>/<%= data.theme.name %>
                         "
@@ -420,6 +421,7 @@
                             <a
                                 class="h-full w-full flex justify-center items-center"
                                 target="_blank"
+                                title="Share on Facebook"
                                 href="https://www.facebook.com/sharer/sharer.php?u=https%3A//monkeytype-readme.com/<%= data.userId %>/<%= data.theme.name %>&quote=Share%20MonkeyType%20Store%20With%20The%20World!"
                             >
                                 <i
@@ -435,6 +437,7 @@
                         >
                             <button
                                 class="h-full w-full flex justify-center items-center"
+                                title="Copy Link to Clipboard"
                                 onclick="copyReadmeUrl('https://monkeytype-readme.com/<%= data.userId %>/<%= data.theme.name %>')"
                             >
                                 <i
