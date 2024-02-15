@@ -2197,5 +2197,18 @@
         "errorColor": "#ff0008",
         "colorfulErrorColor": "#ff0008",
         "name": "rainbow_trail"
+    },
+    {
+        "bgColor": "#ffede0",
+        "mainColor": "#fe5503",
+        "caretColor": "#5d8500",
+        "subColor": "#ff9562",
+        "subAltColor": "#fdd3bf",
+        "textColor": "#3d1705",
+        "errorColor": "#7fb500",
+        "errorExtraColor": "#5f8700",
+        "colorfulErrorColor": "#7fb500",
+        "colorfulErrorExtraColor": "#5f8700",
+        "name": "tangerine"
     }
 ]
