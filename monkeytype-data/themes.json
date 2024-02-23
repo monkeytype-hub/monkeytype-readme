@@ -2210,5 +2210,18 @@
         "colorfulErrorColor": "#7fb500",
         "colorfulErrorExtraColor": "#5f8700",
         "name": "tangerine"
+    },
+    {
+        "bgColor": "#b2d2c8",
+        "mainColor": "#c13117",
+        "caretColor": "#766f71",
+        "subColor": "#717977",
+        "subAltColor": "#c6ddd3",
+        "textColor": "#490909",
+        "errorColor": "#c13117",
+        "errorExtraColor": "#fff5f5",
+        "colorfulErrorColor": "#fff5f5",
+        "colorfulErrorExtraColor": "#ffe9c2",
+        "name": "macroblank"
     }
 ]
