@@ -2223,5 +2223,18 @@
         "colorfulErrorColor": "#fff5f5",
         "colorfulErrorExtraColor": "#ffe9c2",
         "name": "macroblank"
+    },
+    {
+        "bgColor": "#00002e",
+        "mainColor": "#ffadad",
+        "caretColor": "#ffffff",
+        "subColor": "#ff3d8b",
+        "subAltColor": "#060548",
+        "textColor": "#f1deef",
+        "errorColor": "#8fecff",
+        "errorExtraColor": "#558cab",
+        "colorfulErrorColor": "#8fecff",
+        "colorfulErrorExtraColor": "#558cab",
+        "name": "anti_hero"
     }
 ]
