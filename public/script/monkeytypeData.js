@@ -135,15 +135,14 @@ async function getMonkeyTypeThemesByName(themeName) {
 
 async function getMonkeyTypeBadgesData() {
     const url =
-        "https://api.github.com/repos/monkeytypegame/monkeytype/contents/frontend/src/ts/controllers/badge-controller.ts";
+        "https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/src/ts/controllers/badge-controller.ts";
 
     return fetch(url)
-        .then((response) => response.json())
+        .then((response) => response.text())
         .then((data) => {
-            const content = atob(data.content);
-            let badgesData = content.slice(
-                content.search("{"),
-                content.search("};") + 1,
+            let badgesData = data.slice(
+                data.search("{"),
+                data.search("};") + 1,
             );
             badgesData = badgesData
                 .replace(/(\w+)\s*:/g, '"$1":')
