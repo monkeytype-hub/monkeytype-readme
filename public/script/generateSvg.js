@@ -107,10 +107,10 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["15"][
                                                 "english"
-                                            ]
+                                            ]["rank"]
                                                 ? userData.allTimeLbs.time[
                                                       "15"
-                                                  ]["english"]
+                                                  ]["english"]["rank"]
                                                 : "-"
                                         }
                                     </div>
@@ -169,10 +169,10 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["60"][
                                                 "english"
-                                            ]
+                                            ]["rank"]
                                                 ? userData.allTimeLbs.time[
                                                       "60"
-                                                  ]["english"]
+                                                  ]["english"]["rank"]
                                                 : "-"
                                         }
                                     </div>
