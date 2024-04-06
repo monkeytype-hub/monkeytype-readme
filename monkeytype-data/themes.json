@@ -2236,5 +2236,18 @@
         "colorfulErrorColor": "#8fecff",
         "colorfulErrorExtraColor": "#558cab",
         "name": "anti_hero"
+    },
+    {
+        "bgColor": "#0e0e0e",
+        "mainColor": "#ff9900",
+        "caretColor": "#ff9900",
+        "subColor": "#555555",
+        "subAltColor": "#151515",
+        "textColor": "#c6c6c6",
+        "errorColor": "#e44545",
+        "errorExtraColor": "#e44545",
+        "colorfulErrorColor": "#b13535",
+        "colorfulErrorExtraColor": "#b13535",
+        "name": "incognito"
     }
 ]
