@@ -14,6 +14,15 @@ const downloadUserImg = (url, path) => {
     });
 };
 
+const formatTopPercentage = (lbRank) => {
+    if (lbRank.rank === undefined) return "-";
+    if (lbRank.rank === 1) return "GOAT";
+    let percentage = (lbRank.rank / lbRank.count) * 100;
+    let formattedPercentage =
+        percentage % 1 === 0 ? percentage.toString() : percentage.toFixed(2);
+    return "Top " + formattedPercentage + "%";
+};
+
 async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
     const width = 500;
     let height = 220;
@@ -84,6 +93,13 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
 
     let leaderBoardHTML = "";
     if (leaderBoards == true) {
+        topPercentage15 = formatTopPercentage(
+            userData.allTimeLbs.time["15"]["english"],
+        );
+        topPercentage60 = formatTopPercentage(
+            userData.allTimeLbs.time["60"]["english"],
+        );
+
         leaderBoardHTML = `
             <div class="mt-5 w-full rounded-2xl" style="background-color: ${
                 theme.bgColor
@@ -98,11 +114,17 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                         <div class="mt-4 flex justify-center">
                             <div>
                                 <div class="flex items-center justify-center py-1">
-                                    <div class="w-32 text-center font-mono text-lg font-medium tracking-wider"
-                                        style="color: ${theme.subColor};">
-                                        15 seconds
+                                    <div>
+                                        <div class="w-32 text-right font-mono text-lg font-medium tracking-wider"
+                                            style="color: ${theme.subColor};">
+                                            15 seconds
+                                        </div>
+                                        <div class="w-32 text-right font-mono text-xs font-medium tracking-wider"
+                                            style="color: ${theme.subColor};">
+                                            ${topPercentage15}
+                                        </div>
                                     </div>
-                                    <div class="w-33 text-center font-mono text-2xl font-medium tracking-wider"
+                                    <div class="w-33 ml-6 text-center font-mono text-3xl font-medium tracking-wider"
                                         style="color: ${theme.textColor};">
                                         ${
                                             userData.allTimeLbs.time["15"][
@@ -119,7 +141,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["15"][
                                                 "english"
-                                            ] %
+                                            ]["rank"] %
                                                 10 ==
                                             1
                                                 ? "st"
@@ -128,7 +150,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["15"][
                                                 "english"
-                                            ] %
+                                            ]["rank"] %
                                                 10 ==
                                             2
                                                 ? "nd"
@@ -137,7 +159,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["15"][
                                                 "english"
-                                            ] %
+                                            ]["rank"] %
                                                 10 ==
                                             3
                                                 ? "rd"
@@ -146,12 +168,12 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["15"][
                                                 "english"
-                                            ] %
+                                            ]["rank"] %
                                                 10 >
                                                 3 ||
                                             userData.allTimeLbs.time["15"][
                                                 "english"
-                                            ] %
+                                            ]["rank"] %
                                                 10 ==
                                                 0
                                                 ? "th"
@@ -160,11 +182,19 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     </div>
                                 </div>
                                 <div class="flex items-center justify-center py-1">
-                                    <div class="w-32 text-center font-mono text-lg font-medium tracking-wider"
-                                        style="color: ${theme.subColor};">
-                                        60 seconds
+                                    <div>
+                                        <div class="w-32 text-right font-mono text-lg font-medium tracking-wider"
+                                            style="color: ${theme.subColor};">
+                                            60 seconds
+                                        </div>
+                                        <div class="w-32 text-right font-mono text-xs font-medium tracking-wider"
+                                                style="color: ${
+                                                    theme.subColor
+                                                };">
+                                                ${topPercentage60}
+                                        </div>
                                     </div>
-                                    <div class="w-33 text-center font-mono text-2xl font-medium tracking-wider"
+                                    <div class="w-33 ml-6 text-center font-mono text-3xl font-medium tracking-wider"
                                         style="color: ${theme.textColor};">
                                         ${
                                             userData.allTimeLbs.time["60"][
@@ -181,7 +211,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["60"][
                                                 "english"
-                                            ] %
+                                            ]["rank"] %
                                                 10 ==
                                             1
                                                 ? "st"
@@ -190,7 +220,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["60"][
                                                 "english"
-                                            ] %
+                                            ]["rank"] %
                                                 10 ==
                                             2
                                                 ? "nd"
@@ -199,7 +229,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["60"][
                                                 "english"
-                                            ] %
+                                            ]["rank"] %
                                                 10 ==
                                             3
                                                 ? "rd"
@@ -208,12 +238,12 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["60"][
                                                 "english"
-                                            ] %
+                                            ]["rank"] %
                                                 10 >
                                                 3 ||
                                             userData.allTimeLbs.time["60"][
                                                 "english"
-                                            ] %
+                                            ]["rank"] %
                                                 10 ==
                                                 0
                                                 ? "th"
