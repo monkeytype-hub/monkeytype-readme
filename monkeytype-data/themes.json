@@ -2249,5 +2249,18 @@
         "colorfulErrorColor": "#b13535",
         "colorfulErrorExtraColor": "#b13535",
         "name": "incognito"
+    },
+    {
+        "bgColor": "#313338",
+        "mainColor": "#5a65ea",
+        "caretColor": "#5a65ea",
+        "subColor": "#565861",
+        "subAltColor": "#2b2d31",
+        "textColor": "#dcdee3",
+        "errorColor": "#df4f4b",
+        "errorExtraColor": "#df4f4b",
+        "colorfulErrorColor": "#df4f4b",
+        "colorfulErrorExtraColor": "#df4f4b",
+        "name": "discord"
     }
 ]
