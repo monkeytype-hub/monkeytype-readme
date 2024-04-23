@@ -16,7 +16,7 @@
         "@fortawesome/fontawesome-svg-core": "^6.4.0",
         "@fortawesome/free-brands-svg-icons": "^6.4.0",
         "@fortawesome/free-regular-svg-icons": "^6.4.0",
-        "@fortawesome/free-solid-svg-icons": "^6.4.0",
+        "@fortawesome/free-solid-svg-icons": "^6.5.2",
         "axios": "^1.6.8",
         "bootstrap-icons": "^1.11.1",
         "compression": "^1.7.4",
