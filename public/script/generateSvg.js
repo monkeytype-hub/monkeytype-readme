@@ -130,7 +130,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["15"][
                                                 "english"
-                                            ]["rank"]
+                                            ].hasOwnProperty("rank")
                                                 ? userData.allTimeLbs.time[
                                                       "15"
                                                   ]["english"]["rank"]
@@ -142,41 +142,53 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["15"][
                                                 "english"
+                                            ].hasOwnProperty("rank") &&
+                                            userData.allTimeLbs.time["15"][
+                                                "english"
                                             ]["rank"] %
                                                 10 ==
-                                            1
+                                                1
                                                 ? "st"
                                                 : ""
                                         }
                                         ${
                                             userData.allTimeLbs.time["15"][
                                                 "english"
+                                            ].hasOwnProperty("rank") &&
+                                            userData.allTimeLbs.time["15"][
+                                                "english"
                                             ]["rank"] %
                                                 10 ==
-                                            2
+                                                2
                                                 ? "nd"
                                                 : ""
                                         }
                                         ${
                                             userData.allTimeLbs.time["15"][
                                                 "english"
+                                            ].hasOwnProperty("rank") &&
+                                            userData.allTimeLbs.time["15"][
+                                                "english"
                                             ]["rank"] %
                                                 10 ==
-                                            3
+                                                3
                                                 ? "rd"
                                                 : ""
                                         }
                                         ${
                                             userData.allTimeLbs.time["15"][
                                                 "english"
+                                            ].hasOwnProperty("rank") &&
+                                            (userData.allTimeLbs.time["15"][
+                                                "english"
                                             ]["rank"] %
                                                 10 >
                                                 3 ||
-                                            userData.allTimeLbs.time["15"][
-                                                "english"
-                                            ]["rank"] %
-                                                10 ==
-                                                0
+                                                userData.allTimeLbs.time["15"][
+                                                    "english"
+                                                ]["rank"] %
+                                                    10 ==
+                                                    0)
                                                 ? "th"
                                                 : ""
                                         }
@@ -200,7 +212,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["60"][
                                                 "english"
-                                            ]["rank"]
+                                            ].hasOwnProperty("rank")
                                                 ? userData.allTimeLbs.time[
                                                       "60"
                                                   ]["english"]["rank"]
@@ -212,41 +224,53 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                         ${
                                             userData.allTimeLbs.time["60"][
                                                 "english"
+                                            ].hasOwnProperty("rank") &&
+                                            userData.allTimeLbs.time["60"][
+                                                "english"
                                             ]["rank"] %
                                                 10 ==
-                                            1
+                                                1
                                                 ? "st"
                                                 : ""
                                         }
                                         ${
                                             userData.allTimeLbs.time["60"][
                                                 "english"
+                                            ].hasOwnProperty("rank") &&
+                                            userData.allTimeLbs.time["60"][
+                                                "english"
                                             ]["rank"] %
                                                 10 ==
-                                            2
+                                                2
                                                 ? "nd"
                                                 : ""
                                         }
                                         ${
                                             userData.allTimeLbs.time["60"][
                                                 "english"
+                                            ].hasOwnProperty("rank") &&
+                                            userData.allTimeLbs.time["60"][
+                                                "english"
                                             ]["rank"] %
                                                 10 ==
-                                            3
+                                                3
                                                 ? "rd"
                                                 : ""
                                         }
                                         ${
                                             userData.allTimeLbs.time["60"][
                                                 "english"
+                                            ].hasOwnProperty("rank") &&
+                                            (userData.allTimeLbs.time["60"][
+                                                "english"
                                             ]["rank"] %
                                                 10 >
                                                 3 ||
-                                            userData.allTimeLbs.time["60"][
-                                                "english"
-                                            ]["rank"] %
-                                                10 ==
-                                                0
+                                                userData.allTimeLbs.time["60"][
+                                                    "english"
+                                                ]["rank"] %
+                                                    10 ==
+                                                    0)
                                                 ? "th"
                                                 : ""
                                         }
