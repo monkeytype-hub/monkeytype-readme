@@ -101,6 +101,44 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
             userData.allTimeLbs.time["60"]["english"],
         );
 
+        const ordinalNumber = (rank) => {
+            if (rank === undefined || rank === null) return "";
+            if (rank % 10 === 1) return "st";
+            if (rank % 10 === 2) return "nd";
+            if (rank % 10 === 3) return "rd";
+            return "th";
+        };
+
+        const allTimeLbs = userData.allTimeLbs;
+        let rank15 = "-";
+        let rank60 = "-";
+        let ordinalNumber15 = "";
+        let ordinalNumber60 = "";
+
+        try {
+            if (allTimeLbs.time["15"]["english"]["rank"] === undefined || allTimeLbs.time["15"]["english"]["rank"] === null) {
+                rank15 = "-";
+            } else {
+                rank15 = allTimeLbs.time["15"]["english"]["rank"];
+            }
+            if (allTimeLbs.time["60"]["english"]["rank"] === undefined || allTimeLbs.time["60"]["english"]["rank"] === null) {
+                rank60 = "-";
+            } else {
+                rank60 = allTimeLbs.time["60"]["english"]["rank"];
+            }
+            ordinalNumber15 = ordinalNumber(allTimeLbs.time["15"]["english"]["rank"]);
+            ordinalNumber60 = ordinalNumber(allTimeLbs.time["60"]["english"]["rank"]);
+        } catch (e) {
+            console.log(e);
+            console.log(userData)
+            console.log(userData.allTimeLbs.time)
+            rank15 = "-";
+            rank60 = "-";
+            ordinalNumber15 = "";
+            ordinalNumber60 = "";
+        }
+        
+
         leaderBoardHTML = `
             <div class="mt-5 w-full rounded-2xl" style="background-color: ${
                 theme.bgColor
@@ -127,71 +165,11 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     </div>
                                     <div class="w-33 ml-6 text-center font-mono text-3xl font-medium tracking-wider"
                                         style="color: ${theme.textColor};">
-                                        ${
-                                            userData.allTimeLbs.time["15"][
-                                                "english"
-                                            ].hasOwnProperty("rank")
-                                                ? userData.allTimeLbs.time[
-                                                      "15"
-                                                  ]["english"]["rank"]
-                                                : "-"
-                                        }
+                                        ${rank15}
                                     </div>
                                     <div class="w-8 font-mono text-2xl font-medium tracking-wider"
                                         style="color: ${theme.textColor};">
-                                        ${
-                                            userData.allTimeLbs.time["15"][
-                                                "english"
-                                            ].hasOwnProperty("rank") &&
-                                            userData.allTimeLbs.time["15"][
-                                                "english"
-                                            ]["rank"] %
-                                                10 ==
-                                                1
-                                                ? "st"
-                                                : ""
-                                        }
-                                        ${
-                                            userData.allTimeLbs.time["15"][
-                                                "english"
-                                            ].hasOwnProperty("rank") &&
-                                            userData.allTimeLbs.time["15"][
-                                                "english"
-                                            ]["rank"] %
-                                                10 ==
-                                                2
-                                                ? "nd"
-                                                : ""
-                                        }
-                                        ${
-                                            userData.allTimeLbs.time["15"][
-                                                "english"
-                                            ].hasOwnProperty("rank") &&
-                                            userData.allTimeLbs.time["15"][
-                                                "english"
-                                            ]["rank"] %
-                                                10 ==
-                                                3
-                                                ? "rd"
-                                                : ""
-                                        }
-                                        ${
-                                            userData.allTimeLbs.time["15"][
-                                                "english"
-                                            ].hasOwnProperty("rank") &&
-                                            (userData.allTimeLbs.time["15"][
-                                                "english"
-                                            ]["rank"] %
-                                                10 >
-                                                3 ||
-                                                userData.allTimeLbs.time["15"][
-                                                    "english"
-                                                ]["rank"] %
-                                                    10 ==
-                                                    0)
-                                                ? "th"
-                                                : ""
-                                        }
+                                        ${ordinalNumber15}
                                     </div>
                                 </div>
                                 <div class="flex items-center justify-center py-1">
@@ -209,71 +187,11 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                     </div>
                                     <div class="w-33 ml-6 text-center font-mono text-3xl font-medium tracking-wider"
                                         style="color: ${theme.textColor};">
-                                        ${
-                                            userData.allTimeLbs.time["60"][
-                                                "english"
-                                            ].hasOwnProperty("rank")
-                                                ? userData.allTimeLbs.time[
-                                                      "60"
-                                                  ]["english"]["rank"]
-                                                : "-"
-                                        }
+                                        ${rank60}
                                     </div>
                                     <div class="w-8 font-mono text-2xl font-medium tracking-wider"
                                         style="color: ${theme.textColor};">
-                                        ${
-                                            userData.allTimeLbs.time["60"][
-                                                "english"
-                                            ].hasOwnProperty("rank") &&
-                                            userData.allTimeLbs.time["60"][
-                                                "english"
-                                            ]["rank"] %
-                                                10 ==
-                                                1
-                                                ? "st"
-                                                : ""
-                                        }
-                                        ${
-                                            userData.allTimeLbs.time["60"][
-                                                "english"
-                                            ].hasOwnProperty("rank") &&
-                                            userData.allTimeLbs.time["60"][
-                                                "english"
-                                            ]["rank"] %
-                                                10 ==
-                                                2
-                                                ? "nd"
-                                                : ""
-                                        }
-                                        ${
-                                            userData.allTimeLbs.time["60"][
-                                                "english"
-                                            ].hasOwnProperty("rank") &&
-                                            userData.allTimeLbs.time["60"][
-                                                "english"
-                                            ]["rank"] %
-                                                10 ==
-                                                3
-                                                ? "rd"
-                                                : ""
-                                        }
-                                        ${
-                                            userData.allTimeLbs.time["60"][
-                                                "english"
-                                            ].hasOwnProperty("rank") &&
-                                            (userData.allTimeLbs.time["60"][
-                                                "english"
-                                            ]["rank"] %
-                                                10 >
-                                                3 ||
-                                                userData.allTimeLbs.time["60"][
-                                                    "english"
-                                                ]["rank"] %
-                                                    10 ==
-                                                    0)
-                                                ? "th"
-                                                : ""
-                                        }
+                                        ${ordinalNumber60}
                                     </div>
                                 </div>
                             </div>
