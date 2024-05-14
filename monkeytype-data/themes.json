@@ -453,6 +453,7 @@
         "subAltColor": "#d3cfc1",
         "textColor": "#080909",
         "errorColor": "#c87e74",
+        "errorExtraColor": "#a56961",
         "colorfulErrorColor": "#c87e74",
         "colorfulErrorExtraColor": "#a56961",
         "name": "9009"
@@ -2262,5 +2263,18 @@
         "colorfulErrorColor": "#df4f4b",
         "colorfulErrorExtraColor": "#df4f4b",
         "name": "discord"
+    },
+    {
+        "bgColor": "#6e2626",
+        "mainColor": "#e55050",
+        "caretColor": "#541d1d",
+        "subColor": "#ff6060",
+        "subAltColor": "#3f1616",
+        "textColor": "#ffaaaa",
+        "errorColor": "#919fd9",
+        "errorExtraColor": "#4d5d9e",
+        "colorfulErrorColor": "#919fd9",
+        "colorfulErrorExtraColor": "#4d5d9e",
+        "name": "cy_red"
     }
 ]
