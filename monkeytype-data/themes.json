@@ -2276,5 +2276,18 @@
         "colorfulErrorColor": "#919fd9",
         "colorfulErrorExtraColor": "#4d5d9e",
         "name": "cy_red"
+    },
+    {
+        "bgColor": "#00272c",
+        "mainColor": "#ffdd6d",
+        "caretColor": "#C3BD40",
+        "subColor": "#779097",
+        "subAltColor": "#173033",
+        "textColor": "#E5E5E5",
+        "errorColor": "#8A4000",
+        "errorExtraColor": "#00708D",
+        "colorfulErrorColor": "#8A4000",
+        "colorfulErrorExtraColor": "#628b96",
+        "name": "floret"
     }
 ]
