@@ -2280,13 +2280,13 @@
     {
         "bgColor": "#00272c",
         "mainColor": "#ffdd6d",
-        "caretColor": "#C3BD40",
+        "caretColor": "#c3bd40",
         "subColor": "#779097",
         "subAltColor": "#173033",
-        "textColor": "#E5E5E5",
-        "errorColor": "#8A4000",
-        "errorExtraColor": "#00708D",
-        "colorfulErrorColor": "#8A4000",
+        "textColor": "#e5e5e5",
+        "errorColor": "#8a4000",
+        "errorExtraColor": "#00708d",
+        "colorfulErrorColor": "#8a4000",
         "colorfulErrorExtraColor": "#628b96",
         "name": "floret"
     }
