@@ -46,6 +46,8 @@ function getFaviconTheme() {
             name: themesData[i].name,
             bgColor: themesData[i].bgColor,
             mainColor: themesData[i].mainColor,
+            subColor: themesData[i].subColor,
+            textColor: themesData[i].textColor,
         };
         faviconData[i] = data;
     }

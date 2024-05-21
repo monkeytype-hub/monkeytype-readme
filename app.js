@@ -48,6 +48,11 @@ app.get("/mr-command/favicon", async (req, res) => {
     res.render("favicon", { faviconData });
 });
 
+app.get("/mr-command/logo", async (req, res) => {
+    const faviconData = getFaviconTheme();
+    res.render("logo", { faviconData });
+});
+
 app.get("/sitemap.xml", (req, res) => {
     res.sendFile(path.join(__dirname, "public/assets", "sitemap.xml"));
 });
