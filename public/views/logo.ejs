@@ -24,6 +24,9 @@
             href="../image/stupidMonkeyIcon.png"
             type="image/x-icon"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     </head>
 
@@ -125,7 +128,7 @@
                                 #logo .text {
                                     position: relative;
                                     font-size: 4rem;
-                                    font-weight: 500;
+                                    font-weight: 400;
                                     line-height: 4.2rem;
                                     font-family:
                                         Lexend Deca,
@@ -139,12 +142,19 @@
                                     position: absolute;
                                     left: 0.35em;
                                     font-size: 0.325em;
-                                    font-weight: 600;
+                                    font-weight: 400;
                                     line-height: 0.325em;
                                     color: ${subcolor};
                                     transition:
                                         color 0.125s,
                                         opacity 0.125s;
+                                }
+
+                                .lexend-deca-<uniquifier> {
+                                    font-family: "Lexend Deca", sans-serif;
+                                    font-optical-sizing: auto;
+                                    font-weight: 400;
+                                    font-style: normal;
                                 }
                             </style>
                         `;
