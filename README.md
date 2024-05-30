@@ -50,7 +50,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: "16.x"
+                  node-version: "20.x"
 
             - name: Generate Monkeytype Readme SVG
               uses: monkeytype-hub/monkeytype-readme@v1.0.0
@@ -121,7 +121,7 @@ jobs:
                 - name: Set up Node.js
                   uses: actions/setup-node@v3
                   with:
-                      node-version: "16.x"
+                      node-version: "20.x"
 
                 - name: Download SVG
                   run: |
@@ -132,7 +132,7 @@ jobs:
                       curl -o public/monkeytype-readme-lb-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/YOUR_USERNAME/THEMES?lbpb=true
 
                 - name: push monkeytype-readme.svg to the monkeytype-readme branch
-                  uses: crazy-max/ghaction-github-pages@v2.5.0
+                  uses: crazy-max/ghaction-github-pages@v4.0.0
                   with:
                       target_branch: monkeytype-readme
                       build_dir: public
