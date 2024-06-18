@@ -74,76 +74,18 @@ async function getUserData(userId) {
     }
 }
 
-async function fetchWithRetry(url, options = {}, retries = 3, backoff = 300) {
-    for (let i = 0; i < retries; i++) {
-        try {
-            const response = await fetch(url, options);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response;
-        } catch (error) {
-            if (i < retries - 1) {
-                await new Promise((resolve) =>
-                    setTimeout(resolve, backoff * Math.pow(2, i)),
-                );
-            } else {
-                console.error(error);
-                throw error;
-            }
-        }
-    }
-}
-
 async function getMonkeyTypeThemesData() {
-    const themesList = await getMonkeyTypeThemesList();
-    const themePromises = themesList.map(async (theme) => {
-        const themeName = theme["name"];
-        const themeData = await getMonkeyTypeThemesByName(themeName);
-        themeData["name"] = themeName;
-        return themeData;
-    });
-
-    const themesData = await Promise.all(themePromises);
-    return themesData;
-}
-
-async function getMonkeyTypeThemesList() {
-    const url =
-        "https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/_list.json";
-    const response = await fetchWithRetry(url);
-    const data = await response.json();
-    return data;
-}
-
-async function getMonkeyTypeThemesByName(themeName) {
-    const themeUrl = `https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/${themeName}.css`;
-    const response = await fetchWithRetry(themeUrl);
-    let cssData = await response.text();
-
-    cssData = cssData
-        .substring(cssData.indexOf("{"), cssData.indexOf("}") + 1)
-        .replace(/-(.)/g, (_, letter) => letter.toUpperCase())
-        .replaceAll("-", "")
-        .replaceAll(";", ",")
-        .replace(/,\s*([^,]+)\s*$/, "$1")
-        .replace(/([a-zA-Z0-9_]+)(?=:)/g, '"$1"')
-        .replace(/\/\*.*?\*\//g, "")
-        .replace(/(#[a-fA-F0-9]{3,8})(,|\s|$)/g, '"$1"$2')
-        .replaceAll(" ", "")
-        .replace(/(\})$/, "\n$1")
-        .replace(/("font":\s*)(\w+)/, '$1"$2"');
-
-    const resolveColorVariable = (variable) => {
-        const colorName = variable.substring(4, variable.length - 1); // Extract color name without "var()" and ")"
-        return cssData.match(new RegExp(`"${colorName}":"([^"]+)"`))[1];
-    };
-
-    cssData = cssData
-        .replace(/var\([^)]+\)/g, resolveColorVariable)
-        .replace(/(#[a-fA-F0-9]{3,8})(,|\s|$)/g, '"$1"$2');
-
-    return JSON.parse(cssData);
+    const url = "https://mr-api.zeabur.app/themes";
+    
+    try {
+        return fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                return data;
+            });
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 async function getMonkeyTypeBadgesData() {
