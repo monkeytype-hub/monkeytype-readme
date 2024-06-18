@@ -1,5 +1,4 @@
 const fs = require("fs");
-const axios = require("axios");
 let fetch;
 import("node-fetch")
     .then((module) => {
@@ -9,7 +8,7 @@ import("node-fetch")
         console.error("Error while importing node-fetch:", err);
     });
 
-const { library, icon } = require("@fortawesome/fontawesome-svg-core");
+const { library } = require("@fortawesome/fontawesome-svg-core");
 const { fas } = require("@fortawesome/free-solid-svg-icons");
 const { far } = require("@fortawesome/free-regular-svg-icons");
 const { fab } = require("@fortawesome/free-brands-svg-icons");
@@ -77,14 +76,14 @@ async function getUserData(userId) {
 
 async function getMonkeyTypeThemesData() {
     const themesList = await getMonkeyTypeThemesList();
-    const themesData = [];
-    let i = 0;
-    for (i = 0; i < themesList.length; i++) {
-        const themeName = themesList[i]["name"];
-        let themeData = await getMonkeyTypeThemesByName(themeName);
+    const themePromises = themesList.map(async (theme) => {
+        const themeName = theme["name"];
+        const themeData = await getMonkeyTypeThemesByName(themeName);
         themeData["name"] = themeName;
-        themesData.push(themeData);
-    }
+        return themeData;
+    });
+
+    const themesData = await Promise.all(themePromises);
     return themesData;
 }
 

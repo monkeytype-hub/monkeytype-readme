@@ -2289,5 +2289,18 @@
         "colorfulErrorColor": "#8a4000",
         "colorfulErrorExtraColor": "#628b96",
         "name": "floret"
+    },
+    {
+        "bgColor": "#fffbfe",
+        "mainColor": "#b94189",
+        "caretColor": "#e099d6d9",
+        "subColor": "#e094c2",
+        "subAltColor": "#ecdceed9",
+        "textColor": "#5c2954",
+        "errorColor": "#ff6f69",
+        "errorExtraColor": "#ff6f69",
+        "colorfulErrorColor": "#bc7fc0",
+        "colorfulErrorExtraColor": "#bc41b1",
+        "name": "lilac_mist"
     }
 ]
