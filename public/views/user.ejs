@@ -54,13 +54,7 @@
         />
         <meta
             property="og:image"
-            content="
-        <% if (data && data.userData && data.userData.hasOwnProperty('discordId') && data.userData.discordId !== null && data.userData.hasOwnProperty('discordAvatar') && data.userData.discordAvatar !== null) { %>
-            https://cdn.discordapp.com/avatars/<%= data.userData.discordId %>/<%= data.userData.discordAvatar %>.png?size=256
-        <% } else { %>
-            <%= data.domain %>/image/stupidMonkeyIcon.png
-        <% } %>    
-    "
+            content="<%= data.domain %>/generate-svg/<%= data.userId %>/<%= data.theme.name %>"
         />
 
         <!-- Twitter -->
@@ -79,13 +73,7 @@
         />
         <meta
             property="twitter:image"
-            content="
-        <% if (data && data.userData && data.userData.hasOwnProperty('discordId') && data.userData.discordId !== null && data.userData.hasOwnProperty('discordAvatar') && data.userData.discordAvatar !== null) { %>
-            https://cdn.discordapp.com/avatars/<%= data.userData.discordId %>/<%= data.userData.discordAvatar %>.png?size=256
-        <% } else { %>
-            <%= data.domain %>/image/stupidMonkeyIcon.png
-        <% } %>
-    "
+            content="<%= data.domain %>/generate-svg/<%= data.userId %>/<%= data.theme.name %>"
         />
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
