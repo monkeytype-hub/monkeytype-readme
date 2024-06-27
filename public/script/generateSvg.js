@@ -24,6 +24,121 @@ const formatTopPercentage = (lbRank) => {
     return "Top " + formattedPercentage + "%";
 };
 
+async function getOGSvg(userData, theme, badge) {
+    const width = 500;
+    const height = 200;
+    const cssData = await getOutputCSS();
+
+    let userImg;
+    let defaultUserImg = `
+        <div class="h-20 w-20 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="${theme.subColor}">
+                <path
+                    d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
+            </svg>
+        </div>
+    `;
+    if (
+        userData === null ||
+        userData.discordId === undefined ||
+        userData.discordAvatar === undefined
+    ) {
+        userImg = defaultUserImg;
+    } else {
+        // Download the image and save it to a file
+        const imagePath = `public/image/userImg/${userData.discordId}-${userData.discordAvatar}.png`;
+        await downloadUserImg(
+            `https://cdn.discordapp.com/avatars/${userData.discordId}/${userData.discordAvatar}.png?size=256`,
+            imagePath,
+        );
+
+        // Convert the image file to base64
+        const imageData = fs.readFileSync(imagePath);
+        const base64Image = imageData.toString("base64");
+
+        if (base64Image == "") {
+            userImg = defaultUserImg;
+        } else {
+            userImg = `
+                <div class="h-20 w-20 overflow-hidden rounded-full">
+                    <img src="data:image/png;base64,${base64Image}" width="80" height="80" />
+                </div>
+            `;
+        }
+    }
+
+    let userBadge = "";
+    if (badge !== null) {
+        let color;
+        if (badge.color === "white") color = "white";
+        else color = theme[badge.color];
+
+        let bgColor;
+        let bgTailwindColor = "";
+        if (badge.background === "animation: rgb-bg 10s linear infinite;")
+            bgTailwindColor = "animate-rgb-bg";
+        bgColor = theme[badge.background];
+
+        badge.iconSvg = badge.iconSvg.replace('fill=""', `fill="${color}"`);
+        userBadge = `
+            <div class="flex w-fit items-center justify-center rounded-md p-1 ${bgTailwindColor}" style="background: ${bgColor};">
+                <div class="px-1">${badge.iconSvg}</div>
+                <div class="px-1 align-middle font-mono text-xs" style="color: ${color};">
+                    ${badge.name}
+                </div>
+            </div>
+        `;
+    }
+
+    const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}"
+            class="rounded-2xl">
+            <style>
+                ${cssData}
+            </style>
+            <foreignObject x="0" y="0" width="${width}" height="${height}">
+                <div xmlns="http://www.w3.org/1999/xhtml">
+                    <div class="w-full rounded-2xl" style="background-color: ${
+                        theme.bgColor
+                    }; height: 200px;">
+                        <div class="flex h-full items-center justify-center">
+                            <div class="pr-5">${userImg}</div>
+                            <div>
+                                <div class="font-mono text-3xl font-medium tracking-wider" style="color: ${
+                                    theme.textColor
+                                };">
+                                    ${
+                                        userData == null
+                                            ? "user not found"
+                                            : userData.name
+                                    }
+                                </div>
+                                ${
+                                    badge != null
+                                        ? `<div class="py-1">${userBadge}</div>`
+                                        : ``
+                                }
+                                ${
+                                    userData == null
+                                        ? ""
+                                        : userData.streak > 0
+                                        ? `
+                                        <div class="font-mono text-xs font-medium tracking-wide" style="color: ${theme.subColor};">
+                                            Current streak: ${userData.streak} days
+                                        </div>
+                                    `
+                                        : ``
+                                }
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </foreignObject>
+        </svg>
+    `;
+    return svg;
+}
+
 async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
     const width = 500;
     let height = 220;
@@ -116,38 +231,43 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
         let ordinalNumber60 = "";
 
         try {
-            if (allTimeLbs.time["15"]["english"]["rank"] === undefined || allTimeLbs.time["15"]["english"]["rank"] === null) {
+            if (
+                allTimeLbs.time["15"]["english"]["rank"] === undefined ||
+                allTimeLbs.time["15"]["english"]["rank"] === null
+            ) {
                 rank15 = "-";
             } else {
                 rank15 = allTimeLbs.time["15"]["english"]["rank"];
             }
-            if (allTimeLbs.time["60"]["english"]["rank"] === undefined || allTimeLbs.time["60"]["english"]["rank"] === null) {
+            if (
+                allTimeLbs.time["60"]["english"]["rank"] === undefined ||
+                allTimeLbs.time["60"]["english"]["rank"] === null
+            ) {
                 rank60 = "-";
             } else {
                 rank60 = allTimeLbs.time["60"]["english"]["rank"];
             }
-            ordinalNumber15 = ordinalNumber(allTimeLbs.time["15"]["english"]["rank"]);
-            ordinalNumber60 = ordinalNumber(allTimeLbs.time["60"]["english"]["rank"]);
+            ordinalNumber15 = ordinalNumber(
+                allTimeLbs.time["15"]["english"]["rank"],
+            );
+            ordinalNumber60 = ordinalNumber(
+                allTimeLbs.time["60"]["english"]["rank"],
+            );
         } catch (e) {
             console.log(e);
-            console.log(userData)
-            console.log(userData.allTimeLbs.time)
+            console.log(userData);
+            console.log(userData.allTimeLbs.time);
             rank15 = "-";
             rank60 = "-";
             ordinalNumber15 = "";
             ordinalNumber60 = "";
         }
-        
 
         leaderBoardHTML = `
-            <div class="mt-5 w-full rounded-2xl" style="background-color: ${
-                theme.bgColor
-            }; height: 200px;">
+            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 200px;">
                 <div class="flex h-full items-center justify-center">
                     <div class="mx-5">
-                        <div class="text-center font-mono text-lg font-medium tracking-wider" style="color: ${
-                            theme.subColor
-                        };">
+                        <div class="text-center font-mono text-lg font-medium tracking-wider" style="color: ${theme.subColor};">
                             All-Time English Leaderboards
                         </div>
                         <div class="mt-4 flex justify-center">
@@ -179,9 +299,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                                             60 seconds
                                         </div>
                                         <div class="w-32 text-right font-mono text-xs font-medium tracking-wider"
-                                                style="color: ${
-                                                    theme.subColor
-                                                };">
+                                                style="color: ${theme.subColor};">
                                                 ${topPercentage60}
                                         </div>
                                     </div>
@@ -551,5 +669,6 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
 }
 
 module.exports = {
+    getOGSvg,
     getSvg,
 };
