@@ -1,6 +1,7 @@
 const express = require("express");
 const compression = require("compression");
 const path = require("path");
+const puppeteer = require("puppeteer");
 const app = express();
 
 const {
@@ -11,7 +12,7 @@ const {
     getMonkeyTypeThemesData,
     getMonkeyTypeBadgesData,
 } = require("./public/script/monkeytypeData");
-const { getSvg } = require("./public/script/generateSvg");
+const { getOGSvg, getSvg } = require("./public/script/generateSvg");
 require("dotenv").config();
 
 app.use(compression());
@@ -60,6 +61,82 @@ app.get("/sitemap.xml", (req, res) => {
 app.get("/robots.txt", (req, res) => {
     res.sendFile(path.join(__dirname, "public/assets", "robots.txt"));
 });
+
+app.get(
+    ["/og-image/:userId/:themeName", "/og-image/:userId"],
+    async (req, res) => {
+        const userId = req.params.userId;
+        const themeName = req.params.themeName;
+        req.query.lbpb == "true" ? (leaderBoards = personalBests = true) : null;
+        const userData = await getUserData(userId);
+        const theme = getTheme(themeName);
+        if (userData === undefined || userData.name === undefined) {
+            const svg = await getOGSvg(null, theme, null);
+            res.set("Content-Type", "image/svg+xml");
+            res.send(svg);
+            return;
+        }
+        let badge = null;
+        if (userData.inventory !== null && userData.inventory !== undefined) {
+            if (userData.inventory.badges.length !== 0) {
+                badge = getBadge(userData.inventory.badges[0].id);
+                for (let i = 0; i < userData.inventory.badges.length; i++) {
+                    if (userData.inventory.badges[i].selected === true) {
+                        badge = getBadge(userData.inventory.badges[i].id);
+                        break;
+                    }
+                }
+            }
+        }
+        const ogSvg = await getOGSvg(userData, theme, badge);
+
+        try {
+            const browser = await puppeteer.launch();
+            const page = await browser.newPage();
+
+            await page.setContent(`
+            <!DOCTYPE html>
+            <html lang="en">
+                <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>SVG to PNG</title>
+                </head>
+                <body>
+                    <div id="svg-container">${ogSvg}</div>
+                </body>
+            </html>
+        `);
+
+            const svgElement = await page.$("#svg-container svg");
+
+            // Get bounding box of the SVG element
+            const boundingBox = await svgElement.boundingBox();
+            if (!boundingBox) {
+                throw new Error(
+                    "Could not get bounding box of the SVG element",
+                );
+            }
+
+            // Set viewport to the size of the SVG
+            await page.setViewport({
+                width: Math.ceil(boundingBox.width),
+                height: Math.ceil(boundingBox.height),
+                deviceScaleFactor: 4,
+            });
+
+            const pngBuffer = await svgElement.screenshot({ type: "png" });
+
+            await browser.close();
+
+            res.setHeader("Content-Type", "image/png");
+            res.send(pngBuffer);
+        } catch (error) {
+            console.error("Error converting SVG to PNG:", error);
+            res.status(500).send("Error converting SVG to PNG");
+        }
+    },
+);
 
 app.get(["/:userId/:themeName", "/:userId"], async (req, res) => {
     const data = {
