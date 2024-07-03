@@ -1959,7 +1959,7 @@
         "mainColor": "#b12189",
         "caretColor": "#eee",
         "subColor": "#333",
-        "subAltColor": "#b12189",
+        "subAltColor": "#f9b951",
         "textColor": "#eee",
         "errorColor": "#da3333",
         "errorExtraColor": "#791717",
@@ -2302,5 +2302,18 @@
         "colorfulErrorColor": "#bc7fc0",
         "colorfulErrorExtraColor": "#bc41b1",
         "name": "lilac_mist"
+    },
+    {
+        "bgColor": "#f1e5da",
+        "mainColor": "#e0794e",
+        "caretColor": "#e0794e",
+        "subColor": "#688e8f",
+        "subAltColor": "#e3d3c6",
+        "textColor": "#023e3b",
+        "errorColor": "#a01034",
+        "errorExtraColor": "#a01034",
+        "colorfulErrorColor": "#a01034",
+        "colorfulErrorExtraColor": "#a01034",
+        "name": "terrazzo"
     }
 ]
