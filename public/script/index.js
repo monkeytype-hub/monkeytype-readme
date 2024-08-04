@@ -7,7 +7,7 @@ let themeListState = {
 };
 
 $("#createNowBtn").click(function () {
-    var targetElement = $("#mr-introduce");
+    let targetElement = $("#mr-introduce");
     $("html, body").animate(
         {
             scrollTop: targetElement.offset().top,
@@ -180,9 +180,18 @@ function showThemeList() {
 }
 
 function hideThemeList() {
-    $("#showThemeBtn").removeClass("hidden");
-    $("#themeListContainer").addClass("h-96");
-    $("#hideThemeBtn").addClass("hidden");
+    let targetElement = $("#mr-create");
+    $("html, body").animate(
+        {
+            scrollTop: targetElement.offset().top,
+        },
+        800,
+    );
+    setTimeout(() => {
+        $("#showThemeBtn").removeClass("hidden");
+        $("#themeListContainer").addClass("h-96");
+        $("#hideThemeBtn").addClass("hidden");
+    }, 800);
 }
 
 function showBorder(themeName) {
