@@ -76,7 +76,7 @@ async function getUserData(userId) {
 
 async function getMonkeyTypeThemesData() {
     const url = "https://mr-api.zeabur.app/themes";
-    
+
     try {
         return fetch(url)
             .then((response) => response.json())
