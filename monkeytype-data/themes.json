@@ -2315,5 +2315,18 @@
         "colorfulErrorColor": "#a01034",
         "colorfulErrorExtraColor": "#a01034",
         "name": "terrazzo"
+    },
+    {
+        "bgColor": "#3b4a62",
+        "mainColor": "#bef0ff",
+        "caretColor": "#bef0ff",
+        "subColor": "#fe9841",
+        "subAltColor": "#313e55",
+        "textColor": "#dbdeeb",
+        "errorColor": "#ed2939",
+        "errorExtraColor": "#ce122c",
+        "colorfulErrorColor": "#ed2939",
+        "colorfulErrorExtraColor": "#ce122c",
+        "name": "suisei"
     }
 ]
