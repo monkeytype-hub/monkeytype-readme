@@ -95,10 +95,10 @@ async function getMonkeyTypeBadgesData() {
     return fetch(url)
         .then((response) => response.text())
         .then((data) => {
-            let badgesData = data.slice(
-                data.search("{"),
-                data.search("};") + 1,
-            );
+            const badgesStart = data.search("const badges: Record<number, UserBadge> = {");
+            const badgesDataStart = badgesStart + "const badges: Record<number, UserBadge> = ".length;
+            const badgesDataEnd = data.indexOf("};", badgesDataStart);
+            let badgesData = data.substring(badgesDataStart, badgesDataEnd + 1);
             badgesData = badgesData
                 .replace(/(\w+)\s*:/g, '"$1":')
                 .replace(/,(\s*[\]}])/g, "$1")
