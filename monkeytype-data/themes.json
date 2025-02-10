@@ -2328,5 +2328,18 @@
         "colorfulErrorColor": "#ed2939",
         "colorfulErrorExtraColor": "#ce122c",
         "name": "suisei"
+    },
+    {
+        "bgColor": "#212830",
+        "mainColor": "#41ce5c",
+        "caretColor": "#41ce5c",
+        "subColor": "#788386",
+        "subAltColor": "#141b23",
+        "textColor": "#ccdae6",
+        "errorColor": "#c23e3a",
+        "errorExtraColor": "#c23e3a",
+        "colorfulErrorColor": "#c23e3a",
+        "colorfulErrorExtraColor": "#c23e3a",
+        "name": "github"
     }
 ]
