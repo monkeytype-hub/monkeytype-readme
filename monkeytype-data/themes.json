@@ -745,6 +745,19 @@
         "name": "solarized_light"
     },
     {
+        "bgColor": "#00141a",
+        "mainColor": "#859900",
+        "caretColor": "#b58900",
+        "subColor": "#2aa198",
+        "subAltColor": "#00222b",
+        "textColor": "#eee8d5",
+        "errorColor": "#dc322f",
+        "errorExtraColor": "#9b225c",
+        "colorfulErrorColor": "#d33682",
+        "colorfulErrorExtraColor": "#9b225c",
+        "name": "solarized_osaka"
+    },
+    {
         "bgColor": "#0c100e",
         "mainColor": "#89c559",
         "caretColor": "#89c559",
