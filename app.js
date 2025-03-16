@@ -1,7 +1,7 @@
 const express = require("express");
 const compression = require("compression");
 const path = require("path");
-const puppeteer = require("puppeteer");
+const axios = require("axios");
 const app = express();
 
 const {
@@ -91,48 +91,14 @@ app.get(
         const ogSvg = await getOGSvg(userData, theme, badge);
 
         try {
-            const browser = await puppeteer.launch({
-                args: ["--no-sandbox", "--disable-setuid-sandbox"],
-            });
-            const page = await browser.newPage();
-
-            await page.setContent(`
-            <!DOCTYPE html>
-            <html lang="en">
-                <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>SVG to PNG</title>
-                </head>
-                <body>
-                    <div id="svg-container">${ogSvg}</div>
-                </body>
-            </html>
-        `);
-
-            const svgElement = await page.$("#svg-container svg");
-
-            // Get bounding box of the SVG element
-            const boundingBox = await svgElement.boundingBox();
-            if (!boundingBox) {
-                throw new Error(
-                    "Could not get bounding box of the SVG element",
-                );
-            }
-
-            // Set viewport to the size of the SVG
-            await page.setViewport({
-                width: Math.ceil(boundingBox.width),
-                height: Math.ceil(boundingBox.height),
-                deviceScaleFactor: 4,
-            });
-
-            const pngBuffer = await svgElement.screenshot({ type: "png" });
-
-            await browser.close();
+            const response = await axios.post(
+                "https://mr-api.zeabur.app/og-image",
+                { og_svg: ogSvg },
+                { responseType: "arraybuffer" },
+            );
 
             res.setHeader("Content-Type", "image/png");
-            res.send(pngBuffer);
+            res.send(Buffer.from(response.data, "binary"));
         } catch (error) {
             console.error("Error converting SVG to PNG:", error);
             res.status(500).send("Error converting SVG to PNG");
