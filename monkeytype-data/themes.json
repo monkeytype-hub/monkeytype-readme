@@ -43,6 +43,19 @@
         "name": "dark"
     },
     {
+        "bgColor": "#001",
+        "mainColor": "#7aa2f7",
+        "caretColor": "#bb9af7",
+        "subColor": "#414868",
+        "subAltColor": "#24283b",
+        "textColor": "#c0caf5",
+        "errorColor": "#f7768e",
+        "errorExtraColor": "#db4b4b",
+        "colorfulErrorColor": "#ff7a93",
+        "colorfulErrorExtraColor": "#ff9e64",
+        "name": "phantom"
+    },
+    {
         "bgColor": "#525252",
         "mainColor": "#c5b4e3",
         "caretColor": "#b1e4e3",
@@ -1063,10 +1076,10 @@
         "subColor": "#d64090",
         "subAltColor": "#edf8fa",
         "textColor": "#0a282f",
-        "errorColor": "#000000",
-        "errorExtraColor": "#c9c9c9",
-        "colorfulErrorColor": "#ca4754",
-        "colorfulErrorExtraColor": "#7e2a33",
+        "errorColor": "#a4dd32",
+        "errorExtraColor": "#90bd34",
+        "colorfulErrorColor": "#a4dd32",
+        "colorfulErrorExtraColor": "#87b330",
         "name": "ms_cupcakes"
     },
     {
