@@ -108,6 +108,19 @@
         "name": "carbon"
     },
     {
+        "bgColor": "#101010",
+        "mainColor": "#ffc799",
+        "caretColor": "#99ffe4",
+        "subColor": "#a0a0a0",
+        "subAltColor": "#1c1c1c",
+        "textColor": "#ffffff",
+        "errorColor": "#ff8080",
+        "errorExtraColor": "#b25959",
+        "colorfulErrorColor": "#99ffe4",
+        "colorfulErrorExtraColor": "#99ffe4",
+        "name": "vesper"
+    },
+    {
         "bgColor": "#ce1226",
         "mainColor": "#fcd116",
         "caretColor": "#fcd116",
