@@ -111,7 +111,15 @@ async function getMonkeyTypeBadgesData() {
                     (matchedStr) => '"' + matchedStr.replace(/:/g, "") + '":',
                 )
                 .replace(/\"/g, '"')
-                .replace(/\"animation\"/g, "animation");
+                .replace(
+                    /"customStyle"\s*:\s*"([^"]*\"animation\"[^"]*\"background\"[^"]*)"/g,
+                    (match, customStyleValue) => {
+                        const updatedCustomStyle = customStyleValue
+                            .replace(/\"animation\"/g, "animation")
+                            .replace(/\"background\"/g, "background");
+                        return `"customStyle": "${updatedCustomStyle}"`;
+                    },
+                );
             badgesData = JSON.parse(badgesData);
 
             for (let i = 0; i < Object.keys(badgesData).length; i++) {
@@ -119,11 +127,11 @@ async function getMonkeyTypeBadgesData() {
                 if (badge.hasOwnProperty("customStyle")) {
                     if (
                         badge.customStyle ==
-                        "animation: rgb-bg 10s linear infinite;"
+                        "animation: rgb-bg 10s linear infinite; background: linear-gradient(45deg in hsl longer hue, hsl(330, 90%, 30%) 0%, hsl(250, 90%, 30%) 100%);"
                     ) {
                         badge.color = "white";
                         badge["background"] =
-                            "animation: rgb-bg 10s linear infinite;";
+                            "animation: rgb-bg 10s linear infinite; background: linear-gradient(45deg in hsl longer hue, hsl(330, 90%, 30%) 0%, hsl(250, 90%, 30%) 100%);";
                     }
                 } else {
                     if (badge.color.includes("var")) {
