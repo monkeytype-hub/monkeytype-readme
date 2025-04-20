@@ -2380,5 +2380,18 @@
         "colorfulErrorColor": "#c23e3a",
         "colorfulErrorExtraColor": "#c23e3a",
         "name": "github"
+    },
+    {
+        "bgColor": "#211e24",
+        "mainColor": "#f79777",
+        "caretColor": "#ffca99",
+        "subColor": "#5b578e",
+        "subAltColor": "#161319",
+        "textColor": "#f4e0c9",
+        "errorColor": "#66a1ff",
+        "errorExtraColor": "#376ca4",
+        "colorfulErrorColor": "#66a1ff",
+        "colorfulErrorExtraColor": "#376ca4",
+        "name": "sunset"
     }
 ]
