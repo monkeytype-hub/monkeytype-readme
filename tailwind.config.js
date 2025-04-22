@@ -21,7 +21,7 @@ module.exports = {
                 38: "9.5rem",
             },
             animation: {
-                "rgb-bg": "rgb-bg 12s linear infinite",
+                "rgb-bg": "rgb-bg 10s linear infinite",
             },
             keyframes: {
                 "rgb-bg": {

@@ -124,30 +124,19 @@ async function getMonkeyTypeBadgesData() {
 
             for (let i = 0; i < Object.keys(badgesData).length; i++) {
                 let badge = badgesData[Object.keys(badgesData)[i]];
-                if (badge.hasOwnProperty("customStyle")) {
-                    if (
-                        badge.customStyle ==
-                        "animation: rgb-bg 10s linear infinite; background: linear-gradient(45deg in hsl longer hue, hsl(330, 90%, 30%) 0%, hsl(250, 90%, 30%) 100%);"
-                    ) {
-                        badge.color = "white";
-                        badge["background"] =
-                            "animation: rgb-bg 10s linear infinite; background: linear-gradient(45deg in hsl longer hue, hsl(330, 90%, 30%) 0%, hsl(250, 90%, 30%) 100%);";
-                    }
-                } else {
-                    if (badge.color.includes("var")) {
-                        badge.color = badge.color
-                            .replace("var(--", "")
-                            .replace(")", "")
-                            .replace("-", "")
-                            .replace("c", "C");
-                    }
-                    if (badge.background.includes("var")) {
-                        badge.background = badge.background
-                            .replace("var(--", "")
-                            .replace(")", "")
-                            .replace("-", "")
-                            .replace("c", "C");
-                    }
+                if (badge.color.includes("var")) {
+                    badge.color = badge.color
+                        .replace("var(--", "")
+                        .replace(")", "")
+                        .replace("-", "")
+                        .replace("c", "C");
+                }
+                if (badge.background && badge.background.includes("var")) {
+                    badge.background = badge.background
+                        .replace("var(--", "")
+                        .replace(")", "")
+                        .replace("-", "")
+                        .replace("c", "C");
                 }
                 const iconSvg = findIconDefinition({
                     prefix: "fas",

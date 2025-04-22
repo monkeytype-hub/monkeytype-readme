@@ -14,21 +14,7 @@ const downloadUserImg = (url, path) => {
     });
 };
 
-const formatTopPercentage = (lbRank) => {
-    if (lbRank?.rank === undefined) return "-";
-    if (lbRank?.count === undefined) return "-";
-    if (lbRank.rank === 1) return "GOAT";
-    let percentage = (lbRank.rank / lbRank.count) * 100;
-    let formattedPercentage =
-        percentage % 1 === 0 ? percentage.toString() : percentage.toFixed(2);
-    return "Top " + formattedPercentage + "%";
-};
-
-async function getOGSvg(userData, theme, badge) {
-    const width = 500;
-    const height = 200;
-    const cssData = await getOutputCSS();
-
+const getUserImg = async (userData, theme) => {
     let userImg;
     let defaultUserImg = `
         <div class="h-20 w-20 rounded-full">
@@ -66,22 +52,26 @@ async function getOGSvg(userData, theme, badge) {
             `;
         }
     }
+    return userImg;
+};
 
+const getUserBadge = (badge, theme) => {
     let userBadge = "";
     if (badge !== null) {
         let color;
         if (badge.color === "white") color = "white";
         else color = theme[badge.color];
 
-        let bgColor;
-        let bgTailwindColor = "";
-        if (badge.background === "animation: rgb-bg 10s linear infinite;")
-            bgTailwindColor = "animate-rgb-bg";
-        bgColor = theme[badge.background];
-
         badge.iconSvg = badge.iconSvg.replace('fill=""', `fill="${color}"`);
         userBadge = `
-            <div class="flex w-fit items-center justify-center rounded-md p-1 ${bgTailwindColor}" style="background: ${bgColor};">
+            <div class="flex w-fit items-center justify-center rounded-md p-1${
+                badge.customStyle ? " animate-rgb-bg" : ""
+            }" 
+            ${
+                badge.background
+                    ? 'style="background: ' + theme[badge.background] + ';"'
+                    : ""
+            }>
                 <div class="px-1">${badge.iconSvg}</div>
                 <div class="px-1 align-middle font-mono text-xs" style="color: ${color};">
                     ${badge.name}
@@ -89,6 +79,26 @@ async function getOGSvg(userData, theme, badge) {
             </div>
         `;
     }
+    return userBadge;
+};
+
+const formatTopPercentage = (lbRank) => {
+    if (lbRank?.rank === undefined) return "-";
+    if (lbRank?.count === undefined) return "-";
+    if (lbRank.rank === 1) return "GOAT";
+    let percentage = (lbRank.rank / lbRank.count) * 100;
+    let formattedPercentage =
+        percentage % 1 === 0 ? percentage.toString() : percentage.toFixed(2);
+    return "Top " + formattedPercentage + "%";
+};
+
+async function getOGSvg(userData, theme, badge) {
+    const width = 500;
+    const height = 200;
+    const cssData = await getOutputCSS();
+
+    let userImg = await getUserImg(userData, theme);
+    let userBadge = getUserBadge(badge, theme);
 
     const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}"
@@ -146,66 +156,8 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
     personalbests ? (height += 440) : (height += 0);
     const cssData = await getOutputCSS();
 
-    let userImg;
-    let defaultUserImg = `
-        <div class="h-20 w-20 rounded-full">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="${theme.subColor}">
-                <path
-                    d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
-            </svg>
-        </div>
-    `;
-    if (
-        userData === null ||
-        userData.discordId === undefined ||
-        userData.discordAvatar === undefined
-    ) {
-        userImg = defaultUserImg;
-    } else {
-        // Download the image and save it to a file
-        const imagePath = `public/image/userImg/${userData.discordId}-${userData.discordAvatar}.png`;
-        await downloadUserImg(
-            `https://cdn.discordapp.com/avatars/${userData.discordId}/${userData.discordAvatar}.png?size=256`,
-            imagePath,
-        );
-
-        // Convert the image file to base64
-        const imageData = fs.readFileSync(imagePath);
-        const base64Image = imageData.toString("base64");
-
-        if (base64Image == "") {
-            userImg = defaultUserImg;
-        } else {
-            userImg = `
-                <div class="h-20 w-20 overflow-hidden rounded-full">
-                    <img src="data:image/png;base64,${base64Image}" width="80" height="80" />
-                </div>
-            `;
-        }
-    }
-
-    let userBadge = "";
-    if (badge !== null) {
-        let color;
-        if (badge.color === "white") color = "white";
-        else color = theme[badge.color];
-
-        let bgColor;
-        let bgTailwindColor = "";
-        if (badge.background === "animation: rgb-bg 10s linear infinite;")
-            bgTailwindColor = "animate-rgb-bg";
-        bgColor = theme[badge.background];
-
-        badge.iconSvg = badge.iconSvg.replace('fill=""', `fill="${color}"`);
-        userBadge = `
-            <div class="flex w-fit items-center justify-center rounded-md p-1 ${bgTailwindColor}" style="background: ${bgColor};">
-                <div class="px-1">${badge.iconSvg}</div>
-                <div class="px-1 align-middle font-mono text-xs" style="color: ${color};">
-                    ${badge.name}
-                </div>
-            </div>
-        `;
-    }
+    let userImg = await getUserImg(userData, theme);
+    let userBadge = getUserBadge(badge, theme);
 
     let leaderBoardHTML = "";
     if (leaderBoards == true) {
@@ -231,28 +183,21 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
         let ordinalNumber60 = "";
 
         try {
-            if (
-                allTimeLbs.time["15"]["english"]["rank"] === undefined ||
-                allTimeLbs.time["15"]["english"]["rank"] === null
-            ) {
-                rank15 = "-";
-            } else {
-                rank15 = allTimeLbs.time["15"]["english"]["rank"];
-            }
-            if (
-                allTimeLbs.time["60"]["english"]["rank"] === undefined ||
-                allTimeLbs.time["60"]["english"]["rank"] === null
-            ) {
-                rank60 = "-";
-            } else {
-                rank60 = allTimeLbs.time["60"]["english"]["rank"];
-            }
-            ordinalNumber15 = ordinalNumber(
-                allTimeLbs.time["15"]["english"]["rank"],
-            );
-            ordinalNumber60 = ordinalNumber(
-                allTimeLbs.time["60"]["english"]["rank"],
-            );
+            const time15 = allTimeLbs.time["15"] || {};
+            const time60 = allTimeLbs.time["60"] || {};
+
+            rank15 = !time15.english?.rank ? "-" : time15.english.rank;
+            rank60 = !time60.english?.rank ? "-" : time60.english.rank;
+
+            ordinalNumber15 =
+                typeof time15.english?.rank === "number"
+                    ? ordinalNumber(time15.english.rank)
+                    : "-";
+
+            ordinalNumber60 =
+                typeof time60.english?.rank === "number"
+                    ? ordinalNumber(time60.english.rank)
+                    : "-";
         } catch (e) {
             console.log(e);
             console.log(userData);
