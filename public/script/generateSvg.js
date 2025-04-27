@@ -109,7 +109,7 @@ async function getOGSvg(userData, theme, badge) {
             <foreignObject x="0" y="0" width="${width}" height="${height}">
                 <div xmlns="http://www.w3.org/1999/xhtml">
                     <div class="w-full rounded-2xl" style="background-color: ${
-                        theme.bgColor
+                        theme.subAltColor
                     }; height: 200px;">
                         <div class="flex h-full items-center justify-center">
                             <div class="pr-5">${userImg}</div>
@@ -209,7 +209,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
         }
 
         leaderBoardHTML = `
-            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.bgColor}; height: 200px;">
+            <div class="mt-5 w-full rounded-2xl" style="background-color: ${theme.subAltColor}; height: 200px;">
                 <div class="flex h-full items-center justify-center">
                     <div class="mx-5">
                         <div class="text-center font-mono text-lg font-medium tracking-wider" style="color: ${theme.subColor};">
@@ -408,7 +408,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
 
         personalbestsHTML = `
             <div class="mt-5 w-full rounded-2xl" style="background-color: ${
-                theme.bgColor
+                theme.subAltColor
             }; height: 200px;">
                 <div class="flex h-full items-center justify-center">
                     <div class="mx-5">
@@ -482,7 +482,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
                 </div>
             </div>
             <div class="mt-5 w-full rounded-2xl" style="background-color: ${
-                theme.bgColor
+                theme.subAltColor
             }; height: 200px;">
                 <div class="flex h-full items-center justify-center">
                     <div class="mx-5">
@@ -567,7 +567,7 @@ async function getSvg(userData, theme, badge, leaderBoards, personalbests) {
             <foreignObject x="0" y="0" width="${width}" height="${height}">
                 <div xmlns="http://www.w3.org/1999/xhtml">
                     <div class="w-full rounded-2xl" style="background-color: ${
-                        theme.bgColor
+                        theme.subAltColor
                     }; height: 200px;">
                         <div class="flex h-full items-center justify-center">
                             <div class="pr-5">${userImg}</div>
