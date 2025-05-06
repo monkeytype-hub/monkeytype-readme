@@ -33,25 +33,45 @@ app.get("/", (req, res) => {
 });
 
 app.get("/mr-command/theme", async (req, res) => {
-    const themesData = await getMonkeyTypeThemesData();
-    res.set("Content-Type", "application/json");
-    res.send(themesData);
+    try {
+        const themesData = await getMonkeyTypeThemesData();
+        res.set("Content-Type", "application/json");
+        res.send(themesData);
+    } catch (err) {
+        console.error("Failed to fetch themes:", err);
+        res.status(500).json({ error: "Failed to fetch themes" });
+    }
 });
 
 app.get("/mr-command/badge", async (req, res) => {
-    const badgesData = await getMonkeyTypeBadgesData();
-    res.set("Content-Type", "application/json");
-    res.send(badgesData);
+    try {
+        const badgesData = await getMonkeyTypeBadgesData();
+        res.set("Content-Type", "application/json");
+        res.send(badgesData);
+    } catch (err) {
+        console.error("Failed to fetch badges:", err);
+        res.status(500).json({ error: "Failed to fetch badges" });
+    }
 });
 
 app.get("/mr-command/favicon", async (req, res) => {
-    const faviconData = getFaviconTheme();
-    res.render("favicon", { faviconData });
+    try {
+        const faviconData = getFaviconTheme();
+        res.render("favicon", { faviconData });
+    } catch (err) {
+        console.error("Failed to render favicon:", err);
+        res.status(500).send("Failed to render favicon");
+    }
 });
 
 app.get("/mr-command/logo", async (req, res) => {
-    const faviconData = getFaviconTheme();
-    res.render("logo", { faviconData });
+    try {
+        const faviconData = getFaviconTheme();
+        res.render("logo", { faviconData });
+    } catch (err) {
+        console.error("Failed to render logo:", err);
+        res.status(500).send("Failed to render logo");
+    }
 });
 
 app.get("/sitemap.xml", (req, res) => {
