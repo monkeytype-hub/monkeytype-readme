@@ -1,5 +1,31 @@
 [
     {
+        "bgColor": "#333a45",
+        "mainColor": "#f44c7f",
+        "caretColor": "#f44c7f",
+        "subColor": "#939eae",
+        "subAltColor": "#2e343d",
+        "textColor": "#e9ecf0",
+        "errorColor": "#da3333",
+        "errorExtraColor": "#791717",
+        "colorfulErrorColor": "#c5da33",
+        "colorfulErrorExtraColor": "#849224",
+        "name": "8008"
+    },
+    {
+        "bgColor": "#eeebe2",
+        "mainColor": "#080909",
+        "caretColor": "#7fa480",
+        "subColor": "#99947f",
+        "subAltColor": "#d3cfc1",
+        "textColor": "#080909",
+        "errorColor": "#c87e74",
+        "errorExtraColor": "#a56961",
+        "colorfulErrorColor": "#c87e74",
+        "colorfulErrorExtraColor": "#a56961",
+        "name": "9009"
+    },
+    {
         "bgColor": "#1f1f1f",
         "mainColor": "#f2c17b",
         "caretColor": "#e3dce0",
@@ -80,19 +106,6 @@
         "colorfulErrorColor": "#00b398",
         "colorfulErrorExtraColor": "#e45c96",
         "name": "dark_magic_girl"
-    },
-    {
-        "bgColor": "#333a45",
-        "mainColor": "#f44c7f",
-        "caretColor": "#f44c7f",
-        "subColor": "#939eae",
-        "subAltColor": "#2e343d",
-        "textColor": "#e9ecf0",
-        "errorColor": "#da3333",
-        "errorExtraColor": "#791717",
-        "colorfulErrorColor": "#c5da33",
-        "colorfulErrorExtraColor": "#849224",
-        "name": "8008"
     },
     {
         "bgColor": "#313131",
@@ -470,19 +483,6 @@
         "colorfulErrorColor": "#f6c9b4",
         "colorfulErrorExtraColor": "#f59a71",
         "name": "botanical"
-    },
-    {
-        "bgColor": "#eeebe2",
-        "mainColor": "#080909",
-        "caretColor": "#7fa480",
-        "subColor": "#99947f",
-        "subAltColor": "#d3cfc1",
-        "textColor": "#080909",
-        "errorColor": "#c87e74",
-        "errorExtraColor": "#a56961",
-        "colorfulErrorColor": "#c87e74",
-        "colorfulErrorExtraColor": "#a56961",
-        "name": "9009"
     },
     {
         "bgColor": "#b8a7aa",
