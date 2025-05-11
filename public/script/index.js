@@ -308,7 +308,7 @@ function compareColors(hex1, hex2, themeName1, themeName2) {
 
 async function getMonkeyTypeThemesList() {
     const url =
-        "https://raw.githubusercontent.com/monkeytypegame/monkeytype/master/frontend/static/themes/_list.json";
+        "https://raw.githubusercontent.com/monkeytype-hub/monkeytype-readme/refs/heads/master/monkeytype-data/themes.json";
 
     return fetch(url)
         .then((response) => response.json())
