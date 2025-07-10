@@ -119,7 +119,8 @@ async function getMonkeyTypeBadgesData() {
                             .replace(/\"background\"/g, "background");
                         return `"customStyle": "${updatedCustomStyle}"`;
                     },
-                );
+                )
+                .replace(/background-\"size\"/g, "background-size");
             badgesData = JSON.parse(badgesData);
 
             for (let i = 0; i < Object.keys(badgesData).length; i++) {
