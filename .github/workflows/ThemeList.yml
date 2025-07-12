@@ -44,23 +44,13 @@ jobs:
               run: |
                   cat monkeytype-data/themes.json
 
-            - name: Configure git
-              run: |
-                  git config --global user.name "${{ vars.GITUSERNAME }}"
-                  git config --global user.email "${{ vars.GITUSEREMAIL }}"
-
-            - name: Commit and push changes
-              run: |
-                  if git diff-index --quiet HEAD --; then
-                    echo "No changes detected."
-                  else
-                    git add .
-                    git commit -m "chore: update themes json list"
-                  fi
-              continue-on-error: true
-
-            - name: Push changes
-              uses: ad-m/github-push-action@master
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v7
               with:
-                  branch: master
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                branch: update-themes-list
+                branch-suffix: timestamp
+                base: master
+                title: "chore: update themes json list"
+                commit-message: "chore: update themes json list"
+                delete-branch: true
+                token: ${{ secrets.GITHUB_TOKEN }}
