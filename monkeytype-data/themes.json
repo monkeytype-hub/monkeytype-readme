@@ -2331,9 +2331,9 @@
     {
         "bgColor": "#fffbfe",
         "mainColor": "#b94189",
-        "caretColor": "#e099d6d9",
+        "caretColor": "#e099d6",
         "subColor": "#e094c2",
-        "subAltColor": "#ecdceed9",
+        "subAltColor": "#ecdcee",
         "textColor": "#5c2954",
         "errorColor": "#ff6f69",
         "errorExtraColor": "#ff6f69",
