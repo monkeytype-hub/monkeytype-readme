@@ -2392,5 +2392,18 @@
         "colorfulErrorColor": "#66a1ff",
         "colorfulErrorExtraColor": "#376ca4",
         "name": "sunset"
+    },
+    {
+        "bgColor": "#433e4c",
+        "mainColor": "#94ffc2",
+        "caretColor": "#9efffd",
+        "subColor": "#ffaca3",
+        "subAltColor": "#694f5e",
+        "textColor": "#feffdb",
+        "errorColor": "#ff5c5c",
+        "errorExtraColor": "#ff0000",
+        "colorfulErrorColor": "#ff3874",
+        "colorfulErrorExtraColor": "#c2386f",
+        "name": "pale_nimbus"
     }
 ]
