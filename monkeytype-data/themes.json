@@ -129,8 +129,8 @@
         "textColor": "#ffffff",
         "errorColor": "#ff8080",
         "errorExtraColor": "#b25959",
-        "colorfulErrorColor": "#99ffe4",
-        "colorfulErrorExtraColor": "#99ffe4",
+        "colorfulErrorColor": "#ff8080",
+        "colorfulErrorExtraColor": "#b25959",
         "name": "vesper"
     },
     {
@@ -2392,6 +2392,19 @@
         "colorfulErrorColor": "#66a1ff",
         "colorfulErrorExtraColor": "#376ca4",
         "name": "sunset"
+    },
+    {
+        "bgColor": "#ffffff",
+        "mainColor": "#fb7100",
+        "caretColor": "#067a6e",
+        "subColor": "#a0a0a0",
+        "subAltColor": "#fff8f4",
+        "textColor": "#000000",
+        "errorColor": "#ed2839",
+        "errorExtraColor": "#ff6c72",
+        "colorfulErrorColor": "#ed2839",
+        "colorfulErrorExtraColor": "#ff6c72",
+        "name": "vesper_light"
     },
     {
         "bgColor": "#433e4c",
