@@ -38,7 +38,7 @@ runs:
               curl -o monkeytype-readme-svg/${{ inputs.username }}-monkeytype-readme-lb-pb.svg https://monkeytype-readme.zeabur.app/generate-svg/${{ inputs.username }}/${{ inputs.themes }}?lbpb=true
 
         - name: push monkeytype-readme.svg to the monkeytype-readme branch
-          uses: crazy-max/ghaction-github-pages@v4.0.0
+          uses: crazy-max/ghaction-github-pages@v4.2.0
           with:
               target_branch: ${{ inputs.target-branch }}
               build_dir: monkeytype-readme-svg
