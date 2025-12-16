@@ -2418,5 +2418,18 @@
         "colorfulErrorColor": "#ff3874",
         "colorfulErrorExtraColor": "#c2386f",
         "name": "pale_nimbus"
+    },
+    {
+        "bgColor": "#0d1219",
+        "mainColor": "#e23636",
+        "caretColor": "#e23636",
+        "subColor": "#0476f2",
+        "subAltColor": "#0b1c2e",
+        "textColor": "#f0f0f0",
+        "errorColor": "#0476f2",
+        "errorExtraColor": "#0353a8",
+        "colorfulErrorColor": "#0476f2",
+        "colorfulErrorExtraColor": "#0353a8",
+        "name": "spiderman"
     }
 ]
